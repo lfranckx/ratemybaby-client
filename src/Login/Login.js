@@ -12,8 +12,15 @@ class Login extends Component {
                 <main>
                     <section id="container">
                         <form id='login-form'>
-                            <label for="username">Username</label>
-                            <input type="text" name='username' id='username' />
+                            <div class="input-box">
+                                <label for="username">Username:</label>
+                                <input type="text" name='username' id='username' />
+                            </div>
+                            <div class="input-box">
+                                <label for="password">Password:</label>
+                                <input type="password" name='password' id='password' />
+                            </div>
+                            
                         </form>
                     </section>
                 </main>

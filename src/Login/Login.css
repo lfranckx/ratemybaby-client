@@ -20,8 +20,13 @@ main {
     background-color: rgb(140, 232, 249);
     border-radius: 2%;
     text-align: center;
+    padding: 20px;
 }
 
 #login-form {
     color: white;
+}
+
+input {
+    margin: 5px;
 }
