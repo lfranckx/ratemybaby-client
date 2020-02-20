@@ -6,7 +6,7 @@ class Login extends Component {
         return (
             <> 
                 <header>
-                    <h2>Upload your baby the world rates it.</h2>
+                    <h1>Upload your baby the world rates it.</h1>
                 </header>
 
                 <main>
