@@ -20,8 +20,13 @@ class Login extends Component {
                                 <label for="password">Password:</label>
                                 <input type="password" name='password' id='password' />
                             </div>
-                            
+                            <button type='submit'>Log in</button>
                         </form>
+                    </section>
+
+                    <section>
+                        <h3>Not a member?</h3>
+                        <h4><a href="/">Sign up!</a></h4>
                     </section>
                 </main>
             </>
