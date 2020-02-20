@@ -1,0 +1,21 @@
+import React, { Component } from 'react'
+import './Login.css'
+
+class Login extends Component {
+    render() {
+        return (
+            <> 
+                <header>
+                    <h2>Upload your baby the world rates it.</h2>
+                </header>
+
+                <main>
+                    <section id="login-form">
+                    </section>
+                </main>
+            </>
+        )
+    }
+}
+
+export default Login

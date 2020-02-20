@@ -1,0 +1,34 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    min-height: 70px;
+    background-color: rgb(140, 232, 249);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+}
+
+#logo {
+    height: 35px;
+    width: 35px;
+    border: solid white 2px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#signup {
+    font-size: 22px;
+    position: relative;
+    top: 5px;
+    text-decoration: none;
+    color: white;
+}

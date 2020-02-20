@@ -1,0 +1,15 @@
+header {
+    position: relative;
+    top: 60px;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(140, 232, 249);
+}
+
+#login-form {
+    min-height: 200px;
+    min-width: 100px;
+    background-color: rgb(140, 232, 249);
+}
