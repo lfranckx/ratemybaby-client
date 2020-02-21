@@ -20,10 +20,11 @@ nav {
     margin-right: 10px;
 }
 
-#signup {
+#nav-sign-up {
     font-size: 22px;
     position: relative;
     top: 5px;
     text-decoration: none;
     color: white;
 }
+

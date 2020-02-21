@@ -1,12 +1,21 @@
-import React, { Component } from 'react'
-import './Login.css'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 class Login extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
     render() {
         return (
             <> 
                 <header>
-                    <h1>Upload your baby the world rates it.</h1>
+                    <h1>Upload your baby, the world rates it.</h1>
                 </header>
 
                 <main>
@@ -20,13 +29,18 @@ class Login extends Component {
                                 <label for="password">Password:</label>
                                 <input type="password" name='password' id='password' />
                             </div>
-                            <button type='submit'>Log in</button>
+                            <div>
+                                <Link id='login-button' class="button" to='/profile'>
+                                    Log in
+                                </Link>
+                            </div>
                         </form>
-                    </section>
-
-                    <section>
-                        <h3>Not a member?</h3>
-                        <h4><a href="/">Sign up!</a></h4>
+                        <div class="text">Not a member?</div>
+                        <div>
+                            <Link id="sign-up-button" class="button" to="/sign-up">
+                                Sign up!
+                            </Link>
+                        </div>
                     </section>
                 </main>
             </>
