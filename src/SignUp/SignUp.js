@@ -20,7 +20,7 @@ export default function SignUp() {
                         <input type="password" name='password' id='password' />
                     </div>
                     <div>
-                        <Link id="sign-up-button" class="button" type='submit' to="/new-profile">
+                        <Link id="sign-up-button" class="button" type='submit' to="/create-profile">
                             Sign Up
                         </Link>
                     </div>

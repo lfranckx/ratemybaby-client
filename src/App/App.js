@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import './App.css';
 import AppContext from '../AppContext'
 import dummystore from '../dummy-store'
-import NavLoggedOut from '../NavLoggedOut/NavLoggedOut';
+import Nav from '../Nav/Nav';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import CreateProfile from '../CreateProfile/CreateProfile';
@@ -11,6 +11,7 @@ import Profile from '../Profile/Profile'
 
 class App extends Component {
   state = {
+      babies: [],
       username: '',
       password: '',
       email: '',
@@ -19,12 +20,13 @@ class App extends Component {
       rating: ''
   } 
 
+
   render() {
     return (
       <AppContext.Provider>
-        <NavLoggedOut />
+        <Nav />
         <Route
-          path='/'
+          exact path='/'
           component={Login}
         />
         <Route
