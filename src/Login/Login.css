@@ -1,0 +1,15 @@
+#login-form {
+    position: relative;
+    top: 45%;
+    color: white;
+    margin: 10px;
+}
+
+.input-box {
+    margin: 10px;
+}
+
+
+#login-button {
+    margin: 10px;
+}

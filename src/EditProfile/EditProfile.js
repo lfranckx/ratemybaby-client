@@ -30,8 +30,9 @@ class EditProfile extends Component {
     render() {
         return (
             <main>
+                <h1>Create Profile</h1>
                 <section>
-                    <form action="upload.php" method="post" enctype="multipart/form-data" class="upload-form"> 
+                    <form action="upload.php" method="post" encType="multipart/form-data" className="upload-form"> 
                         <label>Select image to upload:</label>
                         <input type="file" name="fileToUpload" id="fileToUpload"></input>
                     </form>
@@ -42,7 +43,7 @@ class EditProfile extends Component {
                             onChange={event => {
                                 this.nameChange(event.target.value)
                             }}
-                            class="" 
+                            className="edit-input" 
                             type="text"
                             name="name" 
                             required 
@@ -52,10 +53,13 @@ class EditProfile extends Component {
                             onChange={event => {
                                 this.aboutChange(event.target.value)
                             }}
+                            className="edit-input"
                             name="about-me" 
                             rows="15" 
                         />
-                        <Link class="form-submit" to="profile">Submit</Link>
+                        <button type="submit">
+                            <Link to="profile">Submit</Link>
+                        </button>
                     </form>
                 </section>
             </main>

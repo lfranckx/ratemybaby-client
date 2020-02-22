@@ -4,30 +4,22 @@ import { Link } from 'react-router-dom';
 
 export default class Nav extends Component {
 
-    state = {
-        loggedIn: false
-    }
-
     render() {
-        if (this.state.loggedIn = false) {
+        if (this.props.loggedIn === true) {
             return (
                 <nav>
-                    <Link to="/">
-                        <div id="logo"></div>
-                    </Link>
-                    <div class="title">Rate My Baby</div>
-                    <div >
-                        <Link id="nav-sign-up" to="/">Log Out</Link>
-                    </div>
+                    <Link className="nav-links" to="/profile">Profile</Link>
+                    <Link className="nav-links" to="/">Home</Link>
+                    <Link className="nav-links" to="/">Log Out</Link>
                 </nav>
             )
         }
         return (
             <nav>
                 <div className="nav-container">
-                    <Link class="nav-links" to="/">Login</Link>
-                    <Link class="nav-links" to="/">Home</Link>
-                    <Link class="nav-links" to="/signup">Sign Up</Link>
+                    <Link className="nav-links" to="/signup">Sign Up</Link>
+                    <Link className="nav-links" to="/">Home</Link>
+                    <Link className="nav-links" to="/login">Login</Link>
                 </div>
             </nav>
         )

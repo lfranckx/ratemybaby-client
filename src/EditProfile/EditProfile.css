@@ -1,14 +1,8 @@
 #editform {
-    display: flex;
-    flex-direction: column;
+    display: inline;
 }
 
 label {
     text-align: left;
     color: white;
-}
-
-.form-submit {
-    text-decoration: none;
-    margin-top: 10px;
 }

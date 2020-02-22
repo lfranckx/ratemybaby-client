@@ -8,19 +8,19 @@ export default function SignUp() {
             <section>
                 <form id='sign-up-form'>
                     <div>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
+                        <input type="text" name='username' id='email' />
+                    </div>
+                    <div>
+                        <label htmlFor="username">Username</label>
                         <input type="text" name='username' id='username' />
                     </div>
                     <div>
-                        <label for="username">Username</label>
-                        <input type="text" name='username' id='username' />
-                    </div>
-                    <div>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input type="password" name='password' id='password' />
                     </div>
                     <div>
-                        <Link id="sign-up-button" class="button" type='submit' to="/editprofile">
+                        <Link id="sign-up-button" className="button" type='submit' to="/editprofile">
                             Sign Up
                         </Link>
                     </div>

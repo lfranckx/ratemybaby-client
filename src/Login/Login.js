@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Login.css'
 
 class Login extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            loggedIn: 'no',
-            username: '',
-            password: ''
-        }
-    }
-
-    handleLogIn(event) {
-        this.setState({
-            loggedIn: true,
-        })
-    }
-
+    
+    
     render() {
         return (
             <> 
@@ -29,30 +17,31 @@ class Login extends Component {
                     <section>
                         <form 
                             id='login-form'
-                            onSubmit={event => {
-                                this.handleLogIn(event)
-                            }}
+                            
                         >
-                            <div class="input-box">
-                                <label for="username">Username:</label>
+                            <div className="input-box">
+                                <label htmlFor="username">Username:</label>
                                 <input type="text" name='username' id='username' />
                             </div>
-                            <div class="input-box">
-                                <label for="password">Password:</label>
+                            <div className="input-box">
+                                <label htmlFor="password">Password:</label>
                                 <input type="password" name='password' id='password' />
                             </div>
-                            <div>
-                                <Link id='login-button' class="button" to='/editprofile'>
+                            <button 
+                                type="submit"
+                                onClick={() => {this.props.handleLogin()}}
+                            >
+                                <Link to='/editprofile'>
                                     Log in
                                 </Link>
-                            </div>
+                            </button>
                         </form>
-                        <div class="text">Not a member?</div>
-                        <div>
-                            <Link id="sign-up-button" class="button" to="/signup">
+                        <div className="text">Not a member?</div>
+                        <button type="submit">
+                            <Link to="/signup">
                                 Sign up!
                             </Link>
-                        </div>
+                        </button>
                     </section>
                 </main>
             </>

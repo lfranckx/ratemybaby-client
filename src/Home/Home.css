@@ -1,0 +1,20 @@
+#rating {
+    color: white;
+    margin-bottom: 20px;
+}
+
+#baby-pic {
+    max-height: 350px;
+    max-width: 250px;
+    border-radius: 5px;
+}
+
+#about {
+    margin-top: 10px;
+    color: white;
+    text-align: left;
+}
+
+.rating-button {
+    margin: 10px;
+}

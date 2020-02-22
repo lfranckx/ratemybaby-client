@@ -8,22 +8,29 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile'
+import data from '../dummy-store'
 
 class App extends Component {
-  state = {
+  constructor(props) {
+    super(props)
+    this.state = {
       loggedIn: false,
-      babies: [],
+      babies: data,
       username: '',
       password: '',
       email: '',
-      name: '',
-      about: '',
-      total_score: '',
-      total_votes: '',
-      rating: ''
-  } 
+    }
+  }
+
+  handleLogin = () => {
+    this.setState({
+      loggedIn: true
+    })
+  }
 
   render() {
+    console.log(this.state.loggedIn);
+    
     return (
       <AppContext.Provider
         value={{
@@ -32,23 +39,26 @@ class App extends Component {
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,
-          name: this.state.name,
-          about: this.state.about,
-          total_score: this.state.total_score,
-          total_votes: this.state.total_votes,
-          rating: this.state.rating
         }}
       >
-        <Nav />
-        <div className="container">
+        <Nav loggedIn={this.state.loggedIn}/>
           <Switch>
             <Route
+              babies={this.state.babies}
               exact path='/'
-              component={Home}
+              render={(props) => 
+                <Home  
+                  {...props}
+                  babies={this.state.babies}
+                />}
             />
             <Route
               path='/login'
-              component={Login}
+              render={(props) => 
+                <Login 
+                  {...props}
+                  handleLogin={this.handleLogin}
+                />}
             />
             <Route
               path='/signup'
@@ -63,8 +73,6 @@ class App extends Component {
               component={EditProfile}
             />
           </Switch>
-        </div>
-        
       </AppContext.Provider>
     )
   }

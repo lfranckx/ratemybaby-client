@@ -20,32 +20,11 @@ section {
     padding: 50px;
 }
 
-#login-form {
-    position: relative;
-    top: 45%;
-    color: white;
-    margin: 10px;
-}
-
-.input-box {
-    margin: 10px;
-}
-
-#login-button {
-    margin: 10px;
-}
-
-.button {
-    text-decoration: none;
-    background-color: white;
-    color: rgb(140, 232, 249);
-    padding: 2px 4px;
-    border-radius: 4%;
-    margin-top: 10px;
-    font-size: 15px;
-}
-
 .text {
     color: white;
     margin: 10px 0 5px;
+}
+
+a {
+    text-decoration: none;
 }
