@@ -1,9 +1,11 @@
 nav {
-    min-height: 70px;
-    background-color: rgb(140, 232, 249);
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+    /* min-height: 70px; */
+    background-color: rgb(41, 177, 201);
+    padding: 10px;
+}
+
+.nav-container {
+    margin: auto;
 }
 
 .title {
@@ -12,19 +14,11 @@ nav {
     color: white;
 }
 
-#logo {
-    height: 35px;
-    width: 35px;
-    border: solid white 2px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
 
-#nav-sign-up {
+.nav-links {
     font-size: 22px;
-    position: relative;
-    top: 5px;
     text-decoration: none;
     color: white;
+    margin: 0 10px;
 }
 

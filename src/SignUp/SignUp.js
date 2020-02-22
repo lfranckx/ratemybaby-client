@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function SignUp() {
     return (
         <main>
-            <section id="container">
+            <section>
                 <form id='sign-up-form'>
                     <div>
                         <label for="email">Email</label>
@@ -20,7 +20,7 @@ export default function SignUp() {
                         <input type="password" name='password' id='password' />
                     </div>
                     <div>
-                        <Link id="sign-up-button" class="button" type='submit' to="/create-profile">
+                        <Link id="sign-up-button" class="button" type='submit' to="/editprofile">
                             Sign Up
                         </Link>
                     </div>

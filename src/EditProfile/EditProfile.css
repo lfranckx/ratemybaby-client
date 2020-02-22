@@ -1,0 +1,14 @@
+#editform {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    color: white;
+}
+
+.form-submit {
+    text-decoration: none;
+    margin-top: 10px;
+}
