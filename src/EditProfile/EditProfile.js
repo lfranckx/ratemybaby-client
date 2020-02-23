@@ -49,7 +49,8 @@ class EditProfile extends Component {
         
                             <form 
                                 id="editform"
-                                onSubmit={() => {
+                                onSubmit={event => {
+                                    event.preventDefault();
                                     this.props.handleProfileChange(this.state.user_baby.name, this.state.user_baby.about)
                                 }}
                             >
