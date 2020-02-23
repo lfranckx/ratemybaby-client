@@ -31,6 +31,8 @@ class App extends Component {
   }
 
   handleProfileChange(newName, newAbout) {
+    console.log('changing-profile');
+    
     this.setState({
         user_baby: {
             name: newName,
@@ -40,6 +42,8 @@ class App extends Component {
   }
 
   handleLogin(username, password) {
+    console.log('logging-in');
+
     this.setState({
       loggedIn: true,
       username: username,

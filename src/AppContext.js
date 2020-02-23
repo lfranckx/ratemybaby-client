@@ -3,8 +3,8 @@ import React from 'react';
 const AppContext = React.createContext({
     loggedIn: false,
     babies: [],
-    username: ``,
-    password: ``,
+    username: '',
+    password: '',
     email: '',
     user_baby: {
         name: ``,

@@ -7,17 +7,17 @@ export default function SignUp() {
         <main>
             <h1>Rate My Baby</h1>
             <section>
-                <h2>Sign Up</h2>
+                <h3>Sign Up</h3>
                 <form id='sign-up-form'>
-                    <div>
+                    <div className="input-box">
                         <label htmlFor="email">Email</label>
                         <input type="text" name='username' id='email' />
                     </div>
-                    <div>
+                    <div className="input-box">
                         <label htmlFor="username">Username</label>
                         <input type="text" name='username' id='username' />
                     </div>
-                    <div>
+                    <div className="input-box">
                         <label htmlFor="password">Password</label>
                         <input type="password" name='password' id='password' />
                     </div>
