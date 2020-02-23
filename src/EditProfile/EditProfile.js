@@ -15,18 +15,20 @@ class EditProfile extends Component {
     }
 
     nameChange = letter => {
+        // save user_baby object so the aboutChange() doesn't overwrite the object
+        let newName = this.state.user_baby;
+            newName.name = letter;
         this.setState({ 
-            user_baby: {
-                name: letter 
-            }
+            newName
         })
     }
 
     aboutChange = letter => {
+        // save user_baby object so the nameChange() doesn't overwrite the object
+        let newAbout = this.state.user_baby;
+            newAbout.about = letter;
         this.setState({ 
-            user_baby: {
-                about: letter 
-            }
+            newAbout
         })
     }
 
