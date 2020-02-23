@@ -7,6 +7,7 @@ import profilepic from '../images/babydrawing2.png'
 class Profile extends Component {
 
     render() {
+        
         return (
             <AppContext.Consumer>
                 {(props) => (

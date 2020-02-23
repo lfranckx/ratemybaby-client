@@ -35,7 +35,7 @@ class Login extends Component {
                     <section>
                         <form 
                             id='login-form'
-                            onSubmit={(event) => {
+                            onSubmit={event => {
                                 event.preventDefault();
                                 this.props.handleLogin(this.state.username, this.state.password)
                             }}
@@ -60,11 +60,7 @@ class Login extends Component {
                                     name='password' 
                                     id='password' />
                             </div>
-                            <button type="submit">
-                                <Link to='/editprofile'>
-                                    Log in
-                                </Link>
-                            </button>
+                            <button type="submit">Login</button>
                         </form>
                         <div className="text">Not a member?</div>
                         <button type="submit">

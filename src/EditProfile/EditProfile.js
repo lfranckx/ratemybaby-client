@@ -49,7 +49,7 @@ class EditProfile extends Component {
         
                             <form 
                                 id="editform"
-                                onSubmit={(event) => {
+                                onSubmit={event => {
                                     event.preventDefault();
                                     this.props.handleProfileChange(this.state.user_baby.name, this.state.user_baby.about)
                                 }}
@@ -82,9 +82,7 @@ class EditProfile extends Component {
                                     />
                                 </div>
                                 <div className="editFormItems">
-                                    <button type="submit">
-                                        <Link to="profile">Submit</Link>
-                                    </button>
+                                    <button type="submit">Submit</button>
                                 </div>
                             </form>
                         </section>

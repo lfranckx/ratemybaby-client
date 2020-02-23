@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import './App.css';
 import AppContext from '../AppContext'
 import Nav from '../Nav/Nav';
@@ -31,24 +31,24 @@ class App extends Component {
   }
 
   handleProfileChange(newName, newAbout) {
-    console.log('changing-profile');
-    
+    console.log('changing-profile', newName, newAbout);
     this.setState({
         user_baby: {
             name: newName,
             about: newAbout
         }
     })
+    this.props.history.push('/profile')
   }
 
   handleLogin(username, password) {
-    console.log('logging-in');
-
+    console.log('logging-in', username, password);
     this.setState({
       loggedIn: true,
       username: username,
       password: password
     })
+    this.props.history.push('/editprofile')
   }
 
   render() {
@@ -103,4 +103,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
