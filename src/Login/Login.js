@@ -35,7 +35,7 @@ class Login extends Component {
                     <section>
                         <form 
                             id='login-form'
-                            onSubmit={event => {
+                            onSubmit={(event) => {
                                 event.preventDefault();
                                 this.props.handleLogin(this.state.username, this.state.password)
                             }}
