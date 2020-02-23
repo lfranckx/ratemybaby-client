@@ -66,7 +66,7 @@ class App extends Component {
               exact path='/'
               render={(props) => 
                 <Home  
-                  // {...props}
+                  {...props}
                   babies={this.state.babies}
                 />}
             />
@@ -74,7 +74,6 @@ class App extends Component {
               path='/login'
               render={(props) => 
                 <Login 
-                  // {...props}
                   handleLogin={this.handleLogin}
                 />}
             />
@@ -90,7 +89,7 @@ class App extends Component {
               path='/editprofile'
               render={(props) => 
                 <EditProfile 
-                  // {...props}
+                  {...props}
                   handleProfileChange={this.handleProfileChange}
                 />}
             />
