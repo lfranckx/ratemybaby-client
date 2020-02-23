@@ -59,9 +59,7 @@ class Login extends Component {
                                     name='password' 
                                     id='password' />
                             </div>
-                            <button 
-                                type="submit"
-                            >
+                            <button type="submit">
                                 <Link to='/editprofile'>
                                     Log in
                                 </Link>

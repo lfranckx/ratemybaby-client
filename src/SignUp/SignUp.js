@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 export default function SignUp() {
     return (
         <main>
+            <h1>Rate My Baby</h1>
             <section>
+                <h2>Sign Up</h2>
                 <form id='sign-up-form'>
                     <div>
                         <label htmlFor="email">Email</label>
@@ -19,11 +21,11 @@ export default function SignUp() {
                         <label htmlFor="password">Password</label>
                         <input type="password" name='password' id='password' />
                     </div>
-                    <div>
-                        <Link id="sign-up-button" className="button" type='submit' to="/editprofile">
+                    <button type="submit">
+                        <Link to="/editprofile">
                             Sign Up
                         </Link>
-                    </div>
+                    </button>
                 </form>
             </section>
         </main>

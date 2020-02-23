@@ -31,12 +31,11 @@ class EditProfile extends Component {
     }
 
     render() {
-        
         return (
             <AppContext.Consumer>
                 {(props) => (
                     <main>
-                        <h1>Profile</h1>
+                        <h1>Edit Profile</h1>
                         <section>
                             <form action="upload.php" method="post" encType="multipart/form-data" className="upload-form"> 
                                 <div className="editFormItems">
