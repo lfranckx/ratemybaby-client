@@ -9,6 +9,7 @@ const AppContext = React.createContext({
     user_baby: {
         name: ``,
         about: ``,
+        image_url: '',
         total_score: '',
         total_votes: ''
     },

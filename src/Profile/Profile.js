@@ -12,18 +12,19 @@ class Profile extends Component {
             <AppContext.Consumer>
                 {(props) => (
                     console.log(props),
-                    
                     <main>
+                        <h1>{props.user_baby.name}</h1>
                         <section>
-                            {/* <h1>{this.props.user_baby.name}</h1>
-                            <img src={profilepic} alt="profile" id="profilepic">
-                                <Link class="edit-link" to="/editprofile">Change</Link>
-                            </img>
+                            <div>
+                                <img src={profilepic} alt="profile" id="profilepic" />
+                            </div>
+                            
                             <div class="about">
                                 <p class="text">
-                                    {this.props.user_baby.about}
+                                    {props.user_baby.about}
                                 </p>
-                            </div> */}
+                                <Link to="/editprofile">Edit</Link>
+                            </div>
                         </section>
                     </main>
                 )}

@@ -10,7 +10,12 @@ export default class Nav extends Component {
                 <nav>
                     <Link className="nav-links" to="/profile">Profile</Link>
                     <Link className="nav-links" to="/">Home</Link>
-                    <Link className="nav-links" to="/">Log Out</Link>
+                    <Link 
+                        onClick={this.props.handleLogout}
+                        className="nav-links" 
+                        to="/" >
+                        Log Out
+                    </Link>
                 </nav>
             )
         }

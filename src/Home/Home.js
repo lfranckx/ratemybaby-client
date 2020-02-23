@@ -39,7 +39,7 @@ class Home extends Component {
                         }}
                     >
                         <Link to="/">
-                            <span role="img" aria-label="no">🙁</span>
+                            <span role="img" aria-label="no" className="emoji">🚫</span>
                         </Link>
                     </button>
                     <button 
@@ -49,7 +49,7 @@ class Home extends Component {
                         }}
                     >
                         <Link to="/">
-                            <span role="img" aria-label="yes">👼</span>
+                            <span role="img" aria-label="yes" className="emoji" id="yes">👼</span>
                         </Link>
                     </button>
                 </main>

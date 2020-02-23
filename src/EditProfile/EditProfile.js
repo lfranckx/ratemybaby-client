@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './EditProfile.css';
 import AppContext from '../AppContext';
 
@@ -10,6 +9,9 @@ class EditProfile extends Component {
             user_baby: {
                 name: ``,
                 about: ``,
+                image_url: '',
+                total_score: '',
+                total_votes: ''
             }
         }
     }
@@ -46,7 +48,6 @@ class EditProfile extends Component {
                                 <div className="editFormItems">
                                 <input type="file" name="fileToUpload" id="fileToUpload"></input>
                                 </div>
-                                
                             </form>
         
                             <form 

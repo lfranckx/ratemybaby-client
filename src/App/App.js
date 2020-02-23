@@ -10,11 +10,14 @@ import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile'
 import data from '../dummy-store'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.handleProfileChange = this.handleProfileChange.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
     this.state = {
       loggedIn: false,
       babies: data,
@@ -24,6 +27,7 @@ class App extends Component {
       user_baby: {
         name: ``,
         about: ``,
+        image_url: '',
         total_score: '',
         total_votes: ''
       }
@@ -41,6 +45,17 @@ class App extends Component {
     this.props.history.push('/profile')
   }
 
+  handleSignUp(email, username, password) {
+    console.log('signing-up', email, username, password);
+    this.setState({
+      email: email,
+      username: username,
+      password: password
+    })
+    this.props.history.push('/editprofile')
+  }
+
+
   handleLogin(username, password) {
     console.log('logging-in', username, password);
     this.setState({
@@ -49,6 +64,15 @@ class App extends Component {
       password: password
     })
     this.props.history.push('/editprofile')
+  }
+
+  handleLogout() {
+    console.log('logging-out');
+    this.setState({
+      loggedIn: false,
+      username: '',
+      password: ''
+    })
   }
 
   render() {
@@ -63,7 +87,9 @@ class App extends Component {
           user_baby: this.state.user_baby,
         }}
       >
-        <Nav loggedIn={this.state.loggedIn}/>
+        <Nav 
+          handleLogout={this.handleLogout}
+          loggedIn={this.state.loggedIn} />
           <Switch>
             <Route
               babies={this.state.babies}
@@ -78,12 +104,17 @@ class App extends Component {
               path='/login'
               render={(props) => 
                 <Login 
+                  {...props}
                   handleLogin={this.handleLogin}
                 />}
             />
             <Route
               path='/signup'
-              component={SignUp} 
+              render={(props) => 
+                <SignUp 
+                  {...props}
+                  handeSignUp={this.handleSignUp}
+                />} 
             />
             <Route 
               path='/profile'

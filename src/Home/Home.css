@@ -17,4 +17,11 @@
 
 .rating-button {
     margin: 10px;
+    border-color: white;
+    border-radius: 50%;
+    padding-left: 12px;
+}
+
+.emoji {
+    font-size: 30px;
 }
