@@ -1,3 +1,8 @@
+.upload-form {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 #editform {
     display: inline;
 }
@@ -5,4 +10,13 @@
 label {
     text-align: left;
     color: white;
+}
+
+.editFormItems {
+    margin: 5px;
+}
+
+.edit-input {
+    width: 300px;
+    margin: 5px 0;
 }

@@ -1,68 +1,96 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './EditProfile.css';
+import AppContext from '../AppContext';
 
 class EditProfile extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            username: '',
-            name: '',
-            about: '',
-            picture: '',
-            total_score: '',
-            total_votes: ''
+            user_baby: {
+                name: ``,
+                about: ``,
+            }
         }
     }
 
-    updateProfile = () => {
-        
-    }
-
     nameChange = letter => {
-        this.setState({ name: letter })
+        this.setState({ 
+            user_baby: {
+                name: letter 
+            }
+        })
     }
 
     aboutChange = letter => {
-        this.setState({ about: letter })
+        this.setState({ 
+            user_baby: {
+                about: letter 
+            }
+        })
     }
 
     render() {
+        
         return (
-            <main>
-                <h1>Create Profile</h1>
-                <section>
-                    <form action="upload.php" method="post" encType="multipart/form-data" className="upload-form"> 
-                        <label>Select image to upload:</label>
-                        <input type="file" name="fileToUpload" id="fileToUpload"></input>
-                    </form>
-
-                    <form id="editform">
-                        <label>Name</label>
-                        <input 
-                            onChange={event => {
-                                this.nameChange(event.target.value)
-                            }}
-                            className="edit-input" 
-                            type="text"
-                            name="name" 
-                            required 
-                        />
-                        <label>About</label>
-                        <textarea 
-                            onChange={event => {
-                                this.aboutChange(event.target.value)
-                            }}
-                            className="edit-input"
-                            name="about-me" 
-                            rows="15" 
-                        />
-                        <button type="submit">
-                            <Link to="profile">Submit</Link>
-                        </button>
-                    </form>
-                </section>
-            </main>
+            <AppContext.Consumer>
+                {(props) => (
+                    <main>
+                        <h1>Profile</h1>
+                        <section>
+                            <form action="upload.php" method="post" encType="multipart/form-data" className="upload-form"> 
+                                <div className="editFormItems">
+                                    <label>Select image to upload:</label>
+                                </div>
+                                <div className="editFormItems">
+                                <input type="file" name="fileToUpload" id="fileToUpload"></input>
+                                </div>
+                                
+                            </form>
+        
+                            <form 
+                                id="editform"
+                                onSubmit={() => {
+                                    this.props.handleProfileChange(this.state.user_baby.name, this.state.user_baby.about)
+                                }}
+                            >
+                                <div className="editFormItems">
+                                    <label>Name</label>
+                                </div>
+                                <div className="editFormItems">
+                                    <input 
+                                        onChange={event => {
+                                            this.nameChange(event.target.value)
+                                        }}
+                                        className="edit-input" 
+                                        type="text"
+                                        name="name" 
+                                        required 
+                                    />
+                                </div>
+                                <div className="editFormItems">
+                                    <label>About</label>
+                                </div>
+                                <div className="editFormItems">
+                                    <textarea 
+                                        onChange={event => {
+                                            this.aboutChange(event.target.value)
+                                        }}
+                                        className="edit-input"
+                                        name="about-me" 
+                                        rows="15" 
+                                    />
+                                </div>
+                                <div className="editFormItems">
+                                    <button type="submit">
+                                        <Link to="profile">Submit</Link>
+                                    </button>
+                                </div>
+                            </form>
+                        </section>
+                    </main>
+                )}
+            </AppContext.Consumer>
         )
     }
 

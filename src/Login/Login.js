@@ -3,8 +3,26 @@ import { Link } from 'react-router-dom';
 import './Login.css'
 
 class Login extends Component {
-    
-    
+    constructor(props) {
+        super()
+        this.state = {
+            username: ``,
+            password: ``
+        }
+    }
+
+    usernameChange = (letter) => {
+        this.setState({
+            username: letter
+        })
+    }
+
+    passwordChange = (letter) => {
+        this.setState({
+            password: letter
+        })
+    }
+
     render() {
         return (
             <> 
@@ -17,19 +35,32 @@ class Login extends Component {
                     <section>
                         <form 
                             id='login-form'
-                            
+                            onSubmit={() => {
+                                this.props.handleLogin(this.state.username, this.state.password)
+                            }}
                         >
                             <div className="input-box">
                                 <label htmlFor="username">Username:</label>
-                                <input type="text" name='username' id='username' />
+                                <input 
+                                    onChange={event => {
+                                        this.usernameChange(event.target.value)
+                                    }}
+                                    type="text" 
+                                    name='username' 
+                                    id='username' />
                             </div>
                             <div className="input-box">
                                 <label htmlFor="password">Password:</label>
-                                <input type="password" name='password' id='password' />
+                                <input 
+                                    onChange={event => {
+                                        this.passwordChange(event.target.value)
+                                    }}
+                                    type="password" 
+                                    name='password' 
+                                    id='password' />
                             </div>
                             <button 
                                 type="submit"
-                                onClick={() => {this.props.handleLogin()}}
                             >
                                 <Link to='/editprofile'>
                                     Log in

@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
+import AppContext from '../AppContext';
+import profilepic from '../images/babydrawing2.png'
 
 class Profile extends Component {
 
-    render(props) {
+    render() {
         return (
-                <main>
-                    <section>
-                        <h3>{this.state.name}</h3>
-                        <div class="pro-image">
-                            <Link class="edit-link" to="/editprofile">Change</Link>
-                        </div>
-                        <div class="about">
-                            <p class="text">
-                                {this.props.state.name}
-                            </p>
-                        </div>
-                    </section>
-                </main>
+            <AppContext.Consumer>
+                {(props) => (
+                    console.log(props),
+                    
+                    <main>
+                        <section>
+                            {/* <h1>{this.props.user_baby.name}</h1>
+                            <img src={profilepic} alt="profile" id="profilepic">
+                                <Link class="edit-link" to="/editprofile">Change</Link>
+                            </img>
+                            <div class="about">
+                                <p class="text">
+                                    {this.props.user_baby.about}
+                                </p>
+                            </div> */}
+                        </section>
+                    </main>
+                )}
+            </AppContext.Consumer>
         )
     }
 }

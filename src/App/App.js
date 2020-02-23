@@ -13,24 +13,41 @@ import data from '../dummy-store'
 class App extends Component {
   constructor(props) {
     super(props)
+    this.handleProfileChange = this.handleProfileChange.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
     this.state = {
       loggedIn: false,
       babies: data,
       username: '',
       password: '',
       email: '',
+      user_baby: {
+        name: ``,
+        about: ``,
+        total_score: '',
+        total_votes: ''
+      }
     }
   }
 
-  handleLogin = () => {
+  handleProfileChange(newName, newAbout) {
     this.setState({
-      loggedIn: true
+        user_baby: {
+            name: newName,
+            about: newAbout
+        }
+    })
+  }
+
+  handleLogin(username, password) {
+    this.setState({
+      loggedIn: true,
+      username: username,
+      password: password
     })
   }
 
   render() {
-    console.log(this.state.loggedIn);
-    
     return (
       <AppContext.Provider
         value={{
@@ -39,6 +56,7 @@ class App extends Component {
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,
+          user_baby: this.state.user_baby,
         }}
       >
         <Nav loggedIn={this.state.loggedIn}/>
@@ -48,7 +66,7 @@ class App extends Component {
               exact path='/'
               render={(props) => 
                 <Home  
-                  {...props}
+                  // {...props}
                   babies={this.state.babies}
                 />}
             />
@@ -56,7 +74,7 @@ class App extends Component {
               path='/login'
               render={(props) => 
                 <Login 
-                  {...props}
+                  // {...props}
                   handleLogin={this.handleLogin}
                 />}
             />
@@ -70,7 +88,11 @@ class App extends Component {
             />
             <Route 
               path='/editprofile'
-              component={EditProfile}
+              render={(props) => 
+                <EditProfile 
+                  // {...props}
+                  handleProfileChange={this.handleProfileChange}
+                />}
             />
           </Switch>
       </AppContext.Provider>
