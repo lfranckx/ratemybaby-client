@@ -55,7 +55,6 @@ class App extends Component {
     this.props.history.push('/editprofile')
   }
 
-
   handleLogin(username, password) {
     console.log('logging-in', username, password);
     this.setState({

@@ -78,7 +78,7 @@ export default [
         {
             id: 9,
             name: 'John',
-            about: ``,
+            about: `I'm baby pBR&B kickstarter put a bird on it af 3 wolf moon viral la croix keffiyeh meggings dreamcatcher hoodie microdosing you probably haven't heard of them. Humblebrag pitchfork stumptown coloring book butcher air plant. Snackwave occupy flexitarian, biodiesel beard subway tile blog gluten-free synth knausgaard schlitz VHS.`,
             image_url: john,
             total_score: 10,
             total_votes: 20
