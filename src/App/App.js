@@ -9,11 +9,13 @@ import SignUp from '../SignUp/SignUp';
 import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile'
 import data from '../dummy-store'
+import UploadImage from '../UploadImage/UploadImage';
 
 
 class App extends Component {
   constructor(props) {
     super(props)
+    this.handleUploadImage = this.handleUploadImage.bind(this)
     this.handleProfileChange = this.handleProfileChange.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
@@ -34,6 +36,11 @@ class App extends Component {
     }
   }
 
+  handleUploadImage() {
+    console.log('uploading-image');
+    this.props.history.push('/profile')
+  }
+
   handleProfileChange(newName, newAbout) {
     console.log('changing-profile', newName, newAbout);
     this.setState({
@@ -48,6 +55,7 @@ class App extends Component {
   handleSignUp(email, username, password) {
     console.log('signing-up', email, username, password);
     this.setState({
+      loggedIn: true,
       email: email,
       username: username,
       password: password
@@ -125,6 +133,14 @@ class App extends Component {
                 <EditProfile 
                   {...props}
                   handleProfileChange={this.handleProfileChange}
+                />}
+            />
+            <Route 
+              path='/uploadimage'
+              render={(props) =>
+                <UploadImage 
+                  {...props}
+                  handleUploadImage={this.handleUploadImage}
                 />}
             />
           </Switch>

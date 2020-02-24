@@ -41,15 +41,6 @@ class EditProfile extends Component {
                     <main>
                         <h1>Edit Profile</h1>
                         <section>
-                            <form action="upload.php" method="post" encType="multipart/form-data" className="upload-form"> 
-                                <div className="editFormItems">
-                                    <label>Select image to upload:</label>
-                                </div>
-                                <div className="editFormItems">
-                                <input type="file" name="fileToUpload" id="fileToUpload"></input>
-                                </div>
-                            </form>
-        
                             <form 
                                 id="editform"
                                 onSubmit={event => {
