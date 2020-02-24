@@ -96,7 +96,9 @@ class App extends Component {
       >
         <Nav 
           handleLogout={this.handleLogout}
-          loggedIn={this.state.loggedIn} />
+          loggedIn={this.state.loggedIn} 
+          username={this.state.username}
+        />
           <Switch>
             <Route
               babies={this.state.babies}

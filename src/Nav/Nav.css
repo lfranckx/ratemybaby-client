@@ -1,7 +1,31 @@
 nav {
-    /* min-height: 70px; */
     background-color: rgb(41, 177, 201);
-    padding: 10px;
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo {
+    text-align: center;
+    border-radius: 50%;
+    border: solid white 2px;
+    height: 50px;
+    width: 50px;
+}
+
+#logo-text {
+    position: relative;
+    top: 2px;
+}
+
+#user-display {
+    min-width: 50px;
+    display: inline;
+}
+
+#user-text {
+    color: white;
 }
 
 .nav-container {
