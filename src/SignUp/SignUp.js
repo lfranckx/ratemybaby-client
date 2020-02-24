@@ -30,7 +30,6 @@ class SignUp extends Component {
     }
 
     render() {
-        console.log(this.props.handleSignUp);
         return (
             <main>
                 <h1>Rate My Baby</h1>

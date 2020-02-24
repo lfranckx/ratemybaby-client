@@ -112,7 +112,7 @@ class App extends Component {
               render={(props) => 
                 <SignUp 
                   {...props}
-                  handeSignUp={this.handleSignUp}
+                  handleSignUp={this.handleSignUp}
                 />} 
             />
             <Route 
