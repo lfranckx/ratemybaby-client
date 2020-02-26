@@ -7,7 +7,7 @@ class Login extends Component {
         super()
         this.state = {
             username: '',
-            password: ''
+            user_password: ''
         }
     }
 
@@ -19,7 +19,7 @@ class Login extends Component {
 
     passwordChange = (letter) => {
         this.setState({
-            password: letter
+            user_password: letter
         })
     }
 
@@ -37,7 +37,7 @@ class Login extends Component {
                             id='login-form'
                             onSubmit={event => {
                                 event.preventDefault();
-                                this.props.handleLogin(this.state.username, this.state.password)
+                                this.props.handleLogin(this.state.username, this.state.user_password)
                             }}
                         >
                             <div className="input-box">

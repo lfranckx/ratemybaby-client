@@ -24,14 +24,14 @@ class App extends Component {
       loggedIn: false,
       babies: data,
       username: '',
-      password: '',
+      user_password: '',
       email: '',
       user_baby: {
         name: ``,
         about: ``,
         image_url: '',
-        total_score: '',
-        total_votes: ''
+        total_score: 0,
+        total_votes: 0
       }
     }
   }
@@ -58,7 +58,7 @@ class App extends Component {
       loggedIn: true,
       email: email,
       username: username,
-      password: password
+      user_password: password
     })
     this.props.history.push('/editprofile')
   }
@@ -68,7 +68,7 @@ class App extends Component {
     this.setState({
       loggedIn: true,
       username: username,
-      password: password
+      user_password: password
     })
     this.props.history.push('/editprofile')
   }
@@ -78,7 +78,7 @@ class App extends Component {
     this.setState({
       loggedIn: false,
       username: '',
-      password: ''
+      user_password: ''
     })
   }
 
@@ -89,7 +89,7 @@ class App extends Component {
           loggedIn: this.state.loggedIn,
           babies: this.state.babies,
           username: this.state.username,
-          password: this.state.password,
+          user_password: this.state.user_password,
           email: this.state.email,
           user_baby: this.state.user_baby,
         }}
