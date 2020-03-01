@@ -1,16 +1,86 @@
 import React, { Component } from 'react';
 import './SignUp.css';
+import config from '../config'
+import Error from './Error'
 
 class SignUp extends Component {
     constructor(props) {
         super(props)
+        this.handleSignUp = this.handleSignUp.bind(this)
         this.state = {
+            loggedIn: false,
             email: '',
             username: '',
             password: '',
-            user_baby: {}
+            userValid: false,
+            validationMessage: '',
+            error: null,
         }
     }
+
+    isUserValid = (email, username, password) => {
+        // event.preventDefault()
+        if (!this.state.email) {
+            this.setState({
+                validationMessage: "Please enter a valid email."
+            })
+        } else if (!this.state.username) {
+            this.setState({
+                validationMessage: "Please enter a username."
+            })
+        } else if (!this.state.password) {
+            this.setState({
+                validationMessage: "Please enter a username."
+            })
+        } else {
+            this.setState({
+                validationMessage: '',
+                userValid: true
+            },
+            () => { this.handleSignUp(email, username, password) })
+        }
+    }
+
+    handleSignUp(email, username, password) {
+        console.log('sending to server...', email, username, password);
+        console.log(config.API_ENDPOINT);
+        
+        this.setState({
+            loggedIn: true,
+            email: email,
+            username: username,
+            user_password: password,
+        })
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
+            },
+            body: JSON.stringify({
+                email: this.state.email,
+                username: this.state.username,
+                user_password: this.state.password,
+            })
+        }
+        
+        fetch(`${config.API_ENDPOINT}/users`, options)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Something went wrong.')
+                }
+                return response
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.context.handleSignUp(data)
+            })
+            .catch(error => {
+                this.setState({ error: error.message })
+            })
+            this.props.history.push('/editprofile')
+    }   
 
     emailChange = letter => {
         this.setState({
@@ -40,7 +110,7 @@ class SignUp extends Component {
                         id='sign-up-form'
                         onSubmit={event => {
                             event.preventDefault();
-                            this.props.handleSignUp(this.state.email, this.state.username, this.state.password)
+                            this.isUserValid(this.state.email, this.state.username, this.state.password)
                         }}
                     >
                         <div className="input-box">
@@ -75,6 +145,9 @@ class SignUp extends Component {
                         </div>
                         <button type="submit">Sign Up</button>
                     </form>
+                    <Error validationMessage={this.state.validationMessage}>
+                        <div className="error-message"></div>
+                    </Error>
                 </section>
             </main>
         )
