@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useMemo } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import './App.css';
 import AppContext from '../AppContext'
@@ -10,6 +10,7 @@ import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile'
 import data from '../dummy-store'
 import UploadImage from '../UploadImage/UploadImage';
+import config from '../config';
 
 
 class App extends Component {
@@ -18,7 +19,6 @@ class App extends Component {
     this.handleUploadImage = this.handleUploadImage.bind(this)
     this.handleProfileChange = this.handleProfileChange.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
     this.state = {
       loggedIn: false,
@@ -50,17 +50,6 @@ class App extends Component {
         }
     })
     this.props.history.push('/profile')
-  }
-
-  handleSignUp(email, username, password) {
-    console.log('signing-up', email, username, password);
-    this.setState({
-      loggedIn: true,
-      email: email,
-      username: username,
-      user_password: password
-    })
-    this.props.history.push('/editprofile')
   }
 
   handleLogin(username, password) {

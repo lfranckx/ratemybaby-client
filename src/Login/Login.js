@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.css'
+import './Login.css';
 
 class Login extends Component {
     constructor(props) {
         super()
         this.state = {
+            email: '',
             username: '',
-            user_password: ''
+            user_password: '',
         }
     }
 

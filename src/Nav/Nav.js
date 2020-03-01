@@ -29,7 +29,7 @@ export default class Nav extends Component {
         }
         return (
                 <nav>
-                    <div id="logo"><p id="logo-text" class="text">logo</p></div>
+                    <div id="logo"><p id="logo-text" className="text">logo</p></div>
                     <div className="nav-container">
                         <Link className="nav-links" to="/signup">Sign Up</Link>
                         <Link className="nav-links" to="/">Home</Link>

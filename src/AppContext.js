@@ -13,6 +13,13 @@ const AppContext = React.createContext({
         total_score: '',
         total_votes: ''
     },
+    error: null,
+    handleSignUp: () => {},
+    handleLogin: () => {},
+    handleLogout: () => {},
+    handleProfileChange: () => {},
+    handleUploadImage: () => {},
+    handleDeleteUser: () => {}
 })
 
 export default AppContext;

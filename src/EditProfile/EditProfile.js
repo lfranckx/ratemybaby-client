@@ -6,6 +6,7 @@ class EditProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            loggedIn: true,
             user_baby: {
                 name: ``,
                 about: ``,

@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
+import config from '../config';
 
 class Home extends Component {
+
+    componentDidMount() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
+            }
+        }
+        fetch(`${config.API_ENDPOINT}/babies`, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Something went wrong.')
+            }
+            return response
+        })
+        .then(response => response.json())
+        .then(data => {
+            
+        })
+        .catch(error => {
+            this.setState({ error: error.message })
+        })
+    }
 
     handleLike = (baby) => {
         baby.total_score = baby.total_score + 5;
