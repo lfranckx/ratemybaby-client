@@ -8,11 +8,14 @@ class Login extends Component {
         super(props)
         this.state = {
             loggedIn: false,
-            error: null
+            error: null,
+            username: '',
+            password: ''
         }
         this.handleLogin = this.handleLogin.bind(this)
         this.handleChange = this.handleChange.bind(this)
     }
+
 
     handleLogin(username, password) {
         console.log('sending to server...', username, password);
@@ -20,7 +23,7 @@ class Login extends Component {
         this.setState({
             loggedIn: true,
             username: username,
-            user_password: password,
+            password: password,
         })
 
         const options = {
@@ -31,7 +34,7 @@ class Login extends Component {
             },
             body: JSON.stringify({
                 username: this.state.username,
-                user_password: this.state.user_password,
+                user_password: this.state.password,
             })
         }
         
@@ -74,7 +77,7 @@ class Login extends Component {
                             id='login-form'
                             onSubmit={event => {
                                 event.preventDefault();
-                                this.handleLogin(this.state.username, this.state.user_password)
+                                this.handleLogin(this.state.username, this.state.password)
                             }}
                         >
                             <div className="input-box">
@@ -89,7 +92,7 @@ class Login extends Component {
                             <div className="input-box">
                                 <input 
                                     onChange={this.handleChange}
-                                    value={this.state.user_password}
+                                    value={this.state.password}
                                     type="password" 
                                     name='password'
                                     placeholder='Password' 

@@ -9,6 +9,7 @@ import SignUp from '../SignUp/SignUp';
 import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile';
 import UploadImage from '../UploadImage/UploadImage';
+import config from '../config';
 
 
 class App extends Component {
@@ -23,6 +24,10 @@ class App extends Component {
     this.state = {
       loggedIn: false,
     }
+  }
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}`)
   }
 
   handleUploadImage() {
