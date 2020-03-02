@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import AppContext from '../AppContext'
 import Nav from '../Nav/Nav';
@@ -7,8 +7,7 @@ import Home from '../Home/Home'
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import Profile from '../Profile/Profile';
-import EditProfile from '../EditProfile/EditProfile'
-import data from '../dummy-store'
+import EditProfile from '../EditProfile/EditProfile';
 import UploadImage from '../UploadImage/UploadImage';
 
 
@@ -20,19 +19,9 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    
     this.state = {
       loggedIn: false,
-      babies: data,
-      username: '',
-      user_password: '',
-      email: '',
-      user_baby: {
-        name: ``,
-        about: ``,
-        image_url: '',
-        total_score: 0,
-        total_votes: 0
-      }
     }
   }
 
@@ -60,7 +49,6 @@ class App extends Component {
       username: username,
       user_password: password
     })
-    this.props.history.push('/editprofile')
   }
 
   handleLogin(username, password) {
@@ -70,7 +58,6 @@ class App extends Component {
       username: username,
       user_password: password
     })
-    this.props.history.push('/editprofile')
   }
 
   handleLogout() {
@@ -126,14 +113,19 @@ class App extends Component {
                 />} 
             />
             <Route 
+              render={(props) =>
+                <Profile 
+                  {...props}
+                />
+              }
               path='/profile'
-              component={Profile}
             />
             <Route 
               path='/editprofile'
               render={(props) => 
                 <EditProfile 
                   {...props}
+                  loggedIn={this.state.loggedIn}
                   handleProfileChange={this.handleProfileChange}
                 />}
             />

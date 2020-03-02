@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import './SignUp.css';
 import config from '../config'
-import Error from './Error'
 
 class SignUp extends Component {
     constructor(props) {
         super(props)
-        this.handleSignUp = this.handleSignUp.bind(this)
         this.state = {
             loggedIn: false,
-            email: '',
-            username: '',
-            password: '',
-            userValid: false,
             validationMessage: '',
             error: null,
         }
+        this.handleSignUp = this.handleSignUp.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     isUserValid = (email, username, password) => {
-        // event.preventDefault()
         if (!this.state.email) {
             this.setState({
                 validationMessage: "Please enter a valid email."
@@ -30,7 +25,7 @@ class SignUp extends Component {
             })
         } else if (!this.state.password) {
             this.setState({
-                validationMessage: "Please enter a username."
+                validationMessage: "Please enter a password."
             })
         } else {
             this.setState({
@@ -43,7 +38,6 @@ class SignUp extends Component {
 
     handleSignUp(email, username, password) {
         console.log('sending to server...', email, username, password);
-        console.log(config.API_ENDPOINT);
         
         this.setState({
             loggedIn: true,
@@ -80,24 +74,12 @@ class SignUp extends Component {
                 this.setState({ error: error.message })
             })
             this.props.history.push('/editprofile')
-    }   
-
-    emailChange = letter => {
-        this.setState({
-            email: letter
-        })
     }
 
-    usernameChange = letter => {
+    handleChange(event) {
         this.setState({
-            username: letter
-        })
-    }
-
-    passwordChange = letter => {
-        this.setState({
-            password: letter
-        })
+          [event.target.name]: event.target.value
+        });
     }
 
     render() {
@@ -114,40 +96,35 @@ class SignUp extends Component {
                         }}
                     >
                         <div className="input-box">
-                            <label htmlFor="email">Email</label>
+                            
                             <input 
-                                onChange={event => {
-                                    this.emailChange(event.target.value)
-                                }}
+                                onChange={this.handleChange}
+                                value={this.state.email}
                                 type="text" 
-                                name='username' 
+                                name='email' 
+                                placeholder='Email'
                                 id='email' />
                         </div>
                         <div className="input-box">
-                            <label htmlFor="username">Username</label>
                             <input 
-                                onChange={event => {
-                                    this.usernameChange(event.target.value)
-                                }}
+                                onChange={this.handleChange}
+                                value={this.state.username}
                                 type="text" 
                                 name='username' 
+                                placeholder='Username'
                                 id='username' />
                         </div>
                         <div className="input-box">
-                            <label htmlFor="password">Password</label>
                             <input 
-                                onChange={event => {
-                                    this.passwordChange(event.target.value)
-                                }}
+                                onChange={this.handleChange}
+                                value={this.state.user_password}
                                 type="password" 
-                                name='password' 
+                                name='password'
+                                placeholder='Password' 
                                 id='password' />
                         </div>
                         <button type="submit">Sign Up</button>
                     </form>
-                    <Error validationMessage={this.state.validationMessage}>
-                        <div className="error-message"></div>
-                    </Error>
                 </section>
             </main>
         )

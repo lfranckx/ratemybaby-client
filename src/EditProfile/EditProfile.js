@@ -1,37 +1,50 @@
 import React, { Component } from 'react';
 import './EditProfile.css';
 import AppContext from '../AppContext';
+import config from '../config';
 
 class EditProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            loggedIn: this.props.loggedIn,
             user_baby: {
-                name: ``,
-                about: ``,
-                image_url: '',
-                total_score: '',
-                total_votes: ''
+                name: this.props.name,
+                about: this.props.about,
+                image_url: this.props.image_url,
+                total_score: this.props.total_score,
+                total_votes: this.props.total_votes,
+                baby_id: this.props.baby_id
             }
         }
     }
 
-    nameChange = letter => {
-        // save user_baby object so the aboutChange() doesn't overwrite the object
-        let newName = this.state.user_baby;
-            newName.name = letter;
-        this.setState({ 
-            newName
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/babies/${this.state.baby_id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Something went wrong.')
+            }
+            return response
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            this.context.handleLogin(data)
+        })
+        .catch(error => {
+            this.setState({ error: error.message })
         })
     }
 
-    aboutChange = letter => {
-        // save user_baby object so the nameChange() doesn't overwrite the object
-        let newAbout = this.state.user_baby;
-            newAbout.about = letter;
-        this.setState({ 
-            newAbout
-        })
+    handleChange(event) {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit() {
+
     }
 
     render() {
@@ -53,9 +66,7 @@ class EditProfile extends Component {
                                 </div>
                                 <div className="editFormItems">
                                     <input 
-                                        onChange={event => {
-                                            this.nameChange(event.target.value)
-                                        }}
+                                        onChange={this.handleChange}
                                         className="edit-input" 
                                         type="text"
                                         name="name" 
@@ -67,9 +78,7 @@ class EditProfile extends Component {
                                 </div>
                                 <div className="editFormItems">
                                     <textarea 
-                                        onChange={event => {
-                                            this.aboutChange(event.target.value)
-                                        }}
+                                        onChange={this.handleChange}
                                         className="edit-input"
                                         name="about-me" 
                                         rows="15" 

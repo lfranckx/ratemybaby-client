@@ -1,27 +1,64 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import config from '../config'
 
 class Login extends Component {
     constructor(props) {
-        super()
+        super(props)
         this.state = {
-            username: '',
-            user_password: ''
+            loggedIn: false,
+            error: null
         }
+        this.handleLogin = this.handleLogin.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    usernameChange = (letter) => {
-        this.setState({
-            username: letter
-        })
-    }
+    handleLogin(username, password) {
+        console.log('sending to server...', username, password);
 
-    passwordChange = (letter) => {
         this.setState({
-            user_password: letter
+            loggedIn: true,
+            username: username,
+            user_password: password,
         })
-    }
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                user_password: this.state.user_password,
+            })
+        }
+        
+        fetch(`${config.API_ENDPOINT}/login/${this.state.username}`, options)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Something went wrong.')
+                }
+                return response
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                this.context.handleLogin(data)
+            })
+            .catch(error => {
+                this.setState({ error: error.message })
+            })
+            this.props.handleLogin(username, password);
+            this.props.history.push('/profile');
+    }   
+
+    handleChange(event) {
+        this.setState({
+          [event.target.name]: event.target.value
+        });
+      }
 
     render() {
         return (
@@ -37,27 +74,25 @@ class Login extends Component {
                             id='login-form'
                             onSubmit={event => {
                                 event.preventDefault();
-                                this.props.handleLogin(this.state.username, this.state.user_password)
+                                this.handleLogin(this.state.username, this.state.user_password)
                             }}
                         >
                             <div className="input-box">
-                                <label htmlFor="username">Username:</label>
                                 <input 
-                                    onChange={event => {
-                                        this.usernameChange(event.target.value)
-                                    }}
+                                    onChange={this.handleChange}
+                                    value={this.state.username}
                                     type="text" 
                                     name='username' 
+                                    placeholder='Username'
                                     id='username' />
                             </div>
                             <div className="input-box">
-                                <label htmlFor="password">Password:</label>
                                 <input 
-                                    onChange={event => {
-                                        this.passwordChange(event.target.value)
-                                    }}
+                                    onChange={this.handleChange}
+                                    value={this.state.user_password}
                                     type="password" 
-                                    name='password' 
+                                    name='password'
+                                    placeholder='Password' 
                                     id='password' />
                             </div>
                             <button type="submit">Login</button>
