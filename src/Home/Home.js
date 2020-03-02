@@ -27,8 +27,17 @@ class Home extends Component {
         console.log(babies);
         
         let randomBaby = babies[Math.floor(Math.random() * babies.length)];
+        if(!randomBaby) {
+            return <div>Loading...</div>
+        }
         let rating = (randomBaby.total_score / randomBaby.total_votes) * 5;
+        if(!rating) {
+            return <div>Loading...</div>
+        }
         let newRating = Math.round(rating * 10) / 10;
+        if(!newRating) {
+            return <div>Loading...</div>
+        }
         
         return (
             <>
