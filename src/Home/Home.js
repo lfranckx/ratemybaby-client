@@ -3,6 +3,12 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            babies: this.props.babies
+        }
+    }
 
     handleLike = (baby) => {
         baby.total_score = baby.total_score + 5;
@@ -14,7 +20,12 @@ class Home extends Component {
     }
     
     render() {
-        const babies = this.props.babies;
+        if(!this.props.babies) {
+            return <div>Loading...</div>
+        } 
+        let babies = this.state.babies;
+        console.log(babies);
+        
         let randomBaby = babies[Math.floor(Math.random() * babies.length)];
         let rating = (randomBaby.total_score / randomBaby.total_votes) * 5;
         let newRating = Math.round(rating * 10) / 10;

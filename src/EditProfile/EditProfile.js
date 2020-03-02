@@ -8,33 +8,9 @@ class EditProfile extends Component {
         super(props)
         this.state = {
             loggedIn: this.props.loggedIn,
-            user_baby: {
-                name: this.props.name,
-                about: this.props.about,
-                image_url: this.props.image_url,
-                total_score: this.props.total_score,
-                total_votes: this.props.total_votes,
-                baby_id: this.props.baby_id
-            }
+            id: this.props.id
         }
-    }
-
-    componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/babies/${this.state.baby_id}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Something went wrong.')
-            }
-            return response
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            this.context.handleLogin(data)
-        })
-        .catch(error => {
-            this.setState({ error: error.message })
-        })
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
@@ -44,7 +20,21 @@ class EditProfile extends Component {
     }
 
     handleSubmit() {
-
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${config.API_KEY}`
+            },
+            body: JSON.stringify({
+                baby_name: this.state.name,
+                about: this.state.user_baby.about,
+                image_url: this.state.user_baby.image_url,
+                total_score: this.state.user_baby.total_score,
+                total_votes: this.state.user_baby.total_votes,
+                user_id: this.state.user_baby
+            })
+        }
     }
 
     render() {

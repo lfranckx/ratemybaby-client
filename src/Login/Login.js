@@ -21,7 +21,6 @@ class Login extends Component {
         console.log('sending to server...', username, password);
 
         this.setState({
-            loggedIn: true,
             username: username,
             password: password,
         })

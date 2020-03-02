@@ -9,6 +9,9 @@ class SignUp extends Component {
             loggedIn: false,
             validationMessage: '',
             error: null,
+            email: '',
+            username: '',
+            password: '',
         }
         this.handleSignUp = this.handleSignUp.bind(this)
         this.handleChange = this.handleChange.bind(this)

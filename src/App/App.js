@@ -15,19 +15,40 @@ import config from '../config';
 class App extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      loggedIn: false,
+      babies: [],
+      error: null,
+    }
+
     this.handleUploadImage = this.handleUploadImage.bind(this)
     this.handleProfileChange = this.handleProfileChange.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
-    
-    this.state = {
-      loggedIn: false,
-    }
   }
 
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}`)
+    const options = {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${config.API_KEY}`
+      }
+    }
+    fetch(`${config.API_ENDPOINT}/babies`, options)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ babies: data })
+      if(data){
+        console.log(this.state);
+      }
+    })
+    .catch(error => {
+      this.setState({ error: error.message })
+    })
+
+    
   }
 
   handleUploadImage() {
@@ -75,13 +96,16 @@ class App extends Component {
   }
 
   render() {
+    if (!this.state.babies) {
+      return <div>Loading...</div>
+    }
     return (
       <AppContext.Provider
         value={{
           loggedIn: this.state.loggedIn,
           babies: this.state.babies,
           username: this.state.username,
-          user_password: this.state.user_password,
+          password: this.state.password,
           email: this.state.email,
           user_baby: this.state.user_baby,
         }}
