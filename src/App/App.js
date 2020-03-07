@@ -17,8 +17,8 @@ class App extends Component {
     super(props)
     this.state = {
       loggedIn: false,
-      babies: [],
       error: null,
+      babies: '',
     }
 
     this.handleUploadImage = this.handleUploadImage.bind(this)
@@ -26,6 +26,11 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+  }
+
+  stringifyArray(array) {
+    let copiedObj = JSON.parse(JSON.stringify(array))
+    return copiedObj
   }
 
   componentDidMount() {
@@ -39,10 +44,8 @@ class App extends Component {
     fetch(`${config.API_ENDPOINT}/babies`, options)
     .then(response => response.json())
     .then(data => {
+      this.stringifyArray(data)
       this.setState({ babies: data })
-      if(data){
-        console.log(this.state);
-      }
     })
     .catch(error => {
       this.setState({ error: error.message })
@@ -101,7 +104,7 @@ class App extends Component {
       <AppContext.Provider
         value={{
           loggedIn: this.state.loggedIn,
-          babies: this.state.babies,
+          // babies: this.state.babies,
           username: this.state.username,
           password: this.state.password,
           email: this.state.email,

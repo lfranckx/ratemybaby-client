@@ -20,24 +20,17 @@ class Home extends Component {
     }
     
     render() {
-        if(!this.props.babies) {
-            return <div>Loading...</div>
-        } 
+        console.log(this.props.babies);
+        console.log(this.state.babies);
+        
+        if (!this.state.babies || this.state.babies.length <= 0) {
+            return <div>Loading...</div>;
+        }
         let babies = this.state.babies;
         console.log(babies);
-        
         let randomBaby = babies[Math.floor(Math.random() * babies.length)];
-        if(!randomBaby) {
-            return <div>Loading...</div>
-        }
         let rating = (randomBaby.total_score / randomBaby.total_votes) * 5;
-        if(!rating) {
-            return <div>Loading...</div>
-        }
         let newRating = Math.round(rating * 10) / 10;
-        if(!newRating) {
-            return <div>Loading...</div>
-        }
         
         return (
             <>
