@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
-import AppContext from '../AppContext'
+import AppContext from '../../AppContext'
 import Nav from '../Nav/Nav';
 import Home from '../Home/Home'
 import Login from '../Login/Login';
@@ -9,7 +9,7 @@ import SignUp from '../SignUp/SignUp';
 import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile';
 import UploadImage from '../UploadImage/UploadImage';
-import config from '../config';
+import config from '../../config';
 
 
 class App extends Component {

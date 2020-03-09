@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './UploadImage.css'
-import AppContext from '../AppContext';
+import AppContext from '../../AppContext';
 
 export default class UploadImage extends Component {
     render() {

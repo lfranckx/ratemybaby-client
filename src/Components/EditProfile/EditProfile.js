@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './EditProfile.css';
-import AppContext from '../AppContext';
-import config from '../config';
+import AppContext from '../../AppContext';
+import config from '../../config';
 
 class EditProfile extends Component {
     constructor(props) {

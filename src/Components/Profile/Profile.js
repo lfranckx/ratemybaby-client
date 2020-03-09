@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
-import AppContext from '../AppContext';
-import profilepic from '../images/babydrawing.png'
-import config from '../config';
+import AppContext from '../../AppContext';
+import profilepic from '../../images/babydrawing.png'
+import config from '../../config';
 
 class Profile extends Component {
     constructor(props) {
