@@ -9,13 +9,17 @@ section {
     max-width: 550px;
     border-radius: 2%;
     text-align: center;
-    padding: 50px;
+    padding: 20px;
 }
 
-.text {
-    color: white;
-    margin: 10px 0 5px;
+section > * {
+    margin: 5px;
 }
+
+
+h3 {
+    font-size: 24pt;
+}  
 
 a {
     text-decoration: none;
@@ -23,5 +27,24 @@ a {
 }
 
 button {
-    border-radius: 4px;
+    border-color: white;;
+}
+  
+
+.text {
+    color: white;
+    margin: 10px 0 5px;
+}
+
+.about {
+    text-align: left;
+    font-size: 14pt;
+}
+
+.rating {
+    font-size: 14pt;
+}
+
+.emoji {
+    font-size: 35px;
 }

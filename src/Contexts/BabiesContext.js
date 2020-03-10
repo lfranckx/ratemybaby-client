@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
-
-
 const BabiesContext = React.createContext({
     babies: [],
     error: null,
     setError: () => {},
     clearError: () => {},
     setBabies: () => {},
-    updateBaby: () => {},
 })
 
 export default BabiesContext
@@ -30,14 +27,6 @@ export class BabiesProvider extends Component {
 
     clearError = () => {
         this.setState({ error: null })
-    }
-
-    updateBaby = baby => {
-        console.log('updating baby', baby)
-        this.setState({ 
-            ...this.state.babies,
-            baby 
-        })
     }
 
     render() {

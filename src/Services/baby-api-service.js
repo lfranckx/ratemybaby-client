@@ -5,6 +5,7 @@ const BabyApiService = {
   getBabies() {
     return fetch(`${config.API_ENDPOINT}/babies`, {
       headers: {
+        'Content-Type': 'application/json',
       },
     })
       .then(res =>
@@ -42,21 +43,14 @@ const BabyApiService = {
       })
     })
   },
-  updateBaby(id, name, about, image, score, votes) {
-    return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
+  updateBaby(baby) {
+    return fetch(`${config.API_ENDPOINT}/babies/${baby.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        id: id,
-        baby_name: name,
-        about: about, 
-        image_url: image,
-        total_score: score,
-        total_votes: votes
-      })
+      body: JSON.stringify(baby)
     })
   },
 }

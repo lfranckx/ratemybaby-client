@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
-import BabyProfile from '../../Components/BabyProfile/BabyProfile'
 import BabiesContext from '../../Contexts/BabiesContext'
+import GenRandomBaby from '../../Components/GenRandomBaby/GenRandomBaby'
 
 export default class BabiesPage extends Component {
     static contextType = BabiesContext
@@ -14,19 +14,13 @@ export default class BabiesPage extends Component {
     }
 
     renderBabies() {
-        let { babies = [] } = this.context
-        let randomBaby
-        if (babies.length === 0 || randomBaby.length === 0) {
+        const { babies = [] } = this.context
+        if (babies.length === 0) {
             return <div>Loading...</div>
         }
-        randomBaby = babies[Math.floor(Math.random() * babies.length)]
-        console.log(babies);
 
         return (
-            <BabyProfile
-            // key={randomBaby.id}
-            // baby={randomBaby}
-            />
+            <GenRandomBaby babies={babies}/>
         )
     }
 
