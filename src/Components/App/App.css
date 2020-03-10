@@ -1,11 +1,3 @@
-h1, h2 {
-    /* color: rgb(41, 177, 201); */
-    color: white;
-}
-
-h3 {
-    color: white;
-}
 
 main {
     display: inline-block;
@@ -15,7 +7,6 @@ section {
     min-height: 320px;
     min-width: 450px;
     max-width: 550px;
-    background-color: rgb(41, 177, 201);
     border-radius: 2%;
     text-align: center;
     padding: 50px;

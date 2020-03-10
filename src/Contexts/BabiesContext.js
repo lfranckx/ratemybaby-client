@@ -33,7 +33,7 @@ export class BabiesProvider extends Component {
     }
 
     updateBaby = baby => {
-        console.log('updating baby:', baby)
+        console.log('updating baby', baby)
         this.setState({ 
             ...this.state.babies,
             baby 

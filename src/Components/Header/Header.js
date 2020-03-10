@@ -41,14 +41,13 @@ export default class Nav extends Component {
 
     render() {
         return ( 
-            <>
-                <header>
+                <nav>
                     <Link to='/'><h1>Rate My Baby</h1></Link>
-                </header>
-                {TokenService.hasAuthToken()
+                    <h2>Upload your baby the world rates it</h2>
+                    {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}
-            </>
+                </nav>
         )
     }
 }

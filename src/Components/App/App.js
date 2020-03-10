@@ -92,41 +92,45 @@ class App extends Component {
   render() {
     return (
       <>
-        <Header/>
-        {this.state.error && <p className='error'>There was an error.</p>}
-        <Switch>
-          <Route
-            exact path='/'
-            component={BabiesPage}
-          />
-          <Route
-            path='/login'
-            component={LoginPage}
-          />
-          <Route
-            path='/signup'
-            component={SignUpPage}
-          />
-          {/* <Route 
-            path='/profile'
-            component={ProfilePage}
-          /> */}
-          {/* <Route 
-            path='/editprofile'
-            component={EditProfilePage}
-          /> */}
-          {/* <Route 
-            path='/uploadimage'
-            component={UploadImagePage}
-          /> */}
-          <Route 
-            path='/baby/:babyId'
-            component={BabyProfile}
-          />
-          <Route 
-            component={NotFoundPage}
-          />
-        </Switch>
+        <header>
+          <Header/>
+        </header>
+        <main>
+          {this.state.error && <p className='error'>There was an error.</p>}
+          <Switch>
+            <Route
+              exact path='/'
+              component={BabiesPage}
+            />
+            <Route
+              path='/login'
+              component={LoginPage}
+            />
+            <Route
+              path='/signup'
+              component={SignUpPage}
+            />
+            {/* <Route 
+              path='/profile'
+              component={ProfilePage}
+            /> */}
+            {/* <Route 
+              path='/editprofile'
+              component={EditProfilePage}
+            /> */}
+            {/* <Route 
+              path='/uploadimage'
+              component={UploadImagePage}
+            /> */}
+            <Route 
+              path='/baby/:babyId'
+              component={BabyProfile}
+            />
+            <Route 
+              component={NotFoundPage}
+            />
+          </Switch>
+        </main>
       </>
     )
   }

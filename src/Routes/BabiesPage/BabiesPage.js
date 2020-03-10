@@ -14,9 +14,14 @@ export default class BabiesPage extends Component {
     }
 
     renderBabies() {
-        const { babies = [] } = this.context
-        let randomBaby = babies[Math.floor(Math.random() * babies.length)]
-        
+        let { babies = [] } = this.context
+        let randomBaby
+        if (babies.length === 0 || randomBaby.length === 0) {
+            return <div>Loading...</div>
+        }
+        randomBaby = babies[Math.floor(Math.random() * babies.length)]
+        console.log(babies);
+
         return (
             <BabyProfile
             // key={randomBaby.id}
@@ -28,12 +33,11 @@ export default class BabiesPage extends Component {
     render() {
         const { error } = this.context
         return (
-            <main>
-                <h2>Upload your baby, the world rates it.</h2>
+            <>
                 {error
                     ? <p className='error'>There was an error, try again</p>
                     : this.renderBabies()}
-            </main>
+            </>
         )
     }
 }
