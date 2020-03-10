@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './BabyProfile.css'
+// import './BabyProfile.css'
 
 export default class BabyProfile extends Component {
     handleLike = (baby) => {
@@ -16,15 +16,16 @@ export default class BabyProfile extends Component {
     
     render() {
         const { baby } = this.props
-        let rating = (baby.total_score / baby.total_votes)
-        let roundedRating = Math.round(rating * 10) / 10
+        
+        // let rating = (baby.total_score / baby.total_votes)
+        // let roundedRating = Math.round(rating * 10) / 10
         return (
             <>
                 <section>
-                    <h3>{baby.baby_name}</h3>
+                    {/* <h3>{baby.baby_name}</h3>
                     <div id="rating">{roundedRating} / 5</div>
                     <img src={baby.image_url} alt="baby" id="baby-pic"></img>
-                    <div id="about">{baby.about}</div>
+                    <div id="about">{baby.about}</div> */}
                 </section>
                 <button 
                     className="rating-button" 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
-import TokenService from '../../services/token-service'
-import IdleService from '../../services/idle-service'
+import TokenService from '../../Services/token-service'
+import IdleService from '../../Services/idle-service'
 
 export default class Nav extends Component {
     handleLogout = () => {
@@ -14,21 +14,42 @@ export default class Nav extends Component {
 
     renderLogoutLink() {
         return (
-            
+            <div className='Header__logged-in'>
+                <Link
+                    onClick={this.handleLogoutClick}
+                    to='/'>
+                    Logout
+                </Link>
+            </div>            
         )
     }
 
     renderLoginLink() {
         return (
-
+            <div className='Header__not-logged-in'>
+                <Link
+                to='/login'>
+                Log in
+                </Link>
+                <Link
+                to='/register'>
+                Register
+                </Link>
+            </div>
         )
     }
 
     render() {
-        <header>
-            <Link to='/'><h1>Rate My Baby</h1></Link>
-        </header>
-
+        return ( 
+            <>
+                <header>
+                    <Link to='/'><h1>Rate My Baby</h1></Link>
+                </header>
+                {TokenService.hasAuthToken()
+                    ? this.renderLogoutLink()
+                    : this.renderLoginLink()}
+            </>
+        )
     }
 }
 

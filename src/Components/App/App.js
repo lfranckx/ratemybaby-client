@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from '../Header/Header'
 import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
-import EditProfilePage from '../../EditProfilePage/EditProfilePage'
+// import EditProfilePage from '../../EditProfilePage/EditProfilePage'
 import LoginPage from '../../Routes/LoginPage/LoginPage'
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
-import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
+import NotFoundPage from '../../Routes/NotFoundPage/NotFoundPage'
+// import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
-import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
-import TokenService from '../../services/token-service'
-import AuthApiService from '../../services/auth-api-service'
-import IdleService from '../../services/idle-service'
+// import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
+import TokenService from '../../Services/token-service'
+import AuthApiService from '../../Services/auth-api-service'
+import IdleService from '../../Services/idle-service'
 import BabyProfile from '../BabyProfile/BabyProfile'
 import './App.css'
 
@@ -90,50 +90,43 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.babies) {
-      return <div>Loading...</div>
-    }
     return (
       <>
-        <Header
-          handleLogout={this.handleLogout}
-          loggedIn={this.state.loggedIn} 
-          username={this.state.username}
-        />
-          {this.state.error && <p className='error'>There was an error.</p>}
-          <Switch>
-            <Route
-              exact path='/'
-              component={BabiesPage}
-            />
-            <Route
-              path='/login'
-              component={LoginPage}
-            />
-            <Route
-              path='/signup'
-              component={SignUpPage}
-            />
-            <Route 
-              path='/profile'
-              component={ProfilePage}
-            />
-            <Route 
-              path='/editprofile'
-              component={EditProfilePage}
-            />
-            <Route 
-              path='/uploadimage'
-              component={UploadImagePage}
-            />
-            <Route 
-              path='/baby/:babyId'
-              component={BabyProfile}
-            />
-            <Route 
-              component={NotFoundPage}
-            />
-          </Switch>
+        <Header/>
+        {this.state.error && <p className='error'>There was an error.</p>}
+        <Switch>
+          <Route
+            exact path='/'
+            component={BabiesPage}
+          />
+          <Route
+            path='/login'
+            component={LoginPage}
+          />
+          <Route
+            path='/signup'
+            component={SignUpPage}
+          />
+          {/* <Route 
+            path='/profile'
+            component={ProfilePage}
+          /> */}
+          {/* <Route 
+            path='/editprofile'
+            component={EditProfilePage}
+          /> */}
+          {/* <Route 
+            path='/uploadimage'
+            component={UploadImagePage}
+          /> */}
+          <Route 
+            path='/baby/:babyId'
+            component={BabyProfile}
+          />
+          <Route 
+            component={NotFoundPage}
+          />
+        </Switch>
       </>
     )
   }

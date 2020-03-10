@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Login.css'
 import config from '../../config'
 import { Button, Input } from '../Utils/Utils'
-import AuthApiService from '../../services/auth-api-service'
+import AuthApiService from '../../Services/auth-api-service'
 
 export default class LoginForm extends Component {
     static defaultProps = {

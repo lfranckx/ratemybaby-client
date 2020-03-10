@@ -1,5 +1,5 @@
 import config from '../config'
-import TokenService from '../services/token-service'
+import TokenService from '../Services/token-service'
 
 const BabyApiService = {
   getBabies() {

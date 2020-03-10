@@ -19,8 +19,8 @@ export default class BabiesPage extends Component {
         
         return (
             <BabyProfile
-            key={randomBaby.id}
-            baby={randomBaby}
+            // key={randomBaby.id}
+            // baby={randomBaby}
             />
         )
     }

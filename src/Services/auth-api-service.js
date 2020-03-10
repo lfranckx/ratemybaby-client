@@ -75,3 +75,5 @@ const AuthApiService = {
         })
     },
 }
+
+export default AuthApiService
