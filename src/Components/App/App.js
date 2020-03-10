@@ -1,31 +1,73 @@
-import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import './App.css';
-import AppContext from '../../AppContext'
-import Nav from '../Nav/Nav';
-import Home from '../Home/Home'
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
-import Profile from '../Profile/Profile';
-import EditProfile from '../EditProfile/EditProfile';
-import UploadImage from '../UploadImage/UploadImage';
-import config from '../../config';
-
+import React, { Component } from 'react'
+import { Route, Switch, withRouter } from 'react-router-dom'
+import Header from '../Header/Header'
+import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
+import EditProfilePage from '../../EditProfilePage/EditProfilePage'
+import LoginPage from '../../Routes/LoginPage/LoginPage'
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
+import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
+import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
+import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
+import IdleService from '../../services/idle-service'
+import BabyProfile from '../BabyProfile/BabyProfile'
+import './App.css'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: false,
-      error: null,
+      error: false,
       babies: '',
     }
+  }
 
-    this.handleUploadImage = this.handleUploadImage.bind(this)
-    this.handleProfileChange = this.handleProfileChange.bind(this)
-    this.handleLogin = this.handleLogin.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
-    this.handleLogout = this.handleLogout.bind(this)
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { error: true }
+  }
+
+  componentDidMount() {
+    /*
+      set the function (callback) to call when a user goes idle
+      we'll set this to logout a user when they're idle
+    */
+    IdleService.setIdleCallback(this.logoutFromIdle)
+
+    /* if a user is logged in */
+    if (TokenService.hasAuthToken()) {
+      /*
+        tell the idle service to register event listeners
+        the event listeners are fired when a user does something, e.g. move their mouse
+        if the user doesn't trigger one of these event listeners,
+        the idleCallback (logout) will be invoked
+      */
+      IdleService.regiserIdleTimerResets()
+
+      /*
+        Tell the token service to read the JWT, looking at the exp value
+        and queue a timeout just before the token expires
+      */
+      TokenService.queueCallbackBeforeExpiry(() => {
+        /* the timoue will call this callback just before the token expires */
+        AuthApiService.postRefreshToken()
+      })
+    }
+
+  }
+
+  componentWillUnmount() {
+    /*
+      when the app unmounts,
+      stop the event listeners that auto logout (clear the token from storage)
+    */
+    IdleService.unRegisterIdleResets()
+    /*
+      and remove the refresh endpoint request
+    */
+    TokenService.clearCallbackBeforeExpiry()
   }
 
   stringifyArray(array) {
@@ -33,67 +75,18 @@ class App extends Component {
     return copiedObj
   }
 
-  componentDidMount() {
-    const options = {
-      method: 'GET',
-      headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${config.API_KEY}`
-      }
-    }
-    fetch(`${config.API_ENDPOINT}/babies`, options)
-    .then(response => response.json())
-    .then(data => {
-      this.stringifyArray(data)
-      this.setState({ babies: data })
-    })
-    .catch(error => {
-      this.setState({ error: error.message })
-    })
-  }
-
-  handleUploadImage() {
-    console.log('uploading-image');
-    this.props.history.push('/profile')
-  }
-
-  handleProfileChange(newName, newAbout) {
-    console.log('changing-profile', newName, newAbout);
-    this.setState({
-        user_baby: {
-            name: newName,
-            about: newAbout
-        }
-    })
-    this.props.history.push('/profile')
-  }
-
-  handleSignUp(email, username, password) {
-    console.log('signing-up', email, username, password);
-    this.setState({
-      loggedIn: true,
-      email: email,
-      username: username,
-      user_password: password
-    })
-  }
-
-  handleLogin(username, password) {
-    console.log('logging-in', username, password);
-    this.setState({
-      loggedIn: true,
-      username: username,
-      user_password: password
-    })
-  }
-
-  handleLogout() {
-    console.log('logging-out');
-    this.setState({
-      loggedIn: false,
-      username: '',
-      user_password: ''
-    })
+  logoutFromIdle = () => {
+    /* remove the token from localStorage */
+    TokenService.clearAuthToken()
+    /* remove any queued calls to the refresh endpoint */
+    TokenService.clearCallbackBeforeExpiry()
+    /* remove the timeouts that auto logout when idle */
+    IdleService.unRegisterIdleResets()
+    /*
+      react won't know the token has been removed from local storage,
+      so we need to tell React to rerender
+    */
+    this.forceUpdate()
   }
 
   render() {
@@ -101,74 +94,47 @@ class App extends Component {
       return <div>Loading...</div>
     }
     return (
-      <AppContext.Provider
-        value={{
-          loggedIn: this.state.loggedIn,
-          // babies: this.state.babies,
-          username: this.state.username,
-          password: this.state.password,
-          email: this.state.email,
-          user_baby: this.state.user_baby,
-        }}
-      >
-        <Nav 
+      <>
+        <Header
           handleLogout={this.handleLogout}
           loggedIn={this.state.loggedIn} 
           username={this.state.username}
         />
+          {this.state.error && <p className='error'>There was an error.</p>}
           <Switch>
             <Route
-              babies={this.state.babies}
               exact path='/'
-              render={(props) => 
-                <Home  
-                  {...props}
-                  babies={this.state.babies}
-                />}
+              component={BabiesPage}
             />
             <Route
               path='/login'
-              render={(props) => 
-                <Login 
-                  {...props}
-                  handleLogin={this.handleLogin}
-                />}
+              component={LoginPage}
             />
             <Route
               path='/signup'
-              render={(props) => 
-                <SignUp 
-                  {...props}
-                  handleSignUp={this.handleSignUp}
-                />} 
+              component={SignUpPage}
             />
             <Route 
-              render={(props) =>
-                <Profile 
-                  {...props}
-                />
-              }
               path='/profile'
+              component={ProfilePage}
             />
             <Route 
               path='/editprofile'
-              render={(props) => 
-                <EditProfile 
-                  {...props}
-                  loggedIn={this.state.loggedIn}
-                  handleProfileChange={this.handleProfileChange}
-                />}
+              component={EditProfilePage}
             />
             <Route 
               path='/uploadimage'
-              render={(props) =>
-                <UploadImage 
-                  {...props}
-                  handleUploadImage={this.handleUploadImage}
-                />}
+              component={UploadImagePage}
+            />
+            <Route 
+              path='/baby/:babyId'
+              component={BabyProfile}
+            />
+            <Route 
+              component={NotFoundPage}
             />
           </Switch>
-      </AppContext.Provider>
+      </>
     )
   }
 }
