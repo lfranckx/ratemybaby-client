@@ -22,7 +22,10 @@ export default class SignUp extends Component {
         })
             .then(user => {
                 console.log(user)
-                AuthApiService.postLogin(user)
+                AuthApiService.postLogin({
+                    username: user.username,
+                    user_password: user.user_password
+                })
                   .then(res => {
                       username.value = ''
                       password.value = ''
