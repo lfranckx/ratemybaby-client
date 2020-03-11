@@ -6,6 +6,8 @@ import IdleService from '../../Services/idle-service'
 
 export default class Nav extends Component {
     handleLogout = () => {
+        console.log('running handleLogout');
+        
         TokenService.clearAuthToken()
         /* when logging out, clear the callbacks to the refresh api and idle auto logout */
         TokenService.clearCallbackBeforeExpiry()
@@ -16,7 +18,7 @@ export default class Nav extends Component {
         return (
             <div className='Header__logged-in'>
                 <Link
-                    onClick={this.handleLogoutClick}
+                    onClick={this.handleLogout}
                     to='/'>
                     Logout
                 </Link>
