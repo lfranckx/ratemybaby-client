@@ -17,7 +17,7 @@ export default class SignUp extends Component {
         this.setState({ error: null })
         AuthApiService.postUser({
             username: username.value,
-            password: password.value,
+            user_password: password.value,
             email: email.value,
         })
             .then(user => {
@@ -34,44 +34,48 @@ export default class SignUp extends Component {
     render() {
         const { error } = this.state
         return (
-            <section>
-                <form 
-                    id='sign-up-form'
-                    onSubmit={this.handleSubmit}
-                >
-                    <div role='alert'>
-                        {error && <p className='error'>{error}</p>}
-                    </div>
-                    <div className="input-box">
-                        <input 
-                            onChange={this.handleChange}
-                            value={this.state.email}
-                            type="text" 
-                            name='email' 
-                            placeholder='Email'
-                            id='email' />
-                    </div>
-                    <div className="input-box">
-                        <input 
-                            onChange={this.handleChange}
-                            value={this.state.username}
-                            type="text" 
-                            name='username' 
-                            placeholder='Username'
-                            id='username' />
-                    </div>
-                    <div className="input-box">
-                        <input 
-                            onChange={this.handleChange}
-                            value={this.state.user_password}
-                            type="password" 
-                            name='password'
-                            placeholder='Password' 
-                            id='password' />
-                    </div>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </section>
+            <form 
+                id='sign-up-form'
+                onSubmit={this.handleSubmit}
+            >
+                <div role='alert'>
+                    {error && <p className='error'>{error}</p>}
+                </div>
+                <div className="input-box">
+                    <label className='label'>
+                        Email Address
+                        <span className='required'>*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name='email' 
+                        required
+                        id='email' />
+                </div>
+                <div className="input-box">
+                    <label className='label'>
+                        Username
+                        <span className='required'>*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        name='username' 
+                        required
+                        className='username' />
+                </div>
+                <div className="input-box">
+                    <label className='label'>
+                        Password
+                        <span className='required'>*</span>
+                    </label>                    
+                    <input 
+                        type="password" 
+                        name='password'
+                        required
+                        className='password' />
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
         )
     }
 }

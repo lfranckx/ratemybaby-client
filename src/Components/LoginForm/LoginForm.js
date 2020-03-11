@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css'
-import config from '../../config'
-import { Button, Input } from '../Utils/Utils'
 import AuthApiService from '../../Services/auth-api-service'
 
 export default class LoginForm extends Component {
@@ -16,10 +12,10 @@ export default class LoginForm extends Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { username, password } = ev.target
-    
+        
         AuthApiService.postLogin({
           username: username.value,
-          password: password.value,
+          user_password: password.value,
         })
         .then(res => {
             username.value = ''
@@ -34,39 +30,33 @@ export default class LoginForm extends Component {
     render() {
         const { error } = this.state
         return (
-            <section>
                 <form 
                     id='login-form'
                     onSubmit={this.handleSubmitJwtAuth}
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <div className="input-box">
-                        <input 
-                            onChange={this.handleChange}
-                            value={this.state.username}
+                        <label className='label'>
+                            Username
+                            <span className='required'>*</span>
+                        </label>
+                        <input
                             type="text" 
                             name='username' 
-                            placeholder='Username'
-                            id='username' />
+                            className='username' />
                     </div>
                     <div className="input-box">
+                        <label className='label'>
+                            Password
+                            <span className='required'>*</span>
+                        </label> 
                         <input 
-                            onChange={this.handleChange}
-                            value={this.state.password}
                             type="password" 
-                            name='password'
-                            placeholder='Password' 
-                            id='password' />
+                            name='password' 
+                            className='password' />
                     </div>
                     <button type="submit">Login</button>
                 </form>
-                <div className="text">Not a member?</div>
-                <button type="submit">
-                    <Link to="/signup">
-                        Sign up!
-                    </Link>
-                </button>
-            </section>
         )
     }
 }
