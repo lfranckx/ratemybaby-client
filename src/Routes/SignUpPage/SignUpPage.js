@@ -4,6 +4,7 @@ import SignUpForm from '../../Components/SignUpForm/SignUpForm'
 
 export default class SignUpPage extends Component {
   static defaultProps = {
+    location: {},
     history: {
       push: () => {},
     },
@@ -11,9 +12,9 @@ export default class SignUpPage extends Component {
 
   handleSignUpSuccess = user => {
     console.log(user);
-    const { history } = this.props
-    history.push('/login')
-  }
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/'
+    history.push(destination)  }
 
   render() {
     return (

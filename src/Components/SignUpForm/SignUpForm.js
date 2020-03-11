@@ -21,10 +21,13 @@ export default class SignUp extends Component {
             email: email.value,
         })
             .then(user => {
-                email.value = ''
-                username.value = ''
-                password.value = ''
-                this.props.onRegistrationSuccess()
+                console.log(user)
+                AuthApiService.postLogin(user)
+                  .then(res => {
+                      username.value = ''
+                      password.value = ''
+                      this.props.onSignUpSuccess()
+                  })
             })
             .catch(res => {
                 this.setState({ error: res.error })
