@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
+import UserApiService from '../../Services/user-api-service'
 
 export default class LoginForm extends Component {
     static defaultProps = {
@@ -18,9 +19,17 @@ export default class LoginForm extends Component {
           user_password: password.value,
         })
         .then(res => {
-            username.value = ''
-            password.value = ''
-            this.props.onLoginSuccess()
+            console.log(res);
+            console.log(username.value);
+            
+            UserApiService.getUser(username.value)
+            .then(res => {
+                console.log(res);
+
+                username.value = ''
+                password.value = ''
+                this.props.onLoginSuccess()
+            })
         })
         .catch(res => {
             this.setState({ error: res.error })

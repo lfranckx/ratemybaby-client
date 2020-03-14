@@ -17,6 +17,11 @@ export default class Nav extends Component {
     renderLogoutLink() {
         return (
             <div className='Header__logged-in'>
+                <Link 
+                    to='/profile'
+                >
+                    Profile
+                </Link>
                 <Link
                     onClick={this.handleLogout}
                     to='/'>

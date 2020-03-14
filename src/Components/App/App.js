@@ -5,7 +5,7 @@ import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
 // import EditProfilePage from '../../EditProfilePage/EditProfilePage'
 import LoginPage from '../../Routes/LoginPage/LoginPage'
 import NotFoundPage from '../../Routes/NotFoundPage/NotFoundPage'
-// import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
+import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
 // import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
 import TokenService from '../../Services/token-service'
@@ -110,10 +110,10 @@ class App extends Component {
               path='/register'
               component={SignUpPage}
             />
-            {/* <Route 
+            <Route 
               path='/profile'
               component={ProfilePage}
-            /> */}
+            />
             {/* <Route 
               path='/editprofile'
               component={EditProfilePage}
@@ -122,10 +122,10 @@ class App extends Component {
               path='/uploadimage'
               component={UploadImagePage}
             /> */}
-            <Route 
+            {/* <Route 
               path='/baby/:babyId'
               component={BabyProfile}
-            />
+            /> */}
             <Route 
               component={NotFoundPage}
             />

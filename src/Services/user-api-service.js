@@ -1,5 +1,5 @@
 import config from '../config'
-import TokenService from '../services/token-service'
+import TokenService from './token-service'
 
 const UserApiService = {
     getUsers() {
@@ -13,8 +13,8 @@ const UserApiService = {
             : res.json()
         )
     },
-    getUser(id) {
-        return fetch(`${config.API_ENDPOINT}/users/${id}`, {
+    getUser(username) {
+        return fetch(`${config.API_ENDPOINT}/users/${username}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             },
@@ -55,3 +55,5 @@ const UserApiService = {
         })
     }
 }
+
+export default UserApiService
