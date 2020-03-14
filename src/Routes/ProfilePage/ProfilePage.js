@@ -3,7 +3,7 @@ import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 import UserProfile from '../../Components/UserProfile/UserProfile'
 
-class Profile extends Component {
+class ProfilePage extends Component {
 
     static defaultProps = {
         match: { params: {} }
@@ -12,8 +12,8 @@ class Profile extends Component {
     static contextType = BabyContext
     
     componentDidMount() {
-        const { babyId } = this.props.match.params
-
+        let babyId = this.context
+        console.log(babyId);
         this.context.clearError()
         BabyApiService.getBaby(babyId)
             .then(this.context.setBaby)
@@ -48,4 +48,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile
+export default ProfilePage

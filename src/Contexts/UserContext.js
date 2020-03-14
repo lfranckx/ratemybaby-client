@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
+// import UserApiService from '../Services/user-api-service'
 import BabyApiService from '../Services/baby-api-service'
 
-export const nullBaby = {
-    user: {},
-    baby: {},
-    tags: [],
+export const nullUser = {
+    user: {}
 }
 
-const BabyContext = React.createContext({
-    baby: nullBaby,
+const UserContext = React.createContext({
+    user: nullUser,
     error: null,
-    setError: () => {},
+    setError:() => {},
     clearError: () => {},
-    setBaby: () => {},
-    clearBaby: () => {},
+    setUser: () => {},
+    clearUser: () => {},
     updateBaby: () => {},
+    
 })
 
-export default BabyContext
+export default UserContext
 
-export class BabyProvider extends Component {
+export class UserProvider extends Component {
     state = {
-        baby: nullBaby,
+        user: nullUser,
         error: null
     }
 
@@ -34,14 +34,13 @@ export class BabyProvider extends Component {
         this.setState({ error: null })
     }
 
-    setBaby = baby => {
-        console.log('setting state from BabyContext:', baby);
-        
-        this.setState({ baby })
+    setUser = user => {
+        console.log('setting state from UserContext:', user);
+        this.setState({ user })
     }
 
-    clearBaby = () => {
-        this.setBaby(nullBaby)
+    clearUser = () => {
+        this.setUser(nullUser)
     }   
 
     updateBaby = baby => {
@@ -49,26 +48,26 @@ export class BabyProvider extends Component {
         'total_score:', baby.total_score,
         'total_votes:', baby.total_votes)
         this.setState({ 
-            ...this.state.babies,
+            ...this.state.baby,
             baby 
         })
         BabyApiService.updateBaby(baby)
     }
-      
+
     render() {
         const value = {
-            baby: this.state.baby,
+            user: this.state.user,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
-            setBaby: this.setBaby,
-            clearBaby: this.clearBaby,
-            updateBaby: this.updateBaby,
+            setUser: this.setUser,
+            clearUser: this.clearUser,
+            updateBaby: this.updateBaby
         }
         return (
-            <BabyContext.Provider value={value}>
+            <UserContext.Provider value={value}>
                 {this.props.children}
-            </BabyContext.Provider>
+            </UserContext.Provider>
         )
     }
 }

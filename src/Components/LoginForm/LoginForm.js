@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
 import UserApiService from '../../Services/user-api-service'
+import UserContext from '../../Contexts/UserContext'
+// import BabyApiService from '../../Services/baby-api-service'
+// import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 
 export default class LoginForm extends Component {
     static defaultProps = {
         onLoginSuccess: () => {}
     }
+
+    static contextType = UserContext
 
     state = { error: null }
 
@@ -13,23 +18,20 @@ export default class LoginForm extends Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { username, password } = ev.target
-        
+
         AuthApiService.postLogin({
           username: username.value,
           user_password: password.value,
         })
         .then(res => {
-            console.log(res);
-            console.log(username.value);
-            
             UserApiService.getUser(username.value)
-            .then(res => {
-                console.log(res);
-
-                username.value = ''
-                password.value = ''
-                this.props.onLoginSuccess()
-            })
+                .then(res => {
+                    console.log('response from server:', res);
+                    username.value = ''
+                    password.value = ''
+                    this.context.setUser(res)
+                    this.props.onLoginSuccess()
+                })
         })
         .catch(res => {
             this.setState({ error: res.error })
