@@ -3,8 +3,11 @@ import BabyApiService from '../Services/baby-api-service'
 
 export const nullBaby = {
     user: {},
-    baby: {},
-    tags: [],
+    baby: {}
+}
+
+export const nullUser = {
+    user: {}
 }
 
 const BabyContext = React.createContext({
@@ -15,12 +18,15 @@ const BabyContext = React.createContext({
     setBaby: () => {},
     clearBaby: () => {},
     updateBaby: () => {},
+    setUser: () => {},
+    clearUser: () => {}
 })
 
 export default BabyContext
 
 export class BabyProvider extends Component {
     state = {
+        user: nullUser,
         baby: nullBaby,
         error: null
     }
@@ -36,8 +42,7 @@ export class BabyProvider extends Component {
 
     setBaby = baby => {
         console.log('setting state from BabyContext:', baby);
-        
-        this.setState({ baby })
+        this.setState({ baby: baby })
     }
 
     clearBaby = () => {
@@ -54,9 +59,19 @@ export class BabyProvider extends Component {
         })
         BabyApiService.updateBaby(baby)
     }
+
+    setUser = user => {
+        console.log('setting state from UserContext:', user);
+        this.setState({ user: user })
+    }
+
+    clearUser = () => {
+        this.setUser(nullUser)
+    }   
       
     render() {
         const value = {
+            user: this.state.user,
             baby: this.state.baby,
             error: this.state.error,
             setError: this.setError,
@@ -64,6 +79,8 @@ export class BabyProvider extends Component {
             setBaby: this.setBaby,
             clearBaby: this.clearBaby,
             updateBaby: this.updateBaby,
+            setUser: this.setUser,
+            clearUser: this.clearUser
         }
         return (
             <BabyContext.Provider value={value}>

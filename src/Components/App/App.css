@@ -24,9 +24,19 @@ a {
     font-size: 14px;
 }
 
+.cancel {
+    border-color: white;;
+    border: 1px solid #aaa;
+    background-color: #eee;
+    font-size: 1.1em;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-weight: bold;
+}
+
 button {
     border-color: white;;
-    order: 1px solid #aaa;
+    border: 1px solid #aaa;
     background-color: #eee;
     font-size: 1.1em;
     border-radius: 4px;
@@ -63,6 +73,8 @@ input  {
 .about {
     text-align: left;
     font-size: 14pt;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .rating {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from '../Header/Header'
 import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
-// import EditProfilePage from '../../EditProfilePage/EditProfilePage'
+import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage'
 import LoginPage from '../../Routes/LoginPage/LoginPage'
 import NotFoundPage from '../../Routes/NotFoundPage/NotFoundPage'
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
@@ -11,7 +11,6 @@ import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
-import BabyProfile from '../BabyProfile/BabyProfile'
 import './App.css'
 
 class App extends Component {
@@ -114,17 +113,13 @@ class App extends Component {
               path='/profile'
               component={ProfilePage}
             />
-            {/* <Route 
+            <Route 
               path='/editprofile'
               component={EditProfilePage}
-            /> */}
+            />
             {/* <Route 
               path='/uploadimage'
               component={UploadImagePage}
-            /> */}
-            {/* <Route 
-              path='/baby/:babyId'
-              component={BabyProfile}
             /> */}
             <Route 
               component={NotFoundPage}

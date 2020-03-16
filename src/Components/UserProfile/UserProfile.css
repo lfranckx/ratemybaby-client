@@ -1,18 +1,6 @@
-#profilepic {
+.profilepic {
     height: 250px;
     width: 250px;
-    border-radius: 50%;
     background-color: white;
-}
-
-.about {
-    text-align: left;
-    border-radius: 4px;
-    padding: 5px;
-    margin-top: 20px;
-}
-
-#continue {
-    position: relative;
-    top: 10px;
+    border-radius: 50%;
 }

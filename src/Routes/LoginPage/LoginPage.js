@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import LoginForm from '../../Components/LoginForm/LoginForm'
-import SignUpPage from '../SignUpPage/SignUpPage'
 
 export default class LoginPage extends Component {
     static defaultProps = {
