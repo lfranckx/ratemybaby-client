@@ -26,7 +26,6 @@ export default class LoginForm extends Component {
         .then(res => {
             UserApiService.getUser(username.value)
                 .then(res => {
-                    console.log('response from server:', res);
                     username.value = ''
                     password.value = ''
                     this.context.setUser(res)

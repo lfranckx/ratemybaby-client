@@ -22,10 +22,7 @@ class EditProfile extends Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { name, about } = ev.target
-        console.log('name:', name.value,
-                    'about:', about.value);
-
-
+        
         BabyApiService.updateBaby({
             id: this.state.id,
             baby_name: name.value,
