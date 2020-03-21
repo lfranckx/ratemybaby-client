@@ -13,6 +13,7 @@ export default class UploadImage extends Component {
     constructor(props) {
         super(props)
         const { baby } = this.props
+        this.fileInput = React.createRef()
         this.state = {
             error: null,
             fileSelected: null,
@@ -20,31 +21,36 @@ export default class UploadImage extends Component {
         }
     }
 
-    handleSingleFileChange = ev => {
-        ev.preventDefault()
-        const fileSelected = ev.target.files[0]
-        console.log('setting this.state.fileSelected:', fileSelected);
+    // handleSingleFileChange = ev => {
+    //     ev.preventDefault()
+    //     const fileSelected = ev.target.files[0]
+    //     console.log('setting this.state.fileSelected:', fileSelected);
         
-        this.setState({ 
-            fileSelected: fileSelected
-        })
-    }
+    //     this.setState({ 
+    //         fileSelected: fileSelected
+    //     })
+    // }
 
     handleSingleFileUpload = ev => {
         ev.preventDefault()
-        this.setState({ error: null })
 
-        const { fileSelected } = this.state
+        const  fileSelected  = this.fileInput.current.files[0]
+        console.log(
+            `Selected file - ${fileSelected}`
+          );
+        this.setState({ 
+            error: null,
+        })
+
         const data = {
             'image': fileSelected,
         }
-        if (this.state.fileSelected) {
-            BabyApiService.postImageFile(data)
+        
+        BabyApiService.postImageFile(data)
                 .then(res => {
                     console.log('response from server:', res);
                     this.props.onUploadSuccess()
                 })
-        }
     }
 
     render() {
@@ -60,10 +66,11 @@ export default class UploadImage extends Component {
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <label>Select an image to upload:</label>
                     <input 
-                        onChange={this.handleSingleFileChange}
+                        // onChange={this.handleSingleFileChange}
+                        ref={this.fileInput}
                         type="file" 
                         name="fileToUpload" 
-                        id="fileToUpload" ></input>
+                        id="upload-input" />
                     <button type="submit">Submit</button>
                 </form>
             </section>
