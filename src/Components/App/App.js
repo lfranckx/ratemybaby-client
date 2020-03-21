@@ -7,7 +7,7 @@ import LoginPage from '../../Routes/LoginPage/LoginPage'
 import NotFoundPage from '../../Routes/NotFoundPage/NotFoundPage'
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
-// import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
+import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
@@ -117,10 +117,10 @@ class App extends Component {
               path='/editprofile'
               component={EditProfilePage}
             />
-            {/* <Route 
+            <Route 
               path='/uploadimage'
               component={UploadImagePage}
-            /> */}
+            />
             <Route 
               component={NotFoundPage}
             />

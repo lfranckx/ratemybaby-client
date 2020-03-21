@@ -20,16 +20,31 @@ export default class UploadImage extends Component {
         }
     }
 
-    handleUploadImage = ev => {
+    handleSingleFileChange = ev => {
+        ev.preventDefault()
+        const fileSelected = ev.target.files[0]
+        console.log('setting this.state.fileSelected:', fileSelected);
+        
+        this.setState({ 
+            fileSelected: fileSelected
+        })
+    }
+
+    handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const { fileSelected } = ev.target.files[0]
-        console.log(fileSelected);
 
-        // BabyApiService.updateBaby({
-        //     id: this.state.id,
-        //     image_url: 
-        // })
+        const { fileSelected } = this.state
+        const data = {
+            'image': fileSelected,
+        }
+        if (this.state.fileSelected) {
+            BabyApiService.postImageFile(data)
+                .then(res => {
+                    console.log('response from server:', res);
+                    this.props.onUploadSuccess()
+                })
+        }
     }
 
     render() {
@@ -37,17 +52,15 @@ export default class UploadImage extends Component {
 
         return (
             <section>
-                <h1>Upload Image</h1>
+                <h3>Upload Image</h3>
                 <form 
-                    action="upload.php" 
-                    method="post" 
-                    encType="multipart/form-data" 
                     id="upload-form"
-                    onSubmit={this.handleUploadImage}
+                    onSubmit={this.handleSingleFileUpload}
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <label>Select an image to upload:</label>
                     <input 
+                        onChange={this.handleSingleFileChange}
                         type="file" 
                         name="fileToUpload" 
                         id="fileToUpload" ></input>

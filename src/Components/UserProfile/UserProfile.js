@@ -12,7 +12,6 @@ export default class UserProfile extends Component {
 
     render() {
         const { baby } = this.props
-        console.log('props:', baby, 'context:', this.context);
         return (
             <section>
                 <h3>{baby.baby_name}</h3>

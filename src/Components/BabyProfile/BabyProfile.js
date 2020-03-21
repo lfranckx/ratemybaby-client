@@ -33,12 +33,10 @@ export default class BabyProfile extends Component {
         if (!baby) {
             return <div>Loading...</div>
         }
-        // console.log(baby.image_url);
         
         let rating = (baby.total_score / baby.total_votes)
         let percent = rating * 100
         let roundPercent = Math.round(percent) + '%'
-        // let roundedRating = Math.round(rating * 100) / 10
         return (
             <>
                 <section>
