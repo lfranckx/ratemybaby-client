@@ -42,11 +42,11 @@ export default class UploadImage extends Component {
             error: null,
         })
 
-        const data = {
-            'image': fileSelected,
-        }
-        
-        BabyApiService.postImageFile(data)
+        // const data = {
+        //     'image': fileSelected,
+        // }
+
+        BabyApiService.postImageFile(fileSelected)
                 .then(res => {
                     console.log('response from server:', res);
                     this.props.onUploadSuccess()
