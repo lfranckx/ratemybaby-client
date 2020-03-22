@@ -33,7 +33,7 @@ export default class UploadImage extends Component {
         
         const  fileSelected  = this.fileInput.current.files[0]        
         const data = new FormData()
-        data.append('file', fileSelected)
+        data.append('image', fileSelected)
         console.log('formData:', Array.from(data));
         
         BabyApiService.postImageFile(fileSelected)

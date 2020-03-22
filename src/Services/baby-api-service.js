@@ -59,8 +59,12 @@ const BabyApiService = {
     return fetch(`${config.API_ENDPOINT}/upload`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
+        'accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'Content-Type': `multipart/form-data; boundary=${data._boundary}`
+        // 'Content-Type': 'application/x-www-form-urlencoded'
+        // 'Content-Type': 'application/json',
+        // 'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({data})
     })
