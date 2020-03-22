@@ -62,7 +62,7 @@ const BabyApiService = {
         'Content-Type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: data
+      body: JSON.stringify(data)
     })
   }
 }
