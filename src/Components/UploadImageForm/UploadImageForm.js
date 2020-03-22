@@ -21,32 +21,18 @@ export default class UploadImage extends Component {
         }
     }
 
-    // handleSingleFileChange = ev => {
-    //     ev.preventDefault()
-    //     const fileSelected = ev.target.files[0]
-    //     console.log('setting this.state.fileSelected:', fileSelected);
-        
-    //     this.setState({ 
-    //         fileSelected: fileSelected
-    //     })
-    // }
-
     handleSingleFileUpload = ev => {
         ev.preventDefault()
-
-        const  fileSelected  = this.fileInput.current.files[0]
-        console.log(
-            `Selected file - ${fileSelected}`
-          );
         this.setState({ 
             error: null,
         })
 
-        // const data = {
-        //     'image': fileSelected,
-        // }
-
-        BabyApiService.postImageFile(fileSelected)
+        const  fileSelected  = this.fileInput.current.files[0]        
+        const data = new FormData()
+        data.append('image', fileSelected, fileSelected.name)
+        console.log('formData:', Array.from(data));
+        
+        BabyApiService.postImageFile(data)
                 .then(res => {
                     console.log('response from server:', res);
                     this.props.onUploadSuccess()
@@ -66,7 +52,6 @@ export default class UploadImage extends Component {
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <label>Select an image to upload:</label>
                     <input 
-                        // onChange={this.handleSingleFileChange}
                         ref={this.fileInput}
                         type="file" 
                         name="fileToUpload" 

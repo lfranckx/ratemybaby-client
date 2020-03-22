@@ -55,6 +55,7 @@ const BabyApiService = {
   },
   postImageFile(data) {
     console.log('sending to server:', data);
+    
     return fetch(`${config.API_ENDPOINT}/upload`, {
       method: 'POST',
       headers: {
@@ -62,10 +63,8 @@ const BabyApiService = {
         'Accept-Language': 'en-US,en;q=0.8',
         'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
         'authorization': `bearer ${TokenService.getAuthToken()}`
-        // 'Content-Type': 'application/json',
-        // 'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify(data)
+      body: data
     })
   }
 }
