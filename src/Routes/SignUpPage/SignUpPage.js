@@ -9,8 +9,8 @@ export default class SignUpPage extends Component {
     },
   }
 
-  handleSignUpSuccess = user => {
-    console.log('successfully signed up and logging in', user);
+  handleSignUpSuccess = () => {
+    console.log('successfully signed up and logging in');
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/'
     history.push(destination)  }

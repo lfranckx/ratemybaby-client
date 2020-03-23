@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import profilepic from '../../images/babydrawing.png'
+import noProfilePic from '../../images/babydrawing.png'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
-// import EditProfileForm from '../EditProfileForm/EditProfileForm'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
@@ -10,7 +9,15 @@ export default class UserProfile extends Component {
     static contextType = BabyContext
 
     renderNoBabyProfile() {
-
+        return <section>
+                    <Link to="/uploadimage">Change</Link>
+                    <div>
+                        <img src={noProfilePic} alt="profile" className="profilepic" />
+                    </div>
+                    <div className="about">
+                        <Link to="/editprofile">Edit</Link>
+                    </div>
+                </section>
     }
 
     renderWithBabyProfile() {
@@ -32,7 +39,9 @@ export default class UserProfile extends Component {
     }
 
     render() {
-        if (!this.props.baby) {
+        console.log('this.props:', this.props);
+        
+        if (this.props.baby.baby === null) {
             return this.renderNoBabyProfile()
         } else return this.renderWithBabyProfile()
     }

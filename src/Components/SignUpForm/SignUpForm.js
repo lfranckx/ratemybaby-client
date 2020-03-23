@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
 import UserApiService from '../../Services/user-api-service'
-
+import BabyContext from '../../Contexts/BabyContext'
 
 export default class SignUp extends Component {
     static defaultProps = {
         onRegistrationSuccess: () => {}
     }
+
+    static contextType = BabyContext
 
     state = { error: null }
 
@@ -28,6 +30,8 @@ export default class SignUp extends Component {
             .then(res => {
                 UserApiService.getUser(username.value)
                     .then(res => {
+                        console.log('getUser response:', res);
+                        
                         username.value = ''
                         password.value = ''
                         this.context.setUser(res)

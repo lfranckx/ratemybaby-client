@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import BabyApiService from '../Services/baby-api-service'
 
 export const nullBaby = {
-    user: {},
-    baby: {}
+    baby: null
 }
 
 export const nullUser = {
@@ -61,7 +60,7 @@ export class BabyProvider extends Component {
     }
 
     setUser = user => {
-        console.log('setting state from UserContext:', user);
+        console.log('setting user:', user);
         this.setState({ user: user })
     }
 
