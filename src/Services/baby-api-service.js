@@ -55,19 +55,21 @@ const BabyApiService = {
   },
   postImageFile(data) {
     console.log('sending to server:', data);
-    
-    return fetch(`${config.API_ENDPOINT}/upload`, {
+    const options = {
       method: 'POST',
       headers: {
-        'accept': 'application/json',
-        'Accept-Language': 'en-US,en;q=0.8',
-        'Content-Type': `multipart/form-data; boundary=${data._boundary}`
+        // 'accept': 'application/json',
+        // 'Accept-Language': 'en-US,en;q=0.8',
+        // 'Content-Type': `multipart/form-data; boundary=----WebKitFormBoundaryyrV7KO0BoCBuDbTL`,
         // 'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Content-Type': 'application/json',
-        // 'authorization': `bearer ${TokenService.getAuthToken()}`
+        'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify({data})
-    })
+      body: data
+    }
+    // delete options.headers['Content-Type'];
+
+    return fetch(`${config.API_ENDPOINT}/upload`, options)
   }
 }
 

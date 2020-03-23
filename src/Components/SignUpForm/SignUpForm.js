@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import './SignUp.css';
-import { Button, Input, Required } from '../Utils/Utils'
 import AuthApiService from '../../Services/auth-api-service'
 
 export default class SignUp extends Component {

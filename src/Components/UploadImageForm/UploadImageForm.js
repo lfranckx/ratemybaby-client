@@ -27,16 +27,20 @@ export default class UploadImage extends Component {
             error: null,
         })
 
-        console.log(this.fileInput);
-        console.log(this.fileInput.current);
+        const  fileSelected  = this.fileInput.current.files[0]
+        fileSelected.path = this.fileInput.current.value
+        // console.log(this.fileInput.current.value)
+        console.log(fileSelected);
         
-        
-        const  fileSelected  = this.fileInput.current.files[0]        
+
         const data = new FormData()
         data.append('image', fileSelected)
         console.log('formData:', Array.from(data));
+        // const data = {
+        //     'image': fileSelected
+        // }
         
-        BabyApiService.postImageFile(fileSelected)
+        BabyApiService.postImageFile(data)
                 .then(res => {
                     console.log('response from server:', res);
                     this.props.onUploadSuccess()
@@ -57,9 +61,10 @@ export default class UploadImage extends Component {
                     <label>Select an image to upload:</label>
                     <input 
                         ref={this.fileInput}
-                        type="file" 
-                        name="fileToUpload" 
-                        id="upload-input" />
+                        type="file"
+                        accept=".png, .jpg, .jpeg .gif"
+                        name="file" 
+                        id="file" />
                     <button type="submit">Submit</button>
                 </form>
             </section>
