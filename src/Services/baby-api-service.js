@@ -57,17 +57,17 @@ const BabyApiService = {
     console.log('sending to server:', data);
     const options = {
       method: 'POST',
-      headers: {
-        // 'accept': 'application/json',
-        // 'Accept-Language': 'en-US,en;q=0.8',
-        // 'Content-Type': `multipart/form-data; boundary=----WebKitFormBoundaryyrV7KO0BoCBuDbTL`,
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-        'Content-Type': 'application/json',
-        'authorization': `bearer ${TokenService.getAuthToken()}`
-      },
-      body: data
+      // headers: {
+      //   // 'accept': 'application/json',
+      //   // 'Accept-Language': 'en-US,en;q=0.8',
+      //   // 'Content-Type': `multipart/form-data; boundary=----WebKitFormBoundaryyrV7KO0BoCBuDbTL`,
+      //   // 'Content-Type': 'application/x-www-form-urlencoded'
+      //   'Content-Type': 'application/json',
+      //   'authorization': `bearer ${TokenService.getAuthToken()}`
+      // },
+      body: JSON.stringify(data)
     }
-    // delete options.headers['Content-Type'];
+    delete options.headers['Content-Type'];
 
     return fetch(`${config.API_ENDPOINT}/upload`, options)
   }

@@ -28,9 +28,9 @@ export default class UploadImage extends Component {
         })
 
         const  fileSelected  = this.fileInput.current.files[0]
-        fileSelected.path = this.fileInput.current.value
+        // fileSelected.path = this.fileInput.current.value
         // console.log(this.fileInput.current.value)
-        console.log(fileSelected);
+        console.log('fileSelected:',fileSelected);
         
 
         const data = new FormData()
