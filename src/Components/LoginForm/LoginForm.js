@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
 import UserApiService from '../../Services/user-api-service'
 import BabyContext from '../../Contexts/BabyContext'
-// import BabyApiService from '../../Services/baby-api-service'
-// import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 
 export default class LoginForm extends Component {
     static defaultProps = {

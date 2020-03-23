@@ -27,23 +27,25 @@ export default class UploadImage extends Component {
             error: null,
         })
 
-        const  fileSelected  = this.fileInput.current.files[0]
-        // fileSelected.path = this.fileInput.current.value
-        // console.log(this.fileInput.current.value)
-        console.log('fileSelected:',fileSelected);
-        
+        let baby = {
+            id: this.state.id
+        }
 
+        const  fileSelected  = this.fileInput.current.files[0]
         const data = new FormData()
         data.append('image', fileSelected)
-        console.log('formData:', Array.from(data));
-        // const data = {
-        //     'image': fileSelected
-        // }
         
         BabyApiService.postImageFile(data)
                 .then(res => {
-                    console.log('response from server:', res);
-                    this.props.onUploadSuccess()
+                    (!res.ok)
+                        ? res.json().then(e => Promise.reject(e))
+                        : res.json()
+                        .then(data => {
+                            console.log('postImageFile response:', data);
+                            baby.image_url = data.image_url
+                            BabyApiService.updateBaby(baby)
+                            this.props.onUploadSuccess()
+                        })
                 })
     }
 

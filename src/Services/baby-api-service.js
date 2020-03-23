@@ -44,6 +44,7 @@ const BabyApiService = {
     })
   },
   updateBaby(baby) {
+    console.log('updating baby:', baby);
     return fetch(`${config.API_ENDPOINT}/babies/${baby.id}`, {
       method: 'PATCH',
       headers: {
@@ -57,16 +58,14 @@ const BabyApiService = {
     console.log('sending to server:', data);
     const options = {
       method: 'POST',
-      // headers: {
-      //   // 'accept': 'application/json',
-      //   // 'Accept-Language': 'en-US,en;q=0.8',
-      //   // 'Content-Type': `multipart/form-data; boundary=----WebKitFormBoundaryyrV7KO0BoCBuDbTL`,
-      //   // 'Content-Type': 'application/x-www-form-urlencoded'
-      //   'Content-Type': 'application/json',
-      //   'authorization': `bearer ${TokenService.getAuthToken()}`
-      // },
-      body: JSON.stringify(data)
+      headers: {
+        'Content-Type': 'Content-Type: .png, .jpg, .jpeg .gif',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: data
     }
+    // Remove 'Content-Type' header to allow browser to add
+    // along with the correct 'boundary'
     delete options.headers['Content-Type'];
 
     return fetch(`${config.API_ENDPOINT}/upload`, options)

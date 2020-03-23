@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-// import './SignUp.css';
 import AuthApiService from '../../Services/auth-api-service'
+import UserApiService from '../../Services/user-api-service'
+
 
 export default class SignUp extends Component {
     static defaultProps = {
@@ -19,20 +20,24 @@ export default class SignUp extends Component {
             user_password: password.value,
             email: email.value,
         })
-            .then(user => {
-                AuthApiService.postLogin({
-                    username: username.value,
-                    user_password: password.value
-                })
-                  .then(res => {
-                      username.value = ''
-                      password.value = ''
-                      this.props.onSignUpSuccess()
-                  })
+        .then(user => {
+            AuthApiService.postLogin({
+                username: username.value,
+                user_password: password.value
             })
-            .catch(res => {
-                this.setState({ error: res.error })
+            .then(res => {
+                UserApiService.getUser(username.value)
+                    .then(res => {
+                        username.value = ''
+                        password.value = ''
+                        this.context.setUser(res)
+                        this.props.onSignUpSuccess()
+                    })
             })
+        })
+        .catch(res => {
+            this.setState({ error: res.error })
+        })
     }
 
     render() {

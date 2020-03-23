@@ -9,15 +9,19 @@ export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
+    renderNoBabyProfile() {
 
-    render() {
+    }
+
+    renderWithBabyProfile() {
         const { baby } = this.props
+
         return (
             <section>
                 <h3>{baby.baby_name}</h3>
                 <Link to="/uploadimage">Change</Link>
                 <div>
-                    <img src={profilepic} alt="profile" className="profilepic" />
+                    <img src={baby.image_url} alt="profile" className="profilepic" />
                 </div>
                 <div className="about">
                     <p >{baby.about}</p>
@@ -25,5 +29,11 @@ export default class UserProfile extends Component {
                 </div>
             </section>
         )
+    }
+
+    render() {
+        if (!this.props.baby) {
+            return this.renderNoBabyProfile()
+        } else return this.renderWithBabyProfile()
     }
 }
