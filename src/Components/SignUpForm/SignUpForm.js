@@ -20,24 +20,21 @@ export default class SignUp extends Component {
         AuthApiService.postUser({
             username: username.value,
             user_password: password.value,
-            email: email.value
+            email: email.value,
         })
-        .then(res => {
-            console.log(res)            
+        .then(user => {
             AuthApiService.postLogin({
                 username: username.value,
                 user_password: password.value
             })
             .then(res => {
                 UserApiService.getUser(username.value)
-                    .then(res => {
-                        console.log('getUser response:', res);
-                        
-                        username.value = ''
-                        password.value = ''
-                        this.context.setUser(res)
-                        this.props.onSignUpSuccess()
-                    })
+                .then(user => {
+                    username.value = ''
+                    password.value = ''
+                    this.context.setUser(user)
+                    this.props.onSignUpSuccess()
+                })
             })
         })
         .catch(res => {

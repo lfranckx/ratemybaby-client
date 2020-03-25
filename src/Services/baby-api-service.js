@@ -15,6 +15,8 @@ const BabyApiService = {
       )
   },
   getBaby(parent_id) {
+    console.log('getting baby by parent_id:', parent_id);
+    
     return fetch(`${config.API_ENDPOINT}/babies/${parent_id}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -26,26 +28,21 @@ const BabyApiService = {
           : res.json()
       )
   },
-  postBaby(id, name, about, image, score, votes) {
-    return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
+  postBaby(baby) {
+    console.log('creating baby:', baby);
+    
+    return fetch(`${config.API_ENDPOINT}/babies`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        id: id,
-        baby_name: name,
-        about: about, 
-        image_url: image,
-        total_score: score,
-        total_votes: votes
-      })
+      body: JSON.stringify(baby)
     })
   },
   updateBaby(baby) {
-    console.log('updating baby:', baby);
-    return fetch(`${config.API_ENDPOINT}/babies/${baby.id}`, {
+    console.log('updateBaby sending to server:', baby);
+    return fetch(`${config.API_ENDPOINT}/babies/${baby.parent_id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -54,15 +51,15 @@ const BabyApiService = {
       body: JSON.stringify(baby)
     })
   },
-  postImageFile(data) {
-    console.log('sending to server:', data);
+  postImageFile(file) {
+    console.log('sending file to server:', file);
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'Content-Type: .png, .jpg, .jpeg .gif',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: data
+      body: file
     }
     // Remove 'Content-Type' header to allow browser to add
     // along with the correct 'boundary'

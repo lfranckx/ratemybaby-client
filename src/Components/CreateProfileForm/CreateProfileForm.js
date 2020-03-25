@@ -13,6 +13,8 @@ class EditProfile extends Component {
     constructor(props) {
         super(props)
         const { user } = this.props
+        console.log('this.props.user:', user)
+        
         this.fileInput = React.createRef()
         this.state = {
             error: null,
@@ -26,18 +28,22 @@ class EditProfile extends Component {
         const { name, about } = ev.target
         
         BabyApiService.postBaby({
-            id: this.state.id,
             baby_name: name.value,
             about: about.value,
             image_url: '',
-            total_score: 0,
-            total_votes: 0
+            total_score: 5,
+            total_votes: 5,
+            parent_id: this.state.id,
         }) 
-            .then(res => {
+        .then(res => {
+            BabyApiService.getBaby(this.state.id)
+            .then(baby => {
                 name.value = ''
                 about.value = ''
+                this.context.setBaby(baby)
                 this.props.onSubmitForm()
             })
+        })
     }
 
     render() {
@@ -45,7 +51,7 @@ class EditProfile extends Component {
         
         return  <form 
                     id="edit-form"
-                    onSubmit={this.handleUpdateProfile}
+                    onSubmit={this.handleCreateBaby}
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <div className="form-items">

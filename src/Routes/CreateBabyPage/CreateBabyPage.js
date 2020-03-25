@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CreateProfileForm from '../CreateProfileForm/CreateProfileForm'
+import CreateProfileForm from '../../Components/CreateProfileForm/CreateProfileForm'
 import BabyContext from '../../Contexts/BabyContext'
 
 export default class EditProfile extends Component {

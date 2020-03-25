@@ -12,36 +12,37 @@ export default class UploadImage extends Component {
 
     constructor(props) {
         super(props)
-        const { baby } = this.props
         this.fileInput = React.createRef()
+        // console.log('this.props.baby:', this.props.baby);
+        
         this.state = {
             error: null,
-            fileSelected: null,
-            id: baby.id
+            fileSelected: null
         }
     }
 
     handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        let baby = { id: this.state.id }
+        let baby  = this.props.baby
+        console.log('this.props.baby:', baby);
         
         const  fileSelected  = this.fileInput.current.files[0]
         const data = new FormData()
         data.append('image', fileSelected)
         
         BabyApiService.postImageFile(data)
-                .then(res => {
-                    (!res.ok)
-                        ? res.json().then(e => Promise.reject(e))
-                        : res.json()
-                        .then(data => {
-                            console.log('postImageFile response:', data);
-                            baby.image_url = data.image_url
-                            BabyApiService.updateBaby(baby)
-                            this.props.onUploadSuccess()
-                        })
+        .then(res => {
+            (!res.ok)
+                ? res.json().then(e => Promise.reject(e))
+                : res.json()
+                .then(data => {
+                    console.log('postImageFile response:', data);
+                    baby.image_url = data.image_url
+                    BabyApiService.updateBaby(baby)
+                    this.props.onUploadSuccess()
                 })
+        })
     }
 
     render() {

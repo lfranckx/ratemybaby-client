@@ -10,6 +10,8 @@ class EditProfile extends Component {
     constructor(props) {
         super(props)
         const { baby } = this.props
+        console.log('this.props.baby:', baby);
+        
         this.state = {
             error: null,
             id: baby.id,

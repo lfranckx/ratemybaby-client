@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
+import './App.css'
+
 import Header from '../Header/Header'
 import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
 import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage'
@@ -8,10 +10,11 @@ import NotFoundPage from '../../Routes/NotFoundPage/NotFoundPage'
 import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
 import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
+import CreateBabyPage from '../../Routes/CreateBabyPage/CreateBabyPage'
+
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
-import './App.css'
 
 class App extends Component {
   constructor(props) {
@@ -108,6 +111,10 @@ class App extends Component {
             <Route
               path='/register'
               component={SignUpPage}
+            />
+            <Route 
+              path='/createprofile'
+              component={CreateBabyPage}
             />
             <Route 
               path='/profile'
