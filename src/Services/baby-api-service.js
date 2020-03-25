@@ -14,8 +14,8 @@ const BabyApiService = {
           : res.json()
       )
   },
-  getBaby(babyId) {
-    return fetch(`${config.API_ENDPOINT}/babies/${babyId}`, {
+  getBaby(parent_id) {
+    return fetch(`${config.API_ENDPOINT}/babies/${parent_id}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },

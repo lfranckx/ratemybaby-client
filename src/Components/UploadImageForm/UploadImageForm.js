@@ -23,14 +23,9 @@ export default class UploadImage extends Component {
 
     handleSingleFileUpload = ev => {
         ev.preventDefault()
-        this.setState({ 
-            error: null,
-        })
-
-        let baby = {
-            id: this.state.id
-        }
-
+        this.setState({ error: null })
+        let baby = { id: this.state.id }
+        
         const  fileSelected  = this.fileInput.current.files[0]
         const data = new FormData()
         data.append('image', fileSelected)

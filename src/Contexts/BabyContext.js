@@ -40,7 +40,7 @@ export class BabyProvider extends Component {
     }
 
     setBaby = baby => {
-        console.log('setting state from BabyContext:', baby);
+        console.log('setting baby:', baby);
         this.setState({ baby: baby })
     }
 
@@ -49,7 +49,7 @@ export class BabyProvider extends Component {
     }   
 
     updateBaby = baby => {
-        console.log('updating baby...', baby, 
+        console.log('updating baby:', baby, 
         'total_score:', baby.total_score,
         'total_votes:', baby.total_votes)
         this.setState({ 

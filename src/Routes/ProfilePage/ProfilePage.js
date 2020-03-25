@@ -12,10 +12,10 @@ class ProfilePage extends Component {
     static contextType = BabyContext
     
     componentDidMount() {
-        let babyId = this.context.user.baby_id
+        let parent_id = this.context.user.id
         this.context.clearError()
 
-        BabyApiService.getBaby(babyId)
+        BabyApiService.getBaby(parent_id)
             .then(this.context.setBaby)
             .catch(this.context.setError)
     }

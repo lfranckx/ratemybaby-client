@@ -39,10 +39,11 @@ export default class UserProfile extends Component {
     }
 
     render() {
-        console.log('this.props:', this.props);
+        // console.log('this.props:', this.props);
         
-        if (this.props.baby.baby === null) {
-            return this.renderNoBabyProfile()
-        } else return this.renderWithBabyProfile()
+        // if (this.props.baby.baby === null) {
+        //     return this.renderNoBabyProfile()
+        // }
+        return this.renderWithBabyProfile()
     }
 }
