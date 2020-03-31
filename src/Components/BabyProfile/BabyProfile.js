@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
-import heart from '../../images/heart.jpg'
-import dislike from '../../images/heart_dislike.jpg'
 
 export default class BabyProfile extends Component {
     static defaultProps = {

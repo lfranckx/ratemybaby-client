@@ -8,13 +8,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-image: url('/Users/lachlan/Projects/react-projects/ratemybaby/src/images/baby-background3.jpg') no-repeat center center fixed;
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background-image: url('/images/baby-background3.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-color: #f15731;
-  background-blend-mode: darken; */
+  background-position: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
