@@ -1,0 +1,22 @@
+.baby-pic {
+    width: 400px; /* width of container */
+    height: 500px; /* height of container */
+    object-fit: cover;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.about {
+    width: 400px;
+}
+
+.rating-button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+}
+
+.rate-icon {
+    height: 150%;
+    width: 150%;
+}

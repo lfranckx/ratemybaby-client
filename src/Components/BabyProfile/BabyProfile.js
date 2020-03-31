@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
+import './BabyProfile.css'
+import heart from '../../images/heart.jpg'
+import dislike from '../../images/heart_dislike.jpg'
 
 export default class BabyProfile extends Component {
     static defaultProps = {
@@ -41,7 +44,7 @@ export default class BabyProfile extends Component {
             <>
                 <section>
                     <h3>{baby.baby_name}</h3>
-                    <img src={baby.image_url} alt="baby" id="baby-pic"></img>
+                    <img src={baby.image_url} alt="baby" className="baby-pic"></img>
                     <div className="about">{baby.about}</div>
                     <div className="rating">{roundPercent}</div>
                 <button 
@@ -51,7 +54,7 @@ export default class BabyProfile extends Component {
                     }}
                 >
                     <Link to="/">
-                        <span role="img" aria-label="no" className="emoji">🚫</span>
+                       <i className="rate-icon" class="fas fa-heart-broken"></i>
                     </Link>
                 </button>
                 <button 
@@ -61,7 +64,7 @@ export default class BabyProfile extends Component {
                     }}
                 >
                     <Link to="/">
-                        <span role="img" aria-label="yes" className="emoji" id="yes">👼</span>
+                        <i className="rate-icon" class="far fa-heart"></i>
                     </Link>
                 </button>
                 </section>

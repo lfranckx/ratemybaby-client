@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import './App.css'
 
 import Header from '../Header/Header'
+import LandingPage from '../../Routes/LandingPage/LandingPage'
 import BabiesPage from '../../Routes/BabiesPage/BabiesPage'
 import EditProfilePage from '../../Routes/EditProfilePage/EditProfilePage'
 import LoginPage from '../../Routes/LoginPage/LoginPage'
@@ -94,14 +95,18 @@ class App extends Component {
   render() {
     return (
       <>
-        <header>
+        {/* <header>
           <Header/>
-        </header>
+        </header> */}
+        <Route 
+          exact path='/'
+          component={LandingPage}
+        />
         <main>
           {this.state.error && <p className='error'>There was an error.</p>}
           <Switch>
             <Route
-              exact path='/'
+              exact path='/swipe'
               component={BabiesPage}
             />
             <Route

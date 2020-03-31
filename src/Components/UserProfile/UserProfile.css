@@ -1,6 +1,7 @@
 .profilepic {
-    height: 400px;
-    width: 264px;
-    background-color: white;
-    border-radius: 4px;
+    width: 400px; /* width of container */
+    height: 400px; /* height of container */
+    object-fit: cover;
+    border: 1px solid;
+    border-radius: 5px;
 }

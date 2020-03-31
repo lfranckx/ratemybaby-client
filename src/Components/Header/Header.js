@@ -49,7 +49,7 @@ export default class Nav extends Component {
     render() {
         return ( 
                 <nav>
-                    <Link to='/'><h1>Rate My Baby</h1></Link>
+                    <Link to='/'><h1>rate my baby</h1></Link>
                     <h2>Upload your baby the world rates it</h2>
                     {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
