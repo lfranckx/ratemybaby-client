@@ -1,0 +1,31 @@
+.landing-section {
+    display: inline-block;
+    background-image: url('/images/baby-background3.jpg');
+    -webkit-background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-position: center;
+    width: 900px;
+}
+
+#landing-header {
+    color: #444;
+    font-size: 2rem;
+    opacity: 0.9;    
+    margin: 90px;
+}
+
+.register {
+    background-color: rgb(249, 103, 103);
+    color: white;
+    padding: 15px 90px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.register:active {
+    background-color: white;
+    color: rgb(249, 103, 103)
+}

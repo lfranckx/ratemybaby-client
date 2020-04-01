@@ -95,18 +95,16 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <header>
-          <Header/>
-        </header> */}
-        <Route 
-          exact path='/'
-          component={LandingPage}
-        />
+        <Header/>
         <main>
           {this.state.error && <p className='error'>There was an error.</p>}
           <Switch>
+            <Route 
+              exact path='/'
+              component={LandingPage}
+            />
             <Route
-              exact path='/swipe'
+              path='/swipe'
               component={BabiesPage}
             />
             <Route

@@ -1,6 +1,6 @@
 nav {
     /* background-color: rgb(41, 177, 201); */
-    padding: 10px 18px;
+    padding: 10px 40px;
     display: flex;
     justify-content: space-around;
     justify-content: space-between;
@@ -12,32 +12,44 @@ nav a {
     text-decoration: none;
 }
 
-h1, h2 {
-    margin: 0;
-}
-
 h1 {
-    font-size: 1.6rem;
-    font-family: 'ProximaNova', 'sans-serif;';
-    font-weight: 100;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 500;
+    font-family: 'ProximaNova';
 }
 
 h2 {
-    opacity: 0.35;
-    font-family: 'Lato', sans-serif;
-    font-size: 14pt;
+    /* font-family: 'Roboto'; */
+    color: #444;
+    font-size: 2rem;
+    opacity: 0.9;
+    margin: 0;
 }
 
 .Header__not-logged-in a:last-child {
-    background: rgb(255, 121, 121);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 15px;
+    background: white;
+    color: rgb(249, 103, 103);
+    border: solid 2px rgb(249, 103, 103);
+    border-radius: 40px;
+    padding: 8px 20px;
+    border-radius: 5px;
     margin-left: 10px;
+    font-weight: bold;
+}
+
+.Header__not-logged-in a:last-child:hover {
+    background: rgb(249, 103, 103);
+    color: white;
 }
 
 .Header__logged-in a {
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    padding: 5px 15px;
-    border-radius: 15px;
+    background: white;
+    color: rgb(249, 103, 103);
+    border: solid 2px rgb(249, 103, 103);
+    border-radius: 40px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
 }  

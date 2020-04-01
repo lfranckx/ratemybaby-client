@@ -34,13 +34,8 @@ export default class Nav extends Component {
     renderLoginLink() {
         return (
             <div className='Header__not-logged-in'>
-                <Link
-                to='/login'>
-                Log in
-                </Link>
-                <Link
-                to='/register'>
-                Register
+                <Link to='/login'>
+                    LOG IN
                 </Link>
             </div>
         )
@@ -49,8 +44,8 @@ export default class Nav extends Component {
     render() {
         return ( 
                 <nav>
-                    <Link to='/'><h1>rate my baby</h1></Link>
-                    <h2>Upload your baby the world rates it</h2>
+                    <Link to='/'><h1>todler</h1></Link>
+                    <h2>Born to Rate</h2>
                     {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}

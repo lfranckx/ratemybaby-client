@@ -4,10 +4,10 @@ main {
 }
 
 section {
-    min-height: 320px;
+    min-height: 900px;
     min-width: 450px;
-    max-width: 550px;
-    border-radius: 2%;
+    /* max-width: 900px; */
+    display: inline-block;
     text-align: center;
     padding: 20px;
 }
@@ -15,6 +15,7 @@ section {
 section > * {
     margin: 5px;
 }
+
 
 h3 {
     font-size: 22pt;
@@ -46,12 +47,16 @@ button {
 }
 
 .label {
-    margin: 0 0 5px 2px;
+    margin: 10px 10px 5px 2px;
+    color: #444;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .input-box {
     text-align: left;
     font-size: 1.1em;
+    margin-top: 20px;
 }
 
 input  {

@@ -1,0 +1,21 @@
+#login-section {
+    display: inline-block;
+    background-image: url('/images/baby-background3.jpg');
+    -webkit-background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: top;
+    background-position: center;
+    width: 100px;
+    height: 40px;
+}
+
+#login-header {
+    color: #444;
+    font-size: 2rem;
+    opacity: 0.9;
+    margin-top: 20px
+}
+
+#login-form {
+    display: inline-block;
+}
