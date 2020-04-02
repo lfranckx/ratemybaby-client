@@ -4,6 +4,10 @@ import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
 
 export default class BabyProfile extends Component {
+    state = {
+        renderInfo: false
+    }
+
     static defaultProps = {
         match: { params: {} },
     }
@@ -38,35 +42,45 @@ export default class BabyProfile extends Component {
         let rating = (baby.total_score / baby.total_votes)
         let percent = rating * 100
         let roundPercent = Math.round(percent) + '%'
+
         return (
-            <>
-                <section>
-                    <h3>{baby.baby_name}</h3>
-                    <img src={baby.image_url} alt="baby" className="baby-pic"></img>
+                <section className="profile-container">
+                    <img src={baby.image_url} alt="baby" className="baby-pic" />
+                    <div className="name-age">
+                        <h3>{baby.baby_name}</h3>
+                        <span className="age">
+                            <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
+                            2
+                        </span>
+                        <span className="country">
+                            <img src="./tinder_icons/house.png" alt="house" id="house" />
+                            Country
+                        </span>
+                    </div>
+                    
                     <div className="about">{baby.about}</div>
                     <div className="rating">{roundPercent}</div>
-                <button 
-                    className="rating-button" 
-                    onClick={() => {
-                        this.handleDislike(baby)
-                    }}
-                >
-                    <Link to="/">
-                       <i className="rate-icon" class="fas fa-heart-broken"></i>
-                    </Link>
-                </button>
-                <button 
-                    className="rating-button"
-                    onClick={() => {
-                        this.handleLike(baby)
-                    }}
-                >
-                    <Link to="/">
-                        <i className="rate-icon" class="far fa-heart"></i>
-                    </Link>
-                </button>
+                    <button 
+                        className="rate-button" 
+                        onClick={() => {
+                            this.handleDislike(baby)
+                        }}
+                    >
+                        <Link to="/rate">
+                                <img src="./tinder_icons/dislike.png" alt="dislike" className="rate-icon" id="dislike"/>
+                        </Link>
+                    </button>
+                    <button 
+                        className="rate-button"
+                        onClick={() => {
+                            this.handleLike(baby)
+                        }}
+                    >
+                        <Link to="/rate">
+                            <img src="./tinder_icons/avo.png" alt="like" className="rate-icon" id="like"/>
+                        </Link>
+                    </button>
                 </section>
-            </>
         )
     }
 }

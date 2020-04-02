@@ -1,21 +1,31 @@
 #login-section {
     display: inline-block;
-    background-image: url('/images/baby-background3.jpg');
-    -webkit-background-size: cover;
-    background-repeat: no-repeat; 
-    background-position: top;
-    background-position: center;
-    width: 100px;
-    height: 40px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 1.5px 3px 5px grey;
+    width: 400px;
+    color: rgb(41, 39, 39);
 }
 
 #login-header {
-    color: #444;
-    font-size: 2rem;
-    opacity: 0.9;
-    margin-top: 20px
+    font-size: 2.6rem;
+    opacity: 0.9;    
 }
 
-#login-form {
+#login-section label {
+    color: rgb(41, 39, 39);
+}
+
+#login-button {
+    margin-top: 30px;
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
     display: inline-block;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    cursor: pointer;
 }

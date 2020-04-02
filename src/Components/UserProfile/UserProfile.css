@@ -1,7 +1,18 @@
-.profilepic {
-    width: 400px; /* width of container */
-    height: 400px; /* height of container */
-    object-fit: cover;
-    border: 1px solid;
-    border-radius: 5px;
+.edit-info {
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+}
+
+.edit-info > a {
+    font-size: 14pt;
+    color: white;
+}
+
+.edit-info:hover {
+    background-color: rgb(249, 103, 103);
 }

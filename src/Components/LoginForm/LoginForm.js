@@ -46,7 +46,7 @@ export default class LoginForm extends Component {
                     <div className="input-box">
                         <label className='label'>
                             Username
-                            <span className='required'>*</span>
+                            {/* <span className='required'>*</span> */}
                         </label>
                         <input
                             type="text" 
@@ -56,14 +56,14 @@ export default class LoginForm extends Component {
                     <div className="input-box">
                         <label className='label'>
                             Password
-                            <span className='required'>*</span>
+                            {/* <span className='required'>*</span> */}
                         </label> 
                         <input 
                             type="password" 
                             name='password' 
                             className='password' />
                     </div>
-                    <button type="submit">Login</button>
+                    <button id="login-button" type="submit">Login</button>
                 </form>
         )
     }

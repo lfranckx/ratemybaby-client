@@ -1,24 +1,16 @@
 main {
-    display: flex;
-    justify-content: center;
+    display: block;
+    text-align: center;
 }
 
 section {
-    min-height: 900px;
-    min-width: 450px;
-    /* max-width: 900px; */
     display: inline-block;
     text-align: center;
-    padding: 20px;
 }
-
-section > * {
-    margin: 5px;
-}
-
 
 h3 {
     font-size: 22pt;
+    margin: 0;
 }  
 
 a {
@@ -49,7 +41,8 @@ button {
 .label {
     margin: 10px 10px 5px 2px;
     color: #444;
-    font-size: 18px;
+    opacity: 0.9;
+    font-size: x-large;
     font-weight: bold;
 }
 
@@ -63,7 +56,6 @@ input  {
     border: 1px solid #ddd;
     display: block;
     font-size: 1.1em;
-    margin-bottom: 10px;
     padding: 10px;
     text-align: left;
     width: 100%;
@@ -74,19 +66,4 @@ input  {
     color: #CA1551;
     font-family: Arial;
     font-weight: bold;
-}
-
-.about {
-    text-align: left;
-    font-size: 14pt;
-    border-radius: 4px;
-    padding: 5px;
-}
-
-.rating {
-    font-size: 14pt;
-}
-
-.emoji {
-    font-size: 35px;
 }

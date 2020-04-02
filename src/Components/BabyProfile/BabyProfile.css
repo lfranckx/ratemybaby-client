@@ -1,22 +1,88 @@
-.baby-pic {
-    width: 400px; /* width of container */
-    height: 500px; /* height of container */
-    object-fit: cover;
-    border: 1px solid;
-    border-radius: 5px;
+.profile-container {
+    background-color: white;
+    color: #444;
+    box-shadow: 1.5px 3px 5px grey;
+    border-radius: 8px;
+    width: 400px;
+    padding-bottom: 10px;
 }
+
+.baby-pic {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    margin: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 1.5px 3px 5px grey;
+}
+
+.name-age {
+    text-align: left;
+    padding: 10px;
+    border-bottom: solid 0.5px lightgray;
+}
+
+#cake {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 4px;
+    right: 3px;
+    margin-right: 5px;
+}
+
+#house {
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+.age {
+    font-size: 26px;
+    display: block;
+}
+
+.country {
+    display: block;
+}
+
 
 .about {
-    width: 400px;
+    font-size: 14pt;
+    text-align: left;
+    padding: 15px 10px;
+    border-bottom: solid 0.5px lightgray;
 }
 
-.rating-button {
+.rating {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.rate-button {
     background-color: white;
-    border: none;
     border-radius: 50%;
+    border: none;
+    box-shadow: 1.5px 3px 5px grey;
+    margin: 5px;
 }
 
 .rate-icon {
-    height: 150%;
-    width: 150%;
+    height: 50px;
+    width: 50px;
+    position: relative;
+    right: 1.5px;
+}
+
+#dislike {
+    top: 2px;
+}
+
+#like {
+    top: 1px;
+    left: .5px;
 }

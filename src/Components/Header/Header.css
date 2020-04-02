@@ -14,9 +14,10 @@ nav a {
 
 h1 {
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 500;
     font-family: 'ProximaNova';
+    color: white;
 }
 
 h2 {
@@ -27,6 +28,18 @@ h2 {
     margin: 0;
 }
 
+#title-logo {
+    display: inherit;
+}
+
+#logo {
+    position: relative;
+    top: 8px;
+    height: 45px;
+    width: 40px;
+    margin-right: 5px;
+}
+
 .Header__not-logged-in a:last-child {
     background: white;
     color: rgb(249, 103, 103);
@@ -35,6 +48,7 @@ h2 {
     padding: 8px 20px;
     border-radius: 5px;
     margin-left: 10px;
+    font-size: large;
     font-weight: bold;
 }
 

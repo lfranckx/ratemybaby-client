@@ -104,7 +104,7 @@ class App extends Component {
               component={LandingPage}
             />
             <Route
-              path='/swipe'
+              path='/rate'
               component={BabiesPage}
             />
             <Route

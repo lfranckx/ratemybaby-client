@@ -9,7 +9,7 @@ export default class UserProfile extends Component {
     static contextType = BabyContext
 
     renderNoBabyProfile() {
-        return <section>
+        return <section className="profile-container">
                     <Link to="/uploadimage">Change</Link>
                     <div>
                         <img src={noProfilePic} alt="profile" className="profilepic" />
@@ -24,16 +24,26 @@ export default class UserProfile extends Component {
         const { baby } = this.props
 
         return (
-            <section>
-                <h3>{baby.baby_name}</h3>
-                <Link to="/uploadimage">Change</Link>
-                <div>
-                    <img src={baby.image_url} alt="profile" className="profilepic" />
+            <section className="profile-container">
+                <img src={baby.image_url} alt="profile" className="baby-pic" />
+                <Link to="/uploadimage">Change</Link>  
+                <div className="name-age">
+                    <h3>{baby.baby_name}</h3>
+                    <span className="age">
+                        <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
+                        2
+                    </span>
+                    <span className="country">
+                        <img src="./tinder_icons/house.png" alt="house" id="house" />
+                        Country
+                    </span>
                 </div>
                 <div className="about">
-                    <p >{baby.about}</p>
-                    <Link to="/editprofile">Edit</Link>
+                    {baby.about}
                 </div>
+                <button className="edit-info">
+                    <Link to="/editprofile">Edit Info</Link>
+                </button>
             </section>
         )
     }
