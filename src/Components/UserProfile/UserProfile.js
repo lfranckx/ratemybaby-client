@@ -10,7 +10,7 @@ export default class UserProfile extends Component {
 
     renderNoBabyProfile() {
         return <section className="profile-container">
-                    <Link to="/uploadimage">Change</Link>
+                    <Link to="/uploadimage">Change Photo</Link>
                     <div>
                         <img src={noProfilePic} alt="profile" className="profilepic" />
                     </div>
@@ -26,7 +26,7 @@ export default class UserProfile extends Component {
         return (
             <section className="profile-container">
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
-                <Link to="/uploadimage">Change</Link>  
+                <Link id="change-photo" to="/uploadimage">Change Photo</Link>  
                 <div className="name-age">
                     <h3>{baby.baby_name}</h3>
                     <span className="age">

@@ -25,10 +25,12 @@ class EditProfile extends Component {
     handleCreateBaby = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const { name, about } = ev.target
+        const { name, age, country, about } = ev.target
         
         BabyApiService.postBaby({
             baby_name: name.value,
+            age: age.value,
+            country: country.value,
             about: about.value,
             image_url: '',
             total_score: 5,
@@ -50,33 +52,55 @@ class EditProfile extends Component {
         const { error } = this.state
         
         return  <form 
-                    id="edit-form"
+                    id="create-form"
                     onSubmit={this.handleCreateBaby}
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <div className="form-items">
-                        <label className='label'>Name</label>
+                        <label className='create-form-label'>Name</label>
                     </div>
                     <div className="form-items">
                         <input 
-                            className="name"
+                            className="create-input"
                             type="text"
                             name="name" 
                             required 
                         />
                     </div>
                     <div className="form-items">
-                        <label>About</label>
+                        <label className='create-form-label'>Age</label>
+                    </div>
+                    <div className="form-items">
+                        <input 
+                            className="create-input"
+                            type="text"
+                            name="age" 
+                            required 
+                        />
+                    </div>
+                    <div className="form-items">
+                        <label className='create-form-label'>Country</label>
+                    </div>
+                    <div className="form-items">
+                        <input 
+                            className="create-input"
+                            type="text"
+                            name="country" 
+                            required 
+                        />
+                    </div>
+                    <div className="form-items">
+                        <label className='create-form-label'>About</label>
                     </div>
                     <div className="form-items">
                         <textarea 
-                            className="width-100 about"
+                            className="width-100 create-about"
                             name="about" 
                             rows="15" 
                         />
                     </div>
-                    <div className="form-items">
-                        <button type="submit">Submit</button>
+                    <div className="submit-item">
+                        <button id="create-button" type="submit">Submit</button>
                     </div>
                 </form>
     }

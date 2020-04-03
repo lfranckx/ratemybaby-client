@@ -49,8 +49,6 @@ export default class UploadImage extends Component {
         const { error } = this.state
 
         return (
-            <section>
-                <h3>Upload Image</h3>
                 <form 
                     id="upload-form"
                     onSubmit={this.handleSingleFileUpload}
@@ -63,9 +61,8 @@ export default class UploadImage extends Component {
                         accept=".png, .jpg, .jpeg .gif"
                         name="file" 
                         id="file" />
-                    <button type="submit">Submit</button>
+                    <button id="upload-button" type="submit">Submit</button>
                 </form>
-            </section>
         )
     }
 }

@@ -1,0 +1,35 @@
+#upload-section {
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 1.5px 3px 5px grey;
+    width: 400px;
+    color: rgb(41, 39, 39);
+}
+
+#upload-header {
+    font-size: 2.6rem;
+    opacity: 0.9;    
+}
+
+#upload-form > * {
+    margin: 10px;
+}
+
+#upload-section label {
+    color: rgb(41, 39, 39);
+}
+
+#upload-button {
+    margin-top: 30px;
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

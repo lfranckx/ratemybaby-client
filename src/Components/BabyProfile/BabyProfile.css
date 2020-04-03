@@ -67,7 +67,7 @@
     background-color: white;
     border-radius: 50%;
     border: none;
-    box-shadow: 1.5px 3px 5px grey;
+    box-shadow: 1.5px 2px 3px grey;
     margin: 5px;
 }
 
@@ -85,4 +85,8 @@
 #like {
     top: 1px;
     left: .5px;
+}
+
+.rate-button:active {
+    transform: translateY(2px);
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CreateProfileForm from '../../Components/CreateProfileForm/CreateProfileForm'
 import BabyContext from '../../Contexts/BabyContext'
+import './CreateBabyPage.css'
 
 export default class EditProfile extends Component {
     static defaultProps = {
@@ -23,8 +24,8 @@ export default class EditProfile extends Component {
     render() {
         const { user } = this.context        
         return (
-            <section>
-                <h3>Create Baby Profile</h3>
+            <section id="create-section">
+                <h3 id="create-header">Create Baby Profile</h3>
                 <CreateProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
                     user={user}

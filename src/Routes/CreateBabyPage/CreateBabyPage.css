@@ -1,0 +1,70 @@
+#create-section {
+    display: inline-block;
+    /* background-color: white; */
+    /* border: solid 2px rgb(249, 103, 103); */
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to bottom right, rgb(247, 87, 87) , rgb(249, 147, 103));    
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 1.5px 3px 5px grey;
+    width: 400px;
+    /* color: rgb(41, 39, 39); */
+}
+
+#create-form > * {
+    margin: 10px;
+}
+
+#create-header {
+    color: white;
+    font-size: 2rem;
+    opacity: 0.9;  
+}
+
+#create-section label {
+    /* color: rgb(41, 39, 39); */
+    color: white;
+}
+
+.form-items {
+    text-align: left;
+}
+
+.create-form-label {
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+.create-input {
+    font-size: 12px;
+    border-radius: 8px;
+    box-shadow: 1.5px 2px 3px grey;
+}
+
+.create-about {
+    font-size: 12px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 1.5px 2px 3px grey;
+}
+
+.submit-item {
+    text-align: center;
+}
+
+#create-button {
+    margin-top: 30px;
+    background: white;
+    color: rgb(249, 103, 103);
+    box-shadow: 1.5px 2px 3px grey;
+    /* color: white; */
+    /* background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));     */
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}

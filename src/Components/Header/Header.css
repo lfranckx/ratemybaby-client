@@ -38,6 +38,10 @@ h2 {
     margin-right: 5px;
 }
 
+#todler {
+    color: rgb(249, 103, 103);
+}
+
 .Header__not-logged-in a:last-child {
     background: white;
     color: rgb(249, 103, 103);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UploadImageForm from '../../Components/UploadImageForm/UploadImageForm'
 import BabyContext from '../../Contexts/BabyContext'
+import './UploadImage.css'
 
 export default class UploadImagePage extends Component {
     static defaultProps = {
@@ -21,10 +22,13 @@ export default class UploadImagePage extends Component {
     render() {
         const { baby } = this.context
         return (
-            <UploadImageForm 
-                onUploadSuccess={this.handleUploadSuccess}
-                baby={baby}    
-            />
+            <section id="upload-section">
+                <h3 id="upload-header">Upload Image</h3>
+                    <UploadImageForm 
+                        onUploadSuccess={this.handleUploadSuccess}
+                        baby={baby}    
+                    />
+            </section>
         )
     }
 }

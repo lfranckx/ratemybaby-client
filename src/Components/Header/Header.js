@@ -47,10 +47,10 @@ export default class Nav extends Component {
     render() {
         return ( 
                 <nav>
-                    <div id="title-logo">
-                        <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />
-                        <Link to='/'><h1>todler</h1></Link>
-                    </div>
+                    <Link id="title-logo" to='/'>
+                        <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
+                        <h1 id="todler">todler</h1>
+                    </Link>
                     
                     {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
