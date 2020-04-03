@@ -40,16 +40,17 @@ export class BabyProvider extends Component {
     }
 
     setBaby = baby => {
-        console.log('setting baby:', baby);
+        console.log('inside BabyContext: setting baby...', baby);
         this.setState({ baby: baby })
     }
 
     clearBaby = () => {
+        console.log('inside BabyContext: clearing baby...');
         this.setBaby(nullBaby)
     }   
 
     updateBaby = baby => {
-        console.log('updating baby:', baby, 
+        console.log('inside BabyContext: updating baby...', baby, 
         'total_score:', baby.total_score,
         'total_votes:', baby.total_votes)
         this.setState({ 
@@ -59,14 +60,43 @@ export class BabyProvider extends Component {
         BabyApiService.updateBaby(baby)
     }
 
+    useStateWithLocalStorage = localStorageKey => {
+        const [user] = React.useState(
+            localStorage.getItem(localStorageKey) || {}
+        )
+
+        React.useEffect(() => {
+            localStorage.setItem(localStorageKey, user)
+        })
+
+        return [user]
+    }
+    
     setUser = user => {
-        console.log('setting user:', user);
+        console.log(`BabyContext setUser(${user})`);
+
+        localStorage.setItem('user', JSON.stringify(user))
+        const user = JSON.parse(localStorage.getItem('user'))
+
         this.setState({ user: user })
+
+        [user] = this.useStateWithLocalStorage(
+            'user'
+        )
+
+        React.useState(
+            localStorage.getItem('user') || {}
+        )
+
+        React.useEffect(() => {
+            localStorage.setItem('user', JSON.stringify(user))
+        }, [user])
     }
 
     clearUser = () => {
+        console.log(`BabyContext clearUser`);
         this.setUser(nullUser)
-    }   
+    }  
       
     render() {
         const value = {

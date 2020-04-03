@@ -23,10 +23,10 @@ export default class LoginForm extends Component {
         })
         .then(res => {
             UserApiService.getUser(username.value)
-                .then(res => {
+                .then(user => {
                     username.value = ''
                     password.value = ''
-                    this.context.setUser(res)
+                    this.context.setUser(user)
                     this.props.onLoginSuccess()
                 })
         })
@@ -38,33 +38,33 @@ export default class LoginForm extends Component {
     render() {
         const { error } = this.state
         return (
-                <form 
-                    id='login-form'
-                    onSubmit={this.handleSubmitJwtAuth}
-                >
-                    <div role='alert'>{error && <p className='error'>{error}</p>}</div>
-                    <div className="input-box">
-                        <label className='label'>
-                            Username
-                            {/* <span className='required'>*</span> */}
-                        </label>
-                        <input
-                            type="text" 
-                            name='username' 
-                            className='username' />
-                    </div>
-                    <div className="input-box">
-                        <label className='label'>
-                            Password
-                            {/* <span className='required'>*</span> */}
-                        </label> 
-                        <input 
-                            type="password" 
-                            name='password' 
-                            className='password' />
-                    </div>
-                    <button id="login-button" type="submit">Login</button>
-                </form>
+            <form 
+                id='login-form'
+                onSubmit={this.handleSubmitJwtAuth}
+            >
+                <div role='alert'>{error && <p className='error'>{error}</p>}</div>
+                <div className="input-box">
+                    <label className='label'>
+                        Username
+                        {/* <span className='required'>*</span> */}
+                    </label>
+                    <input
+                        type="text" 
+                        name='username' 
+                        className='username' />
+                </div>
+                <div className="input-box">
+                    <label className='label'>
+                        Password
+                        {/* <span className='required'>*</span> */}
+                    </label> 
+                    <input 
+                        type="password" 
+                        name='password' 
+                        className='password' />
+                </div>
+                <button id="login-button" type="submit">Login</button>
+            </form>
         )
     }
 }

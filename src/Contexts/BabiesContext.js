@@ -17,6 +17,7 @@ export class BabiesProvider extends Component {
     }
     
     setBabies = babies => {
+        console.log('BabiesContext setState:', babies);
         this.setState({ babies })
     }
 
@@ -26,6 +27,7 @@ export class BabiesProvider extends Component {
     }
 
     clearError = () => {
+        console.log('BabiesContext clearError');
         this.setState({ error: null })
     }
 

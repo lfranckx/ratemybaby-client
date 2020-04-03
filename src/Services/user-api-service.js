@@ -14,6 +14,7 @@ const UserApiService = {
         )
     },
     getUser(username) {
+        console.log(`user-api-service: getUser(${username})`);
         return fetch(`${config.API_ENDPOINT}/users/${username}`, {
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -26,6 +27,8 @@ const UserApiService = {
           )
     },
     postUser(username, password, email) {
+        console.log(`user-api-service: postUser(${username, password, email})`);
+        
         return fetch(`${config.API_ENDPOINT}/users`, {
             method: 'POST',
             headers: {
@@ -40,6 +43,8 @@ const UserApiService = {
         })  
     },
     updateUser(id, username, password, email) {
+        console.log(`user-api-service updateUser(${id, username, password, email})`);
+        
         return fetch(`${config.API_ENDPOINT}/users/${id}`, {
             method: 'POST',
             headers: {
