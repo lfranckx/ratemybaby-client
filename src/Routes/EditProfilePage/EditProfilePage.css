@@ -1,4 +1,4 @@
-#create-section {
+#edit-section {
     display: inline-block;
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to bottom right, rgb(247, 87, 87) , rgb(249, 147, 103));    
@@ -8,57 +8,42 @@
     width: 400px;
 }
 
-#create-form > * {
+#edit-form > * {
     margin: 10px;
 }
 
-#create-header {
+#edit-header {
     color: white;
     font-size: 2rem;
     opacity: 0.9;  
 }
 
-#create-section label {
+#edit-section label {
     color: white;
 }
 
-.form-items {
+.editFormItems {
     text-align: left;
 }
 
-.create-form-label {
+.edit-form-label {
     font-size: 18px;
     margin-left: 3px;
 }
 
-.create-input {
+.editFormButtons {
+    text-align: center;
+}
+
+.edit-input {
     font-size: 16px;
     border-radius: 8px;
     box-shadow: 1.5px 2px 3px grey;
     padding: 5px 10px;
 }
 
-#country-selector {
-    font-size: 16px;
-    border-radius: 8px;
-    padding: 5px;
-    width: 300px;
-}
-
-.create-about {
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 1.5px 2px 3px grey;
-}
-
-.submit-item {
-    text-align: center;
-}
-
-#create-button {
-    margin-top: 30px;
+.edit-buttons {
+    margin: 30px 5px 0;
     background: white;
     color: rgb(249, 103, 103);
     box-shadow: 1.5px 2px 3px grey;
@@ -70,6 +55,11 @@
     cursor: pointer;
 }
 
-#create-button:active {
+#cancel-button {
+    font-size: 17.6px;
+    color: rgb(249, 103, 103);
+}
+
+.edit-buttons:active {
     transform: translateY(2px);
 }

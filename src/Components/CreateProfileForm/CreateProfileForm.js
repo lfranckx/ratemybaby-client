@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
+import CountryDropDown from '../CountryDropDown/CountryDropDown'
 
 class EditProfile extends Component {
 
@@ -26,6 +27,7 @@ class EditProfile extends Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { name, age, country, about } = ev.target
+        console.log({name, age, country, about});
         
         BabyApiService.postBaby({
             baby_name: name.value,
@@ -41,7 +43,10 @@ class EditProfile extends Component {
             BabyApiService.getBaby(this.state.id)
             .then(baby => {
                 name.value = ''
+                age.value = ''
+                country.value = ''
                 about.value = ''
+                
                 this.context.setBaby(baby)
                 this.props.onSubmitForm()
             })
@@ -56,9 +61,11 @@ class EditProfile extends Component {
                     onSubmit={this.handleCreateBaby}
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
+                    
                     <div className="form-items">
                         <label className='create-form-label'>Name</label>
                     </div>
+
                     <div className="form-items">
                         <input 
                             className="create-input"
@@ -67,9 +74,11 @@ class EditProfile extends Component {
                             required 
                         />
                     </div>
+
                     <div className="form-items">
                         <label className='create-form-label'>Age</label>
                     </div>
+
                     <div className="form-items">
                         <input 
                             className="create-input"
@@ -78,17 +87,21 @@ class EditProfile extends Component {
                             required 
                         />
                     </div>
+
                     <div className="form-items">
                         <label className='create-form-label'>Country</label>
                     </div>
+
                     <div className="form-items">
-                        <input 
-                            className="create-input"
-                            type="text"
-                            name="country" 
-                            required 
-                        />
+                    <select 
+                        id="country-selector" 
+                        name="country" 
+                        className="form-control"
+                    >
+                        <CountryDropDown />
+                    </select>
                     </div>
+
                     <div className="form-items">
                         <label className='create-form-label'>About</label>
                     </div>

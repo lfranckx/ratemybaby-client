@@ -33,3 +33,8 @@
     color: white;
     cursor: pointer;
 }
+
+#upload-button:active {
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87)); 
+}

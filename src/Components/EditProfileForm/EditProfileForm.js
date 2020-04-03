@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 import { Link } from 'react-router-dom'
+import CountryDropDown from '../CountryDropDown/CountryDropDown'
 
 class EditProfile extends Component {
 
@@ -16,6 +17,8 @@ class EditProfile extends Component {
             error: null,
             id: baby.id,
             name: baby.baby_name,
+            age: baby.age,
+            country: baby.country,
             about: baby.about,
         }
     }
@@ -46,19 +49,44 @@ class EditProfile extends Component {
                 >
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <div className="editFormItems">
-                        <label className='label'>Name</label>
+                        <label className="edit-form-label">Name</label>
                     </div>
                     <div className="editFormItems">
                         <input 
-                            className="name"
+                            className="edit-input"
                             type="text"
                             name="name" 
                             required 
                             defaultValue={this.state.name}
                         />
                     </div>
+                    <div className="form-items">
+                        <label className='edit-form-label'>Age</label>
+                    </div>
+                    <div className="form-items">
+                        <input 
+                            className="edit-input"
+                            type="text"
+                            name="age" 
+                            required
+                            defaultValue={this.state.age}
+                        />
+                    </div>
+                    <div className="form-items">
+                        <label className='create-form-label'>Country</label>
+                    </div>
+                    <div className="form-items">
+                        <select 
+                            id="country-selector" 
+                            name="country" 
+                            className="form-control"
+                            defaultValue={this.state.country}
+                        >
+                            <CountryDropDown />
+                        </select>
+                    </div>
                     <div className="editFormItems">
-                        <label>About</label>
+                        <label className="edit-form-label">About</label>
                     </div>
                     <div className="editFormItems">
                         <textarea 
@@ -68,9 +96,11 @@ class EditProfile extends Component {
                             defaultValue={this.state.about}
                         />
                     </div>
-                    <div className="editFormItems">
-                        <Link className="cancel" to="/profile">Cancel</Link>
-                        <button type="submit">Submit</button>
+                    <div className="editFormButtons" id="cancel-submit-buttons">
+                        <button className="edit-buttons cancel-button" type="click">
+                            <Link id="cancel-button" to="/profile">Cancel</Link>
+                        </button>
+                        <button className="edit-buttons submit-button" type="submit">Submit</button>
                     </div>
                 </form>
     }

@@ -31,11 +31,11 @@ export default class UserProfile extends Component {
                     <h3>{baby.baby_name}</h3>
                     <span className="age">
                         <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
-                        2
+                        {baby.age}
                     </span>
                     <span className="country">
                         <img src="./tinder_icons/house.png" alt="house" id="house" />
-                        Country
+                        {baby.country}
                     </span>
                 </div>
                 <div className="about">

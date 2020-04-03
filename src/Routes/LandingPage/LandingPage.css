@@ -1,5 +1,6 @@
 #landing-header {
-    background: -webkit-linear-gradient(rgb(251, 58, 58) , rgb(249, 137, 103));    -webkit-background-clip: text;
+    background: -webkit-linear-gradient(rgb(251, 58, 58) , rgb(232, 112, 75));    
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     font-size: 4rem;
     opacity: 0.9;    
@@ -15,8 +16,10 @@
     font-size: x-large;
     font-weight: bold;
     width: 100%;
+    box-shadow: 1.5px 2px 3px grey;
 }
 
 .register:active {
-    background-color: rgb(247, 87, 87)
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87));    
 }

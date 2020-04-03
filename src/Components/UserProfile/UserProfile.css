@@ -13,9 +13,7 @@
     color: white;
 }
 
-.edit-info:hover {
+.edit-info:active {
     background-color: rgb(249, 103, 103);
-}
-
-#change-photo {
+    background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87)); 
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EditProfileForm from '../../Components/EditProfileForm/EditProfileForm'
 import BabyContext from '../../Contexts/BabyContext'
+import './EditProfilePage.css'
 
 export default class EditProfile extends Component {
     static defaultProps = {
@@ -23,8 +24,8 @@ export default class EditProfile extends Component {
     render() {
         const { baby } = this.context        
         return (
-            <section>
-                <h3>Edit Profile</h3>
+            <section id="edit-section">
+                <h3 id="edit-header">Edit Profile</h3>
                 <EditProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
                     baby={baby}
