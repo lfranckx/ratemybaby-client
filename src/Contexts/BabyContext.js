@@ -41,6 +41,7 @@ export class BabyProvider extends Component {
 
     setBaby = baby => {
         console.log('BabyContext setBaby:', baby);
+        // localStorage.setItem('baby', JSON.stringify(baby))
         this.setState({ baby: baby }) 
     }
 
@@ -63,6 +64,7 @@ export class BabyProvider extends Component {
     setUser = user => {
         console.log(`BabyContext setUser:`, user);
         this.setState({ user: user })
+        // localStorage.setItem('user', JSON.stringify(user))
     }
 
     clearUser = () => {

@@ -3,7 +3,7 @@ import TokenService from '../Services/token-service'
 
 const BabyApiService = {
   getBabies() {
-    console.log('baby-api-service getBabies:');
+    console.log('running baby-api-service getBabies');
     return fetch(`${config.API_ENDPOINT}/babies`, {
       headers: {
         'Content-Type': 'application/json',

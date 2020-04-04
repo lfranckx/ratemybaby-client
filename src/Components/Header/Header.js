@@ -8,7 +8,7 @@ export default class Nav extends Component {
 
     handleLogout = () => {
         console.log('running handleLogout');
-        
+        localStorage.clear()
         TokenService.clearAuthToken()
         /* when logging out, clear the callbacks to the refresh api and idle auto logout */
         TokenService.clearCallbackBeforeExpiry()
@@ -39,7 +39,6 @@ export default class Nav extends Component {
     }
 
     renderLoginLink() {
-
         return (
             <>
                 <Link id="title-logo" to='/'>
@@ -48,7 +47,6 @@ export default class Nav extends Component {
                 </Link>
                 <div className='Header__not-logged-in'>
                     <Link 
-                        onClick={this.handleOverlay}
                         to='/login'>
                         LOG IN
                     </Link>

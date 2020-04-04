@@ -12,13 +12,20 @@ class ProfilePage extends Component {
     static contextType = BabyContext
     
     componentDidMount() {
-        const localUser = JSON.parse(localStorage.getItem('user'))
-        console.log('localUser:', localUser);
+        // const localUser = JSON.parse(localStorage.getItem('user'))
+        // console.log('localUser:', localUser);
         
-        let parent_id = localUser.id
-        this.context.clearError()
+        // let parent_id = localUser.id
+        // this.context.clearError()
 
-        BabyApiService.getBaby(parent_id)
+        // BabyApiService.getBaby(parent_id)
+        //     .then(this.context.setBaby)
+        //     .catch(this.context.setError)
+
+        this.context.clearError()
+        const { baby } = this.context.state.baby
+        
+        BabyApiService.getBaby(baby.id)
             .then(this.context.setBaby)
             .catch(this.context.setError)
     }
