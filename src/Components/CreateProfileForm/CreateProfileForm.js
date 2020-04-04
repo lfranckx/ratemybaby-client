@@ -55,6 +55,7 @@ class EditProfile extends Component {
 
     render() {
         const { error } = this.state
+        console.log('CreateProfileForm Context:', this.context);
         
         return  <form 
                     id="create-form"
@@ -96,6 +97,7 @@ class EditProfile extends Component {
                     <select 
                         id="country-selector" 
                         name="country" 
+                        defaultValue="United States"
                         className="form-control"
                     >
                         <CountryDropDown />

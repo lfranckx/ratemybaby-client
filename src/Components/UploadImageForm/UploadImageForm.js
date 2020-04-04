@@ -14,7 +14,6 @@ export default class UploadImage extends Component {
     constructor(props) {
         super(props)
         this.fileInput = React.createRef()
-        // console.log('this.props.baby:', this.props.baby);
         
         this.state = {
             error: null,

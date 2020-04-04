@@ -2,27 +2,18 @@ import React, { Component } from 'react'
 import noProfilePic from '../../images/babydrawing.png'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
+import CreateProfileForm from '../CreateProfileForm/CreateProfileForm'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
-    renderNoBabyProfile() {
-        return <section className="profile-container">
-                    <Link to="/uploadimage">Change Photo</Link>
-                    <div>
-                        <img src={noProfilePic} alt="profile" className="profilepic" />
-                    </div>
-                    <div className="about">
-                        <Link to="/editprofile">Edit</Link>
-                    </div>
-                </section>
-    }
-
-    renderWithBabyProfile() {
+    renderWithBaby() {
         const { baby } = this.props
-
+        if (baby.image_url === undefined) {
+            return baby.image_url === noProfilePic
+        }
         return (
             <section className="profile-container">
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
@@ -49,11 +40,10 @@ export default class UserProfile extends Component {
     }
 
     render() {
-        // console.log('this.props:', this.props);
-        
-        // if (this.props.baby.baby === null) {
-        //     return this.renderNoBabyProfile()
+        // const { baby } = this.context.state.baby
+        // if (!baby) {
+        //     return <CreateProfileForm />
         // }
-        return this.renderWithBabyProfile()
+        return this.renderWithBaby()
     }
 }

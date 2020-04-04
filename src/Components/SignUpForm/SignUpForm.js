@@ -43,6 +43,9 @@ export default class SignUp extends Component {
     }
 
     render() {
+        console.log('SignUpForm State:', this.state);
+        
+        
         const { error } = this.state
         return (
             <form 

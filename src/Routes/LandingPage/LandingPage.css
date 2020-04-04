@@ -7,6 +7,10 @@
     margin: 38px 0 150px;
 }
 
+.landing-section {
+    padding: 0 10px;
+}
+
 .register {
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
