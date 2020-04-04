@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
 import './App.css'
 
 import Header from '../Header/Header'
@@ -16,6 +16,9 @@ import CreateBabyPage from '../../Routes/CreateBabyPage/CreateBabyPage'
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
+
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicRoute from '../Utils/PublicOnlyRoute'
 
 class App extends Component {
   constructor(props) {
@@ -99,39 +102,39 @@ class App extends Component {
         <main>
           {this.state.error && <p className='error'>There was an error.</p>}
           <Switch>
-            <Route 
+            <PublicRoute 
               exact path='/'
               component={LandingPage}
             />
-            <Route
+            <PrivateRoute
               path='/rate'
               component={BabiesPage}
             />
-            <Route
+            <PublicRoute
               path='/login'
               component={LoginPage}
             />
-            <Route
+            <PublicRoute
               path='/register'
               component={SignUpPage}
             />
-            <Route 
+            <PrivateRoute 
               path='/createprofile'
               component={CreateBabyPage}
             />
-            <Route 
+            <PrivateRoute 
               path='/profile'
               component={ProfilePage}
             />
-            <Route 
+            <PrivateRoute 
               path='/editprofile'
               component={EditProfilePage}
             />
-            <Route 
+            <PrivateRoute 
               path='/uploadimage'
               component={UploadImagePage}
             />
-            <Route 
+            <PrivateRoute 
               component={NotFoundPage}
             />
           </Switch>
