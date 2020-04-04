@@ -36,6 +36,7 @@ export class BabyProvider extends Component {
     }
 
     clearError = () => {
+        console.log('running BabyContext clearError()');
         this.setState({ error: null })
     }
 
@@ -45,6 +46,7 @@ export class BabyProvider extends Component {
     }
 
     clearBaby = () => {
+        console.log('running BabyContext clearBaby()');
         this.setBaby(nullBaby)
     }   
 
@@ -65,6 +67,7 @@ export class BabyProvider extends Component {
     }
 
     clearUser = () => {
+        console.log('running BabyContext clearUser()');
         this.setUser(nullUser)
     }   
       

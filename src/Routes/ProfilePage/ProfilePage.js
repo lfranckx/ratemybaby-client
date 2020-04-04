@@ -12,8 +12,11 @@ class ProfilePage extends Component {
     static contextType = BabyContext
     
     componentDidMount() {
-        let parent_id = this.context.user.id
         this.context.clearError()
+        const user = JSON.parse(localStorage.getItem('user'));
+        const parent_id = user.id
+        console.log('localStorage user:', user);
+        
 
         BabyApiService.getBaby(parent_id)
             .then(this.context.setBaby)

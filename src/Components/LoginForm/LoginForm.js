@@ -26,6 +26,8 @@ export default class LoginForm extends Component {
                 .then(res => {
                     username.value = ''
                     password.value = ''
+                    console.log('getUser response and setting to local storage:', res);
+                    localStorage.setItem('user', JSON.stringify(res))
                     this.context.setUser(res)
                     this.props.onLoginSuccess()
                 })
