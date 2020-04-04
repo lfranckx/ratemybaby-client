@@ -22,13 +22,15 @@ export default class EditProfile extends Component {
     }
 
     render() {
-        const { baby } = this.context        
+        const localBaby = JSON.parse(localStorage.getItem('baby'))
+        console.log('localBaby:', localBaby);
+        // const { baby } = this.context        
         return (
             <section id="edit-section">
                 <h3 id="edit-header">Edit Profile</h3>
                 <EditProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
-                    baby={baby}
+                    baby={localBaby}
                 />
             </section>
         )

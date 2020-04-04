@@ -21,6 +21,7 @@ export default class UploadImagePage extends Component {
 
     render() {
         const { baby } = this.context
+        
         return (
             <section id="upload-section">
                 <h3 id="upload-header">Upload Image</h3>

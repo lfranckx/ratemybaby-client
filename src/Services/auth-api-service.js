@@ -19,7 +19,7 @@ const AuthApiService = {
         )
     },
     postLogin(credentials) {
-        console.log(`auth-api-service: postLogin(${credentials})`);        
+        console.log(`auth-api-service: postLogin()`, credentials);        
         return fetch(`${config.API_ENDPOINT}/auth/login`, {
             method: 'POST',
             headers: {
@@ -44,6 +44,7 @@ const AuthApiService = {
             TokenService.queueCallbackBeforeExpiry(() => {
                 AuthApiService.postRefreshToken()
             })
+            console.log('token response:', res)
             return res
         })
     },

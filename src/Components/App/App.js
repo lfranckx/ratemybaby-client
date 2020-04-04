@@ -17,6 +17,10 @@ import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
 import IdleService from '../../Services/idle-service'
 
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicRoute from '../Utils/PublicOnlyRoute'
+
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -99,39 +103,39 @@ class App extends Component {
         <main>
           {this.state.error && <p className='error'>There was an error.</p>}
           <Switch>
-            <Route 
+            <PublicRoute 
               exact path='/'
               component={LandingPage}
             />
-            <Route
+            <PrivateRoute
               path='/rate'
               component={BabiesPage}
             />
-            <Route
+            <PublicRoute
               path='/login'
               component={LoginPage}
             />
-            <Route
+            <PublicRoute
               path='/register'
               component={SignUpPage}
             />
-            <Route 
+            <PrivateRoute 
               path='/createprofile'
               component={CreateBabyPage}
             />
-            <Route 
+            <PrivateRoute 
               path='/profile'
               component={ProfilePage}
             />
-            <Route 
+            <PrivateRoute 
               path='/editprofile'
               component={EditProfilePage}
             />
-            <Route 
+            <PrivateRoute 
               path='/uploadimage'
               component={UploadImagePage}
             />
-            <Route 
+            <PublicRoute 
               component={NotFoundPage}
             />
           </Switch>

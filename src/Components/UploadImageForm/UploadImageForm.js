@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BabyContext from '../../Contexts/BabyContext'
 import BabyApiService from '../../Services/baby-api-service'
+import { Link } from 'react-router-dom'
 
 
 export default class UploadImage extends Component {
@@ -24,8 +25,10 @@ export default class UploadImage extends Component {
     handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        let baby  = this.props.baby
-        console.log('this.props.baby:', baby);
+        const localBaby = JSON.parse(localStorage.getItem('baby'))
+        console.log('localBaby:', localBaby);
+        // let baby  = this.props.baby
+        // console.log('this.props.baby:', baby);
         
         const  fileSelected  = this.fileInput.current.files[0]
         const data = new FormData()
@@ -38,8 +41,8 @@ export default class UploadImage extends Component {
                 : res.json()
                 .then(data => {
                     console.log('postImageFile response:', data);
-                    baby.image_url = data.image_url
-                    BabyApiService.updateBaby(baby)
+                    localBaby.image_url = data.image_url
+                    BabyApiService.updateBaby(localBaby)
                     this.props.onUploadSuccess()
                 })
         })
@@ -60,8 +63,12 @@ export default class UploadImage extends Component {
                         type="file"
                         accept=".png, .jpg, .jpeg .gif"
                         name="file" 
-                        id="file" />
-                    <button id="upload-button" type="submit">Submit</button>
+                        id="file" 
+                        required/>
+                    <button className="upload-button">
+                        <Link id="cancel-upload" to="/profile">Cancel</Link>
+                    </button>
+                    <button className="upload-button" type="submit">Submit</button>
                 </form>
         )
     }

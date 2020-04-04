@@ -67,3 +67,8 @@ input  {
     font-family: Arial;
     font-weight: bold;
 }
+
+.error {
+    font-size: 28px;
+    font-weight: bold;
+}

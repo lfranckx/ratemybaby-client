@@ -21,7 +21,7 @@
     color: rgb(41, 39, 39);
 }
 
-#upload-button {
+.upload-button {
     margin-top: 30px;
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
@@ -34,7 +34,12 @@
     cursor: pointer;
 }
 
-#upload-button:active {
+.upload-button:active {
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87)); 
+}
+
+#cancel-upload {
+    color: white;
+    font-size: 17.6px
 }

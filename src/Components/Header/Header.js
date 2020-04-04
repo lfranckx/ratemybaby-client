@@ -3,7 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import TokenService from '../../Services/token-service'
 import IdleService from '../../Services/idle-service'
-import { differenceInMilliseconds } from 'date-fns'
+// import { differenceInMilliseconds } from 'date-fns'
 
 export default class Nav extends Component {
     handleLogout = () => {

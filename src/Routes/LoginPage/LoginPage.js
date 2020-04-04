@@ -11,6 +11,8 @@ export default class LoginPage extends Component {
     }
   
     handleLoginSuccess = () => {
+      console.log('handleLoginSuccess: directing to rate page');
+      
       const { location, history } = this.props
       const destination = (location.state || {}).from || '/rate'
       history.push(destination)

@@ -16,6 +16,8 @@ export default class LoginForm extends Component {
         ev.preventDefault()
         this.setState({ error: null })
         const { username, password } = ev.target
+        const user = {username, password}
+        this.context.setUser(user)
 
         AuthApiService.postLogin({
           username: username.value,
@@ -24,6 +26,7 @@ export default class LoginForm extends Component {
         .then(res => {
             UserApiService.getUser(username.value)
                 .then(user => {
+                    console.log('UserApiService Response:',user);
                     username.value = ''
                     password.value = ''
                     this.context.setUser(user)
@@ -42,11 +45,10 @@ export default class LoginForm extends Component {
                 id='login-form'
                 onSubmit={this.handleSubmitJwtAuth}
             >
-                <div role='alert'>{error && <p className='error'>{error}</p>}</div>
+                <div role='alert' className="error">{error && <p className='error'>{error}</p>}</div>
                 <div className="input-box">
                     <label className='label'>
                         Username
-                        {/* <span className='required'>*</span> */}
                     </label>
                     <input
                         type="text" 
@@ -56,7 +58,6 @@ export default class LoginForm extends Component {
                 <div className="input-box">
                     <label className='label'>
                         Password
-                        {/* <span className='required'>*</span> */}
                     </label> 
                     <input 
                         type="password" 
