@@ -25,9 +25,9 @@ export default class Nav extends Component {
                 </Link>
                 <div className='Header__logged-in'>
                     <Link 
-                        to='/profile'
+                        to='/createprofile'
                     >
-                        Profile
+                        Create Profile
                     </Link>
                     <Link
                         onClick={this.handleLogout}

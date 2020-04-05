@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import noProfilePic from '../../images/babydrawing.png'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
-import CreateProfileForm from '../CreateProfileForm/CreateProfileForm'
+// import CreateProfileForm from '../CreateProfileForm/CreateProfileForm'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
@@ -41,10 +41,6 @@ export default class UserProfile extends Component {
     }
 
     render() {
-        const baby  = this.context.baby
-        if (!baby) {
-            return <CreateProfileForm />
-        }
         return this.renderWithBabyProfile()
     }
 }

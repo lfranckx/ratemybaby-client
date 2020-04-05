@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // localStorage.clear()
     /*
       set the function (callback) to call when a user goes idle
       we'll set this to logout a user when they're idle

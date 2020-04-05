@@ -32,6 +32,8 @@ export default class SignUp extends Component {
                 .then(user => {
                     username.value = ''
                     password.value = ''
+                    console.log('getUser response and setting localStorage:', user);
+                    localStorage.setItem('user', JSON.stringify(user))
                     this.context.setUser(user)
                     this.props.onSignUpSuccess()
                 })

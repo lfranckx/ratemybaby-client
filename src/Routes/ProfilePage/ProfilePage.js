@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 import UserProfile from '../../Components/UserProfile/UserProfile'
+import CreateProfileForm from '../../Components/CreateProfileForm/CreateProfileForm'
 
 class ProfilePage extends Component {
 
@@ -26,7 +27,7 @@ class ProfilePage extends Component {
     render() {
         const { baby } = this.context
         if (!baby) {
-            return <div>Loading...</div>
+            return <CreateProfileForm />
         } 
         return(
             <UserProfile baby={baby}/>

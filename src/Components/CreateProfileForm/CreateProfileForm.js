@@ -19,9 +19,22 @@ class EditProfile extends Component {
         this.fileInput = React.createRef()
         this.state = {
             error: null,
-            id: user.id
+            id: user.id,
+            numOfBabies: this.context.user.baby_ids.length
         }
     }
+
+    componentDidMount() {
+        this.context.clearError()
+        const user = JSON.parse(localStorage.getItem('user'));
+        // const parent_id = user.id
+        console.log('localStorage user:', user);
+
+        // BabyApiService.getBaby(parent_id)
+        //     .then(this.context.setBaby)
+        //     .catch(this.context.setError)
+    }
+
 
     handleCreateBaby = ev => {
         ev.preventDefault()
@@ -30,6 +43,7 @@ class EditProfile extends Component {
         console.log({name, age, country, about});
         
         BabyApiService.postBaby({
+            baby_id: 
             baby_name: name.value,
             age: age.value,
             country: country.value,
