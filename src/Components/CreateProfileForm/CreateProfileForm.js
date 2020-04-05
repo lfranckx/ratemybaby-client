@@ -43,7 +43,7 @@ class EditProfile extends Component {
         console.log({name, age, country, about});
         
         BabyApiService.postBaby({
-            baby_id: 
+            baby_id: this.state.numOfBabies + 1,
             baby_name: name.value,
             age: age.value,
             country: country.value,
