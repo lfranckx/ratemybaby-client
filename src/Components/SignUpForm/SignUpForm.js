@@ -21,6 +21,7 @@ export default class SignUp extends Component {
             username: username.value,
             user_password: password.value,
             email: email.value,
+            baby_ids: []
         })
         .then(user => {
             AuthApiService.postLogin({

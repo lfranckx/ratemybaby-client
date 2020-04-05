@@ -20,7 +20,7 @@ class EditProfile extends Component {
         this.state = {
             error: null,
             id: user.id,
-            numOfBabies: this.context.user.baby_ids.length
+            // numOfBabies: this.context.user.baby_ids.length
         }
     }
 
@@ -39,11 +39,13 @@ class EditProfile extends Component {
     handleCreateBaby = ev => {
         ev.preventDefault()
         this.setState({ error: null })
+        const user = JSON.parse(localStorage.getItem('user'));
+        const parent_id = user.id
+
         const { name, age, country, about } = ev.target
         console.log({name, age, country, about});
         
         BabyApiService.postBaby({
-            baby_id: this.state.numOfBabies + 1,
             baby_name: name.value,
             age: age.value,
             country: country.value,
@@ -51,20 +53,20 @@ class EditProfile extends Component {
             image_url: '',
             total_score: 5,
             total_votes: 5,
-            parent_id: this.state.id,
+            parent_id: parent_id
         }) 
-        .then(res => {
-            BabyApiService.getBaby(this.state.id)
-            .then(baby => {
-                name.value = ''
-                age.value = ''
-                country.value = ''
-                about.value = ''
+        // .then(res => {
+        //     BabyApiService.getBaby(this.state.id)
+        //     .then(baby => {
+        //         name.value = ''
+        //         age.value = ''
+        //         country.value = ''
+        //         about.value = ''
                 
-                this.context.setBaby(baby)
-                this.props.onSubmitForm()
-            })
-        })
+        //         this.context.setBaby(baby)
+        //         this.props.onSubmitForm()
+        //     })
+        // })
     }
 
     render() {
