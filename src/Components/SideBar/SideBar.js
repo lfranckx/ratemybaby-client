@@ -12,28 +12,20 @@ export default class SideBar extends Component {
     static contextType = BabiesContext
 
     componentDidMount() {
-        const user = JSON.parse(localStorage.getItem('user'));
-        const parent_id = user.id
-        console.log('localStorage user:', user);
-        BabyApiService.getByParentId(parent_id)
+        BabyApiService.getByParentId()
             .then(res => {
-                console.log('response from getByParentId and setting to localStorage:', res);
-                localStorage.setItem(`babies`, res)
                 this.context.setUsersBabies(res)
             })
             .catch(this.context.setError)
     }
 
     renderUsersBabies() {
-        // const localBabies = localStorage.getItem('babies')
-        // console.log('localStorage babies:', localBabies);
-        console.log(this.context);
-        
+        console.log('SideBar context', this.context);
         const { usersBabies } = this.context
-        console.log('context babies', usersBabies);
+        console.log('SideBar usersBabies', usersBabies);
         
         if (!usersBabies) {
-            return <div>Loading...</div>
+            return <div className='loading'>Loading...</div>
         }   
         return  usersBabies.map(baby => 
                     <UsersBabies 

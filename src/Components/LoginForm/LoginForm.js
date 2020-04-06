@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
-import UserApiService from '../../Services/user-api-service'
+// import UserApiService from '../../Services/user-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 
 export default class LoginForm extends Component {
@@ -22,15 +22,10 @@ export default class LoginForm extends Component {
           user_password: password.value,
         })
         .then(res => {
-            UserApiService.getUser(username.value)
-                .then(res => {
-                    username.value = ''
-                    password.value = ''
-                    console.log('getUser response and setting to localStorage:', res);
-                    localStorage.setItem('user', JSON.stringify(res))
-                    this.context.setUser(res)
-                    this.props.onLoginSuccess()
-                })
+            username.value = ''
+            password.value = ''
+            console.log('getUser response:', res);
+            this.props.onLoginSuccess()
         })
         .catch(res => {
             this.setState({ error: res.error })

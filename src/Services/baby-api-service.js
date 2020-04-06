@@ -14,7 +14,6 @@ const BabyApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
-      // .then(data => console.log('BabyApi response ' + data))
   },
   getBaby(id) {
     console.log('getting baby by id:', id);
@@ -29,10 +28,9 @@ const BabyApiService = {
           : res.json()
       )
   },
-  getByParentId(parent_id) {
-    console.log('getting baby by parent_id:', parent_id);
-
-    return fetch(`${config.API_ENDPOINT}/babies/parent/${parent_id}`, {
+  getByParentId() {
+    console.log('runningGetByParentId()');
+    return fetch(`${config.API_ENDPOINT}/babies/parent_id`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },

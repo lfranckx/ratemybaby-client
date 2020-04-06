@@ -23,21 +23,16 @@ export default class SignUp extends Component {
             email: email.value,
             baby_ids: []
         })
-        .then(user => {
+        .then(res => {
             AuthApiService.postLogin({
                 username: username.value,
                 user_password: password.value
             })
-            .then(res => {
-                UserApiService.getUser(username.value)
-                .then(user => {
-                    username.value = ''
-                    password.value = ''
-                    console.log('getUser response and setting localStorage:', user);
-                    localStorage.setItem('user', JSON.stringify(user))
-                    this.context.setUser(user)
-                    this.props.onSignUpSuccess()
-                })
+            .then(user => {
+                username.value = ''
+                password.value = ''
+                console.log('SignUpForm getUser response:', user);
+                this.props.onSignUpSuccess()
             })
         })
         .catch(res => {

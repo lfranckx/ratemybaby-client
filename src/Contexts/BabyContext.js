@@ -5,10 +5,6 @@ export const nullBaby = {
     babies: null
 }
 
-export const nullUser = {
-    user: null
-}
-
 const BabyContext = React.createContext({
     babies: nullBaby,
     error: null,
@@ -16,16 +12,13 @@ const BabyContext = React.createContext({
     clearError: () => {},
     setBaby: () => {},
     clearBaby: () => {},
-    updateBaby: () => {},
-    setUser: () => {},
-    clearUser: () => {}
+    updateBaby: () => {}
 })
 
 export default BabyContext
 
 export class BabyProvider extends Component {
     state = {
-        user: nullUser,
         babies: nullBaby,
         error: null
     }
@@ -63,20 +56,9 @@ export class BabyProvider extends Component {
         })
         BabyApiService.updateBaby(baby)
     }
-
-    setUser = user => {
-        console.log('setting user:', user);
-        this.setState({ user: user })
-    }
-
-    clearUser = () => {
-        console.log('running BabyContext clearUser()');
-        this.setUser(nullUser)
-    }   
       
     render() {
         const value = {
-            user: this.state.user,
             babies: this.state.babies,
             error: this.state.error,
             setError: this.setError,
@@ -84,7 +66,6 @@ export class BabyProvider extends Component {
             setBaby: this.setBaby,
             clearBaby: this.clearBaby,
             updateBaby: this.updateBaby,
-            setUser: this.setUser,
             clearUser: this.clearUser
         }
         return (
