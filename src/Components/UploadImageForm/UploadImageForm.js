@@ -21,6 +21,12 @@ export default class UploadImage extends Component {
         }
     }
 
+    componentDidMount() {
+        this.context.clearError()
+        const baby = JSON.parse(localStorage.getItem('baby'));
+        console.log('localStorage baby:', baby);
+    }
+
     handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })

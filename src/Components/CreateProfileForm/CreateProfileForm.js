@@ -25,7 +25,6 @@ class EditProfile extends Component {
     }
 
     componentDidMount() {
-        this.context.clearError()
         const user = JSON.parse(localStorage.getItem('user'));
         // const parent_id = user.id
         console.log('localStorage user:', user);
@@ -43,7 +42,7 @@ class EditProfile extends Component {
         const parent_id = user.id
 
         const { name, age, country, about } = ev.target
-        console.log({name, age, country, about});
+        // console.log({name, age, country, about});
         
         BabyApiService.postBaby({
             baby_name: name.value,
@@ -57,6 +56,7 @@ class EditProfile extends Component {
         }) 
         .then(res => {
             console.log('postbaby response:', res)
+            localStorage.setItem('baby', JSON.parse(JSON.stringify(res)))
             // BabyApiService.getBaby(this.state.id)
             // .then(baby => {
             //     name.value = ''

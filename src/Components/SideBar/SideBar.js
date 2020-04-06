@@ -21,7 +21,8 @@ export default class SideBar extends Component {
     }
     render() {
         const {baby} = this.context
-        console.log('baby from sidebar:', baby);
+        localStorage.setItem('baby', JSON.stringify(baby))
+        console.log('baby from localStorage:', baby);
         
         return <nav id="sidebar">
             < div id='sidebarheader'><h2>Your Babies</h2></div>

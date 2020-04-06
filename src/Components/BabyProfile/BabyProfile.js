@@ -16,11 +16,13 @@ export default class BabyProfile extends Component {
 
     componentDidMount() {
         this.context.clearError()
+        const {baby} = this.context
+        localStorage.setItem('baby', JSON.stringify(baby))
     }
 
-    componentWillUnmount() {
-        this.context.clearBaby()
-    }
+    // componentWillUnmount() {
+    //     this.context.clearBaby()
+    // }
 
     handleLike = (baby) => {
         baby.total_score += 5
