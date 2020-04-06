@@ -18,33 +18,41 @@ export default class SideBar extends Component {
         BabyApiService.getByParentId(parent_id)
             .then(res => {
                 console.log('response from getByParentId and setting to localStorage:', res);
-                localStorage.setItem(`babies`, JSON.stringify(res))
+                localStorage.setItem(`babies`, res)
                 this.context.setBaby(res)
             })
             .catch(this.context.setError)
     }
-    render() {
 
+    renderUsersBabies() {
         const localBabies = localStorage.getItem('babies')
-        // console.log('localStorage babies:', localBabies);
+        console.log('localStorage babies:', localBabies);
         
         const { babies = [] } = this.context
-        // console.log('context babies', babies);
+        console.log('context babies', babies);
         
+        if (!babies) {
+            return <div>Loading...</div>
+        }   
+        // return  babies.map(baby => 
+        //             <UsersBabies 
+        //                 key={baby.id}
+        //                 baby={baby}
+        //             />
+        //         )
+    }
+
+    render() {
+        const { error } = this.context
         return (
             <nav id="sidebar">
                 <div id='sidebarheader'><h2>My Babies</h2></div>
-                <div className='side-bar-link'>
-                    <ul>
-                        {/* {babies.map(baby => 
-                            <UsersBabies 
-                                key={baby.id}
-                                baby={baby}
-                            />
-                        )} */}
-                    </ul>
-                </div>
-                
+                <ul>
+                    {error
+                        ? <p className='red'>There was an error, try again</p>
+                        : this.renderUsersBabies()}
+                </ul>
+                {/* <div className='side-bar-link'></div> */}
             </nav>
         )
 
