@@ -15,7 +15,7 @@ export default class SideBar extends Component {
         const user = JSON.parse(localStorage.getItem('user'));
         const parent_id = user.id
         console.log('localStorage user:', user);
-        BabyApiService.getBaby(parent_id)
+        BabyApiService.getByParentId(parent_id)
             .then(this.context.setBaby)
             .catch(this.context.setError)
     }

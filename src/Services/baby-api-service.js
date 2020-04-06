@@ -15,7 +15,7 @@ const BabyApiService = {
       )
   },
   getBaby(id) {
-    console.log('getting baby by parent_id:', id);
+    console.log('getting baby by id:', id);
     
     return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
       headers: {
@@ -27,6 +27,20 @@ const BabyApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+  },
+  getByParentId(parent_id) {
+    console.log('getting baby by parent_id:', parent_id);
+
+    return fetch(`${config.API_ENDPOINT}/babies/parent/${parent_id}`, {
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+    )
   },
   async postBaby(baby) {
     console.log('creating baby:', baby);

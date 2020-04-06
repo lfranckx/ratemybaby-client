@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BabyApiService from '../Services/baby-api-service'
 
 export const nullBaby = {
-    baby: null
+    babies: null
 }
 
 export const nullUser = {
@@ -10,7 +10,7 @@ export const nullUser = {
 }
 
 const BabyContext = React.createContext({
-    baby: nullBaby,
+    babies: nullBaby,
     error: null,
     setError: () => {},
     clearError: () => {},
@@ -26,7 +26,7 @@ export default BabyContext
 export class BabyProvider extends Component {
     state = {
         user: nullUser,
-        baby: nullBaby,
+        babies: nullBaby,
         error: null
     }
 
@@ -42,7 +42,10 @@ export class BabyProvider extends Component {
 
     setBaby = baby => {
         console.log('setting baby:', baby);
-        this.setState({ baby: baby })
+        this.setState({ 
+            ...this.state.babies,
+            babies: baby 
+        })
     }
 
     clearBaby = () => {
