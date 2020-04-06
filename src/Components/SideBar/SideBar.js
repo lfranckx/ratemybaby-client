@@ -46,7 +46,7 @@ export default class SideBar extends Component {
         const { error } = this.context
         return (
             <nav id="sidebar">
-                <div id='sidebarheader'><h2>My Babies</h2></div>
+                <div id='sidebarheader'><h3>Babies</h3></div>
                 <ul>
                     {error
                         ? <p className='red'>There was an error, try again</p>

@@ -6,24 +6,12 @@
     align-items: center;
 }
 
-/* .header a {
-    color: #444;
-    text-decoration: none;
-} */
-
 h1 {
     margin: 0;
     font-size: 3.5rem;
     font-weight: 500;
     font-family: 'ProximaNova';
     color: white;
-}
-
-h2 {
-    color: #444;
-    font-size: 2rem;
-    opacity: 0.9;
-    margin: 0;
 }
 
 #title-logo {

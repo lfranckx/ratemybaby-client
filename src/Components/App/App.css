@@ -8,10 +8,13 @@ section {
     text-align: center;
 }
 
-h3 {
+h2 {
     font-size: 22pt;
-    margin: 0;
 }  
+
+h3 {
+    margin: 0
+}
 
 a {
     text-decoration: none;
