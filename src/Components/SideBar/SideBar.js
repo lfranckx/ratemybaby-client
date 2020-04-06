@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './SideBar.css'
-import BabyContext from '../../Contexts/BabyContext'
+import BabiesContext from '../../Contexts/BabiesContext'
 import BabyApiService from '../../Services/baby-api-service'
 import UsersBabies from './UsersBabies'
 
@@ -9,7 +9,7 @@ export default class SideBar extends Component {
         match: { params: {} }
     }
 
-    static contextType = BabyContext
+    static contextType = BabiesContext
 
     componentDidMount() {
         const user = JSON.parse(localStorage.getItem('user'));
@@ -19,7 +19,7 @@ export default class SideBar extends Component {
             .then(res => {
                 console.log('response from getByParentId and setting to localStorage:', res);
                 localStorage.setItem(`babies`, res)
-                this.context.setBaby(res)
+                this.context.setUsersBabies(res)
             })
             .catch(this.context.setError)
     }
@@ -27,18 +27,19 @@ export default class SideBar extends Component {
     renderUsersBabies() {
         // const localBabies = localStorage.getItem('babies')
         // console.log('localStorage babies:', localBabies);
+        console.log(this.context);
         
-        const { babies = [] } = this.context
-        console.log('context babies', babies);
+        const { usersBabies } = this.context
+        console.log('context babies', usersBabies);
         
-        if (!babies) {
+        if (!usersBabies) {
             return <div>Loading...</div>
         }   
-        // return  babies.map(baby => 
-        //             <UsersBabies 
-        //                 key={baby.id}
-        //                 baby={baby}
-        //             />)
+        return  usersBabies.map(baby => 
+                    <UsersBabies 
+                        key={baby.id}
+                        baby={baby}
+                    />)
     }
 
     render() {
@@ -53,8 +54,5 @@ export default class SideBar extends Component {
                 </ul>
             </nav>
         )
-
-        
-        
     }
 }
