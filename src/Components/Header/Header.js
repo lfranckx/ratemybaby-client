@@ -3,6 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import TokenService from '../../Services/token-service'
 import IdleService from '../../Services/idle-service'
+import SideBar from '../SideBar/SideBar'
 
 export default class Nav extends Component {
     handleLogout = () => {
@@ -19,29 +20,32 @@ export default class Nav extends Component {
     renderLogoutLink() {
         return (
             <>
-                <Link id="title-logo" to='/rate'>
-                    <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
-                    <h1 id="todler">toddler</h1>
-                </Link>
-                <div className='Header__logged-in'>
-                    <Link 
-                        to='/createprofile'
-                    >
-                        Create Profile
+                <nav>
+                    <Link id="title-logo" to='/rate'>
+                        <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
+                        <h1 id="todler">toddler</h1>
                     </Link>
-                    <Link
-                        onClick={this.handleLogout}
-                        to='/'>
-                        Logout
-                    </Link>
-                </div>  
-            </>          
+                    <div className='Header__logged-in'>
+                        <Link 
+                            to='/createprofile'
+                        >
+                            Create Profile
+                        </Link>
+                        <Link
+                            onClick={this.handleLogout}
+                            to='/'>
+                            Logout
+                        </Link>
+                    </div>  
+                </nav>    
+                <SideBar />  
+            </>    
         )
     }
 
     renderLoginLink() {
         return (
-            <>
+            <nav>
                 <Link id="title-logo" to='/'>
                     <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
                     <h1 id="todler">toddler</h1>
@@ -52,17 +56,17 @@ export default class Nav extends Component {
                         LOG IN
                     </Link>
                 </div>
-            </>
+            </nav>
         )
     }
 
     render() {
         return ( 
-                <nav>
+                <>
                     {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}
-                </nav>
+                </>
         )
     }
 }

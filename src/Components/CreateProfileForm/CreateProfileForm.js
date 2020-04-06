@@ -55,18 +55,18 @@ class EditProfile extends Component {
             total_votes: 5,
             parent_id: parent_id
         }) 
-        // .then(res => {
-        //     BabyApiService.getBaby(this.state.id)
-        //     .then(baby => {
-        //         name.value = ''
-        //         age.value = ''
-        //         country.value = ''
-        //         about.value = ''
+        .then(res => {
+            console.log('postbaby response:', res)
+            // BabyApiService.getBaby(this.state.id)
+            // .then(baby => {
+            //     name.value = ''
+            //     age.value = ''
+            //     country.value = ''
+            //     about.value = ''
                 
-        //         this.context.setBaby(baby)
-        //         this.props.onSubmitForm()
-        //     })
-        // })
+            //     this.context.setBaby(baby)
+                this.props.onSubmitForm()
+        })
     }
 
     render() {
@@ -113,6 +113,7 @@ class EditProfile extends Component {
                         id="country-selector" 
                         name="country" 
                         className="form-control"
+                        defaultValue="United States"
                     >
                         <CountryDropDown />
                     </select>
