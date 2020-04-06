@@ -6,15 +6,14 @@ export default class ThingListItem extends Component {
     render() {
         const {baby} = this.props
         console.log('this.props.baby', baby);
-        
-        // localStorage.setItem(`${baby.id}`, JSON.stringify(baby))
+        localStorage.setItem(`${baby.id}`, baby)
         
         // const localBaby = localStorage.getItem(`${baby.id}`)
         // console.log('baby from localStorage:', localBaby);
 
         return  <li className='side-bar-link'>
                     <Link 
-                        to='/profile'
+                        to={`/profile/${baby.id}`}
                     >
                         {baby.baby_name}
                     </Link>

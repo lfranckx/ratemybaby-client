@@ -125,7 +125,7 @@ class App extends Component {
               component={CreateBabyPage}
             />
             <PrivateRoute 
-              path='/profile'
+              path='/profile/:babyId'
               component={ProfilePage}
             />
             <PrivateRoute 
