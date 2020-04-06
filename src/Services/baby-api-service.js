@@ -58,7 +58,7 @@ const BabyApiService = {
   },
   updateBaby(baby) {
     console.log('updateBaby sending to server:', baby);
-    return fetch(`${config.API_ENDPOINT}/babies/${baby.parent_id}`, {
+    return fetch(`${config.API_ENDPOINT}/babies/${baby.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

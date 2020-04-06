@@ -15,18 +15,18 @@ export default class UploadImagePage extends Component {
 
     handleUploadSuccess = () => {
         const { location, history } = this.props
-        const destination = (location.state || {}).from || '/profile'
+        const destination = (location.state || {}).from || '/rate'
         history.push(destination)
     }
 
     render() {
-        const { baby } = this.context
+        const { babies } = this.context
         return (
             <section id="upload-section">
                 <h3 id="upload-header">Upload Image</h3>
                     <UploadImageForm 
                         onUploadSuccess={this.handleUploadSuccess}
-                        baby={baby}    
+                        baby={babies}    
                     />
             </section>
         )

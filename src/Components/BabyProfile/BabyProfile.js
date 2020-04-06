@@ -16,8 +16,8 @@ export default class BabyProfile extends Component {
 
     componentDidMount() {
         this.context.clearError()
-        const {baby} = this.context
-        localStorage.setItem('baby', JSON.stringify(baby))
+        // const {baby} = this.context
+        // localStorage.setItem('baby', JSON.stringify(baby))
     }
 
     // componentWillUnmount() {

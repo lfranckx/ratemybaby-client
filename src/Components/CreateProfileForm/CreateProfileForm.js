@@ -42,9 +42,7 @@ class EditProfile extends Component {
         const parent_id = user.id
 
         const { name, age, country, about } = ev.target
-        // console.log({name, age, country, about});
-        
-        BabyApiService.postBaby({
+        const newBaby = {
             baby_name: name.value,
             age: age.value,
             country: country.value,
@@ -53,7 +51,9 @@ class EditProfile extends Component {
             total_score: 5,
             total_votes: 5,
             parent_id: parent_id
-        }) 
+        }
+        
+        BabyApiService.postBaby(newBaby) 
         .then (res => {
             console.log('postbaby response:', res)
             localStorage.setItem(`${res.id}`, JSON.parse(JSON.stringify(res)))

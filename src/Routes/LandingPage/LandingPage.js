@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
-// import BabyApiService from '../../Services/baby-api-service'
-// import BabiesContext from '../../Contexts/BabiesContext'
 
 export default class LandingPage extends Component {
     render() {
