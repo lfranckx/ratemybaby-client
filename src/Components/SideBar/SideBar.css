@@ -1,18 +1,16 @@
 #sidebar {
     background-color: whitesmoke;
     min-height: 200px;
-    width: 340px; /* Set the width of the sidebar */
     position: fixed; 
-    top: 87px; /* Stay at the top */
+    top: 87px;
     left: 10px;
     overflow-x: hidden; /* Disable horizontal scroll */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    /* justify-content: space-around; */
     align-items: center;
     border-radius: 10px;
     border: solid 5px rgb(228, 95, 95);
+    padding: 10px;
 }
 
 h2 {

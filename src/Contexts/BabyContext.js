@@ -6,7 +6,7 @@ export const nullBaby = {
 }
 
 export const nullUser = {
-    user: {}
+    user: null
 }
 
 const BabyContext = React.createContext({

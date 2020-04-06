@@ -1,4 +1,4 @@
-nav {
+.header {
     padding: 10px 40px;
     display: flex;
     justify-content: space-around;
@@ -6,10 +6,10 @@ nav {
     align-items: center;
 }
 
-nav a {
+/* .header a {
     color: #444;
     text-decoration: none;
-}
+} */
 
 h1 {
     margin: 0;

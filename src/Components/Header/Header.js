@@ -20,7 +20,7 @@ export default class Nav extends Component {
     renderLogoutLink() {
         return (
             <>
-                <nav>
+                <nav className="header">
                     <Link id="title-logo" to='/rate'>
                         <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
                         <h1 id="todler">toddler</h1>
@@ -45,7 +45,7 @@ export default class Nav extends Component {
 
     renderLoginLink() {
         return (
-            <nav>
+            <nav className="header">
                 <Link id="title-logo" to='/'>
                     <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
                     <h1 id="todler">toddler</h1>

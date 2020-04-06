@@ -21,11 +21,11 @@ export default class SideBar extends Component {
     }
     render() {
         const {baby} = this.context
-        localStorage.setItem('baby', JSON.stringify(baby))
-        console.log('baby from localStorage:', baby);
+        const localBaby = localStorage.setItem(`${baby.id}`, JSON.stringify(baby))
+        console.log('baby from localStorage:', localBaby);
         
         return <nav id="sidebar">
-            < div id='sidebarheader'><h2>Your Babies</h2></div>
+            < div id='sidebarheader'><h2>My Babies</h2></div>
             
             <div className='side-bar-link'>
                 <ul>

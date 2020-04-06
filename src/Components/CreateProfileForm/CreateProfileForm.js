@@ -54,18 +54,17 @@ class EditProfile extends Component {
             total_votes: 5,
             parent_id: parent_id
         }) 
-        .then(res => {
+        .then (res => {
             console.log('postbaby response:', res)
-            localStorage.setItem('baby', JSON.parse(JSON.stringify(res)))
-            // BabyApiService.getBaby(this.state.id)
-            // .then(baby => {
-            //     name.value = ''
-            //     age.value = ''
-            //     country.value = ''
-            //     about.value = ''
-                
-            //     this.context.setBaby(baby)
+            localStorage.setItem(`${res.id}`, JSON.parse(JSON.stringify(res)))
+            const localBaby = localStorage.getItem(`${res.id}`)
+            console.log('localStorage baby', localBaby)
+            
+            BabyApiService.getBaby(res.id)
+            .then(baby => {
+                this.context.setBaby(baby)
                 this.props.onSubmitForm()
+            })
         })
     }
 
