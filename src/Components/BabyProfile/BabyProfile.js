@@ -37,6 +37,7 @@ export default class BabyProfile extends Component {
     
     render() {
         const { baby } = this.props
+
         if (!baby) {
             return <div>Loading...</div>
         }

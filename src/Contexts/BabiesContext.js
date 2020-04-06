@@ -20,6 +20,7 @@ export class BabiesProvider extends Component {
     }
     
     setBabies = babies => {
+        console.log('BabiesContext setting babies ' + JSON.stringify(babies));
         this.setState({ babies })
     }
 

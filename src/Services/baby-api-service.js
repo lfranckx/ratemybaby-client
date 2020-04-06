@@ -3,6 +3,7 @@ import TokenService from '../Services/token-service'
 
 const BabyApiService = {
   getBabies() {
+    console.log('running BabyApiService');
     return fetch(`${config.API_ENDPOINT}/babies`, {
       headers: {
         'Content-Type': 'application/json',
@@ -13,10 +14,10 @@ const BabyApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+      // .then(data => console.log('BabyApi response ' + data))
   },
   getBaby(id) {
     console.log('getting baby by id:', id);
-    
     return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
