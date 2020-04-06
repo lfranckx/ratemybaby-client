@@ -39,6 +39,7 @@ export class BabiesProvider extends Component {
 
     render() {
         const value = {
+            usersBabies: this.state.usersBabies,
             babies: this.state.babies,
             error: this.state.error,
             setError: this.setError,
