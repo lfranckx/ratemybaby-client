@@ -25,8 +25,8 @@ export default class SideBar extends Component {
     }
 
     renderUsersBabies() {
-        const localBabies = localStorage.getItem('babies')
-        console.log('localStorage babies:', localBabies);
+        // const localBabies = localStorage.getItem('babies')
+        // console.log('localStorage babies:', localBabies);
         
         const { babies = [] } = this.context
         console.log('context babies', babies);
@@ -38,8 +38,7 @@ export default class SideBar extends Component {
         //             <UsersBabies 
         //                 key={baby.id}
         //                 baby={baby}
-        //             />
-        //         )
+        //             />)
     }
 
     render() {
@@ -52,7 +51,6 @@ export default class SideBar extends Component {
                         ? <p className='red'>There was an error, try again</p>
                         : this.renderUsersBabies()}
                 </ul>
-                {/* <div className='side-bar-link'></div> */}
             </nav>
         )
 

@@ -5,14 +5,14 @@ import './SideBar.css'
 export default class ThingListItem extends Component { 
     render() {
         const {baby} = this.props
-        console.log('baby', baby);
+        console.log('this.props.baby', baby);
         
         // localStorage.setItem(`${baby.id}`, JSON.stringify(baby))
         
         // const localBaby = localStorage.getItem(`${baby.id}`)
         // console.log('baby from localStorage:', localBaby);
 
-        return  <li>
+        return  <li className='side-bar-link'>
                     <Link 
                         to='/profile'
                     >
