@@ -12,10 +12,10 @@ export default class SideBar extends Component {
     static contextType = BabyContext
 
     componentDidMount() {
+
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)
-                // localStorage.setItem('usersBabies', res)
             })
             .catch(this.context.setError)
     }

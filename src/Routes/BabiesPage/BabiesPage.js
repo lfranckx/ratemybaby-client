@@ -27,6 +27,8 @@ export default class BabiesPage extends Component {
 
     render() {
         const { error } = this.context
+        console.log('BabiesPage Context', this.context);
+        
         return (
             <>
                 {error

@@ -83,6 +83,8 @@ export class BabyProvider extends Component {
             setError: this.setError,
             clearError: this.clearError,
             setBaby: this.setBaby,
+            setBabies: this.setBabies,
+            setUsersBabies: this.setUsersBabies,
             clearBaby: this.clearBaby,
             updateBaby: this.updateBaby
         }
