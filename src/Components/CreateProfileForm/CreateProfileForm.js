@@ -40,10 +40,8 @@ class EditProfile extends Component {
         
         BabyApiService.postBaby(newBaby) 
         .then (res => {
-            console.log('BabyApiService postBaby res:', res)
             BabyApiService.getBaby(res.id)
             .then(baby => {
-                console.log('BabyApiService getBaby res', baby)
                 this.context.clearBaby()
                 this.context.setBaby(baby)
                 this.props.onSubmitForm()

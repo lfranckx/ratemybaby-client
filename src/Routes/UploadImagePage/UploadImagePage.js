@@ -30,9 +30,6 @@ export default class UploadImagePage extends Component {
     }
 
     render() {
-        console.log('UploadImage props', this.props);
-        console.log('UploadImage context', this.context);
-        
         const { baby } = this.context
         return (
             <section id="upload-section">

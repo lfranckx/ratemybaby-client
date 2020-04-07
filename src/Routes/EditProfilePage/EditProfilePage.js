@@ -22,9 +22,7 @@ export default class EditProfile extends Component {
     }
 
     render() {
-        const { baby } = this.context   
-        console.log('EditProfile context', this.context);
-             
+        const { baby } = this.context                
         return (
             <section id="edit-section">
                 <h3 id="edit-header">Edit Profile</h3>

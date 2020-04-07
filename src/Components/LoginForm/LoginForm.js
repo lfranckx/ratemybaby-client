@@ -23,7 +23,6 @@ export default class LoginForm extends Component {
         .then(res => {
             username.value = ''
             password.value = ''
-            console.log('getUser response:', res);
             this.props.onLoginSuccess()
         })
         .catch(res => {

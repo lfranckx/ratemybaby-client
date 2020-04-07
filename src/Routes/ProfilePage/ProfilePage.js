@@ -12,7 +12,6 @@ class ProfilePage extends Component {
     static contextType = BabyContext
     
     componentDidMount() {
-        console.log('ProfilePage props', this.props)
         this.context.clearError()
         let babyId = this.props.match.params.babyId
         BabyApiService.getBaby(babyId)
@@ -20,13 +19,8 @@ class ProfilePage extends Component {
             .catch(this.context.setError)
     }
     
-    // componentWillUnmount() {
-    //     this.context.clearBaby();
-    // }
-    
     render() {
         const { baby } = this.context
-        console.log('ProfilePage baby', this.context);
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }

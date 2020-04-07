@@ -8,7 +8,6 @@ export default class ThingListItem extends Component {
         const {baby} = this.props
         // console.log('UsersBabies props:', baby);
         
-
         return  <li className='side-bar-link'>
                     <Link 
                         to={`/profile/${baby.id}`}

@@ -13,7 +13,6 @@ export default class UploadImage extends Component {
     constructor(props) {
         super(props)
         this.fileInput = React.createRef()
-        console.log('this.props.baby:', this.props.baby);
         
         this.state = {
             error: null,
@@ -39,7 +38,6 @@ export default class UploadImage extends Component {
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
                 .then(data => {
-                    console.log('postImageFile response:', data);
                     baby.image_url = data.image_url
                     BabyApiService.updateBaby(baby)
                     this.props.onUploadSuccess()

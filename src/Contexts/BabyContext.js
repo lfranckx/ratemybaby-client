@@ -35,26 +35,20 @@ export class BabyProvider extends Component {
     }
 
     clearError = () => {
-        console.log('running BabyContext clearError()');
         this.setState({ error: null })
     }
 
     setBaby = baby => {
-        console.log('setting baby:', baby);
         this.setState({ 
             baby: baby 
         })
     }
 
     clearBaby = () => {
-        console.log('running BabyContext clearBaby()');
         this.setBaby(nullBaby)
     }   
 
     updateBaby = baby => {
-        console.log('updating baby:', baby, 
-        'total_score:', baby.total_score,
-        'total_votes:', baby.total_votes)
         this.setState({ 
             ...this.state.baby,
             baby 
@@ -63,17 +57,14 @@ export class BabyProvider extends Component {
     }
 
     setBabies = babies => {
-        console.log('BabiesContext setting babies', babies)
         this.setState({ babies })
     }
 
     setUsersBabies = usersBabies => {
-        console.log('setUsersBabies:', usersBabies);
         this.setState({ usersBabies })
     }
       
     render() {
-        console.log('BabyContext State', this.state);
         
         const value = {
             usersBabies: this.state.usersBabies,

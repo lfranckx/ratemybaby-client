@@ -23,7 +23,6 @@ export default class EditProfile extends Component {
     }
 
     handleSubmitForm = () => {
-        console.log('successfully creating baby profile');
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/uploadimage'
         history.push(destination)

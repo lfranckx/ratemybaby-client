@@ -30,7 +30,6 @@ export default class SignUp extends Component {
             .then(user => {
                 username.value = ''
                 password.value = ''
-                console.log('SignUpForm getUser response:', user);
                 this.props.onSignUpSuccess()
             })
         })

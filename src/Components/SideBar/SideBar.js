@@ -12,7 +12,6 @@ export default class SideBar extends Component {
     static contextType = BabyContext
 
     componentDidMount() {
-
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)
@@ -21,7 +20,6 @@ export default class SideBar extends Component {
     }
 
     renderUsersBabies() {
-        console.log('SideBar context', this.context);
         const { usersBabies } = this.context
         
         if (!usersBabies) {
@@ -38,7 +36,6 @@ export default class SideBar extends Component {
     render() {
         const { error } = this.context
         const { usersBabies } = this.context
-        console.log('usersbabies:', usersBabies);
         
         if (usersBabies.length === 0) {
             return <></>

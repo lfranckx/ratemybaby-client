@@ -10,10 +10,7 @@ class EditProfile extends Component {
 
     constructor(props) {
         super(props)
-        console.log('EditProfile props', this.props);
         const { baby } = this.props
-        console.log('EditProfile context', this.context);
-        console.log('EditProfile state', this.state);
         
         this.state = {
             error: null,
@@ -27,9 +24,7 @@ class EditProfile extends Component {
 
     handleUpdateProfile = ev => {
         ev.preventDefault()
-        this.setState({ error: null })
-        console.log('ev.target', ev.target);
-        
+        this.setState({ error: null })        
         const { name, age, format, country, about } = ev.target
         
         BabyApiService.updateBaby({
@@ -42,7 +37,6 @@ class EditProfile extends Component {
             .then(res => {
                 name.value = ''
                 about.value = ''
-                console.log('EditForm Submit Response', res);
                 this.props.onSubmitForm()
             })    }
 
