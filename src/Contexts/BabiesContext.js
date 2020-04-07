@@ -20,13 +20,13 @@ export class BabiesProvider extends Component {
     }
     
     setBabies = babies => {
-        console.log('BabiesContext setting babies ' + JSON.stringify(babies));
+        console.log('BabiesContext setting babies', babies)
         this.setState({ babies })
     }
 
-    setUsersBabies = babies => {
-        console.log('setUsersBabies:', babies);
-        this.setState({ usersBabies: babies })
+    setUsersBabies = usersBabies => {
+        console.log('setUsersBabies:', usersBabies);
+        this.setState({ usersBabies })
     }
 
     setError = error => {
@@ -39,6 +39,7 @@ export class BabiesProvider extends Component {
     }
 
     render() {
+        console.log('BabiesContext state', this.state)
         const value = {
             usersBabies: this.state.usersBabies,
             babies: this.state.babies,

@@ -4,8 +4,9 @@ import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
 
 export default class BabyProfile extends Component {
+
     state = {
-        renderInfo: false
+
     }
 
     static defaultProps = {
@@ -16,13 +17,12 @@ export default class BabyProfile extends Component {
 
     componentDidMount() {
         this.context.clearError()
-        // const {baby} = this.context
-        // localStorage.setItem('baby', JSON.stringify(baby))
+        this.context.setBaby(this.props.baby)
     }
 
-    // componentWillUnmount() {
-    //     this.context.clearBaby()
-    // }
+    componentWillUnmount() {
+        this.context.clearBaby()
+    }
 
     handleLike = (baby) => {
         baby.total_score += 5
@@ -37,9 +37,11 @@ export default class BabyProfile extends Component {
     
     render() {
         const { baby } = this.props
+        console.log('BabyProfile props', this.props);
+        
 
         if (!baby) {
-            return <div>Loading...</div>
+            return <div className='loading'>Loading...</div>
         }
         
         let rating = (baby.total_score / baby.total_votes)
@@ -53,11 +55,11 @@ export default class BabyProfile extends Component {
                         <h3>{baby.baby_name}</h3>
                         <span className="age">
                             <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
-                            2
+                            {baby.age}
                         </span>
                         <span className="country">
                             <img src="./tinder_icons/house.png" alt="house" id="house" />
-                            Country
+                            {baby.country}
                         </span>
                     </div>
                     

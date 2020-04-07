@@ -15,6 +15,7 @@ export default class SideBar extends Component {
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)
+                // localStorage.setItem('usersBabies', res)
             })
             .catch(this.context.setError)
     }
@@ -22,7 +23,6 @@ export default class SideBar extends Component {
     renderUsersBabies() {
         console.log('SideBar context', this.context);
         const { usersBabies } = this.context
-        console.log('SideBar usersBabies', usersBabies);
         
         if (!usersBabies) {
             return <div className='loading'>Loading...</div>

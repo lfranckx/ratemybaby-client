@@ -15,20 +15,17 @@ export default class EditProfile extends Component {
 
     handleSubmitForm = () => {
         console.log('successfully creating baby profile');
-
         const { location, history } = this.props
         const destination = (location.state || {}).from || '/uploadimage'
         history.push(destination)
     }
 
-    render() {
-        const { user } = this.context        
+    render() {     
         return (
             <section id="create-section">
                 <h3 id="create-header">Create Baby Profile</h3>
                 <CreateProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
-                    user={user}
                 />
             </section>
         )

@@ -8,9 +8,6 @@ import SideBar from '../SideBar/SideBar'
 export default class Nav extends Component {
     handleLogout = () => {
         console.log('running handleLogout');
-        console.log('clearing user from local storage');
-        localStorage.removeItem("user")
-        
         TokenService.clearAuthToken()
         /* when logging out, clear the callbacks to the refresh api and idle auto logout */
         TokenService.clearCallbackBeforeExpiry()

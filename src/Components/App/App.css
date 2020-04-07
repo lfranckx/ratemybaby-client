@@ -70,3 +70,9 @@ input  {
     font-family: Arial;
     font-weight: bold;
 }
+
+.error {
+    color: rgb(37, 35, 36);
+    font-size: 20pt;
+    font-weight: bold;
+}

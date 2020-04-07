@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './SideBar.css'
 
-export default class ThingListItem extends Component { 
+export default class ThingListItem extends Component {
+    
     render() {
         const {baby} = this.props
-        console.log('this.props.baby', baby);
-        localStorage.setItem(`${baby.id}`, baby)
+        // console.log('UsersBabies props:', baby);
         
-        // const localBaby = localStorage.getItem(`${baby.id}`)
-        // console.log('baby from localStorage:', localBaby);
 
         return  <li className='side-bar-link'>
                     <Link 
@@ -18,9 +16,7 @@ export default class ThingListItem extends Component {
                         {baby.baby_name}
                     </Link>
                 </li>
-
-    }
-                                
+    }              
 }
 
 

@@ -126,7 +126,9 @@ class App extends Component {
             />
             <PrivateRoute 
               path='/profile/:babyId'
-              component={ProfilePage}
+              component={ (props) => ( //adding a time stamp to componentDidMount refresh every time the link is clicked
+                <ProfilePage timestamp={new Date().toString()} {...props} />
+              )}
             />
             <PrivateRoute 
               path='/editprofile'

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import noProfilePic from '../../images/babydrawing.png'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
-// import CreateProfileForm from '../CreateProfileForm/CreateProfileForm'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
@@ -20,7 +19,7 @@ export default class UserProfile extends Component {
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
                 <Link id="change-photo" to="/uploadimage">Change Photo</Link>  
                 <div className="name-age">
-                    <h3>{baby.baby_name}</h3>
+                    <h2 id="user-baby-name">{baby.baby_name}</h2>
                     <span className="age">
                         <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
                         {baby.age}

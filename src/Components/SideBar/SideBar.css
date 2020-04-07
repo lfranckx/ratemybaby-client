@@ -30,6 +30,7 @@ ul {
 ul, li {
     margin-left: 0;
     padding-left: 0;
+    margin: 15px;
 }
 
 .side-bar-link a {

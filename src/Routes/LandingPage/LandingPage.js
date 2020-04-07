@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
+import TokenService from '../../Services/token-service'
+import BabiesPage from '../BabiesPage/BabiesPage'
 
-export default class LandingPage extends Component {
+class LandingPage extends Component {
+
     render() {
         return (
             <section className="landing-section">
                 <h2 id="landing-header">Upload your baby, the world rates it.</h2>
-
-                    <div>
-                        <Link className="register" to='/register'>
-                            Sign Up
-                        </Link>
-                    </div>
+                <div>
+                    <Link className="register" to='/register'>
+                        Sign Up
+                    </Link>
+                </div>
             </section>
         )
     }
 }
+
+export default LandingPage

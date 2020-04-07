@@ -10,8 +10,10 @@ class EditProfile extends Component {
 
     constructor(props) {
         super(props)
+        console.log('EditProfile props', this.props);
         const { baby } = this.props
-        console.log('this.props.baby:', baby);
+        console.log('EditProfile context', this.context);
+        console.log('EditProfile state', this.state);
         
         this.state = {
             error: null,
@@ -36,8 +38,11 @@ class EditProfile extends Component {
             .then(res => {
                 name.value = ''
                 about.value = ''
+                console.log('EditForm Submit Response', res);
+                
                 this.props.onSubmitForm()
             })
+            .then(data => console.log('EditForm Submit Response Data', data))
     }
 
     render() {
@@ -98,7 +103,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="editFormButtons" id="cancel-submit-buttons">
                         <button className="edit-buttons cancel-button" type="click">
-                            <Link id="cancel-button" to="/profile">Cancel</Link>
+                            <Link id="cancel-button" to={`/profile/${this.state.id}`}>Cancel</Link>
                         </button>
                         <button className="edit-buttons submit-button" type="submit">Submit</button>
                     </div>

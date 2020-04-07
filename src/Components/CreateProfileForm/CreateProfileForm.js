@@ -13,28 +13,19 @@ class EditProfile extends Component {
 
     constructor(props) {
         super(props)
-        const { user } = this.props
-        console.log('this.props.user:', user)
-        
         this.fileInput = React.createRef()
         this.state = {
-            error: null,
-            id: user.id,
+            error: null
         }
     }
 
     componentDidMount() {
         this.context.clearError()
-        const user = JSON.parse(localStorage.getItem('user'));
-        console.log('localStorage user:', user);
     }
-
 
     handleCreateBaby = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        const user = JSON.parse(localStorage.getItem('user'));
-        const parent_id = user.id
 
         const { name, age, country, about } = ev.target
         const newBaby = {
@@ -43,20 +34,16 @@ class EditProfile extends Component {
             country: country.value,
             about: about.value,
             image_url: '',
-            total_score: 5,
-            total_votes: 5,
-            parent_id: parent_id
+            total_score: 1,
+            total_votes: 1,
         }
         
         BabyApiService.postBaby(newBaby) 
         .then (res => {
-            console.log('postbaby response:', res)
-            localStorage.setItem(`${res.id}`, JSON.parse(JSON.stringify(res)))
-            const localBaby = localStorage.getItem(`${res.id}`)
-            console.log('localStorage baby', localBaby)
-            
+            console.log('BabyApiService postBaby res:', res)
             BabyApiService.getBaby(res.id)
             .then(baby => {
+                this.context.clearBaby()
                 this.context.setBaby(baby)
                 this.props.onSubmitForm()
             })
@@ -65,7 +52,6 @@ class EditProfile extends Component {
 
     render() {
         const { error } = this.state
-        
         return  <form 
                     id="create-form"
                     onSubmit={this.handleCreateBaby}

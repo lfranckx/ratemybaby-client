@@ -15,10 +15,9 @@ export default class BabiesPage extends Component {
 
     renderBabies() {
         const { babies = [] } = this.context
-        // console.log('render babies ' + this.context);
         
         if (babies.length === 0) {
-            return <div>Loading...</div>
+            return <div className='loading'>Loading...</div>
         }
 
         return (
