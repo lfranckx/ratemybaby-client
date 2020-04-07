@@ -73,3 +73,7 @@
 #create-button:active {
     transform: translateY(2px);
 }
+
+.selector {
+    box-shadow: 1.5px 1px 1px grey;
+}

@@ -19,7 +19,7 @@ export default class UserProfile extends Component {
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
                 <Link id="change-photo" to="/uploadimage">Change Photo</Link>  
                 <div className="name-age">
-                    <h2 id="user-baby-name">{baby.baby_name}</h2>
+                    <h3 id="user-baby-name">{baby.baby_name}</h3>
                     <span className="age">
                          <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png" 
                             alt="birthday-cake" 
