@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CreateProfileForm from '../../Components/CreateProfileForm/CreateProfileForm'
 import BabyContext from '../../Contexts/BabyContext'
+import BabyApiService from '../../Services/baby-api-service'
 import './CreateBabyPage.css'
 
 export default class EditProfile extends Component {
@@ -12,6 +13,14 @@ export default class EditProfile extends Component {
     }
     
     static contextType = BabyContext
+
+    componentWillUnmount() {
+        BabyApiService.getByParentId()
+        .then(res => {
+            this.context.setUsersBabies(res)
+        })
+        .catch(this.context.setError)
+    }
 
     handleSubmitForm = () => {
         console.log('successfully creating baby profile');

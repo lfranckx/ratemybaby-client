@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UploadImageForm from '../../Components/UploadImageForm/UploadImageForm'
 import BabyContext from '../../Contexts/BabyContext'
+import BabyApiService from '../../Services/baby-api-service'
 import './UploadImage.css'
 
 export default class UploadImagePage extends Component {
@@ -12,6 +13,14 @@ export default class UploadImagePage extends Component {
     }
 
     static contextType = BabyContext
+
+    componentWillUnmount() {
+        BabyApiService.getByParentId()
+        .then(res => {
+            this.context.setUsersBabies(res)
+        })
+        .catch(this.context.setError)
+    }
 
     handleUploadSuccess = () => {
         const { baby } = this.context

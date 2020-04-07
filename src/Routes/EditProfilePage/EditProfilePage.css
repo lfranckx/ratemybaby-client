@@ -63,3 +63,7 @@
 .edit-buttons:active {
     transform: translateY(2px);
 }
+
+.month-year {
+    font-size: 15px;
+}

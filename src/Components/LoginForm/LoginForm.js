@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../Services/auth-api-service'
-// import UserApiService from '../../Services/user-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 
 export default class LoginForm extends Component {

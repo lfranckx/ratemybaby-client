@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
 import { Link } from 'react-router-dom'
-import TokenService from '../../Services/token-service'
-import BabiesPage from '../BabiesPage/BabiesPage'
 
 class LandingPage extends Component {
 

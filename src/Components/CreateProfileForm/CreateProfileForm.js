@@ -27,10 +27,10 @@ class EditProfile extends Component {
         ev.preventDefault()
         this.setState({ error: null })
 
-        const { name, age, country, about } = ev.target
+        const { name, age, format, country, about } = ev.target
         const newBaby = {
             baby_name: name.value,
-            age: age.value,
+            age: age.value + " " + format.value,
             country: country.value,
             about: about.value,
             image_url: '',
@@ -43,6 +43,7 @@ class EditProfile extends Component {
             console.log('BabyApiService postBaby res:', res)
             BabyApiService.getBaby(res.id)
             .then(baby => {
+                console.log('BabyApiService getBaby res', baby)
                 this.context.clearBaby()
                 this.context.setBaby(baby)
                 this.props.onSubmitForm()
@@ -78,10 +79,20 @@ class EditProfile extends Component {
                     <div className="form-items">
                         <input 
                             className="create-input"
-                            type="text"
+                            type="number"
+                            min='1'
                             name="age" 
                             required 
                         />
+                    </div>
+
+                    <div className="form-items">
+                        <select name='format' className="month-year selector">
+                            <option>month</option>
+                            <option>months</option>
+                            <option>year</option>
+                            <option>years</option>
+                        </select>
                     </div>
 
                     <div className="form-items">
@@ -92,7 +103,7 @@ class EditProfile extends Component {
                     <select 
                         id="country-selector" 
                         name="country" 
-                        className="form-control"
+                        className="selector"
                         defaultValue="United States"
                     >
                         <CountryDropDown />
@@ -106,7 +117,7 @@ class EditProfile extends Component {
                         <textarea 
                             className="width-100 create-about"
                             name="about" 
-                            rows="15" 
+                            rows="10" 
                         />
                     </div>
                     <div className="submit-item">

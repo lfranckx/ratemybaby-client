@@ -23,16 +23,12 @@ export default class UploadImage extends Component {
 
     componentDidMount() {
         this.context.clearError()
-        const baby = JSON.parse(localStorage.getItem('baby'));
-        console.log('localStorage baby:', baby);
     }
 
     handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })
-        let baby  = this.props.baby
-        console.log('this.props.baby:', baby);
-        
+        const { baby } = this.context
         const  fileSelected  = this.fileInput.current.files[0]
         const data = new FormData()
         data.append('image', fileSelected)

@@ -5,10 +5,6 @@ import './BabyProfile.css'
 
 export default class BabyProfile extends Component {
 
-    state = {
-
-    }
-
     static defaultProps = {
         match: { params: {} },
     }
@@ -54,11 +50,15 @@ export default class BabyProfile extends Component {
                     <div className="name-age">
                         <h3>{baby.baby_name}</h3>
                         <span className="age">
-                            <img src="./tinder_icons/bdaycake.png" alt="birthday-cake" id="cake" />
+                            <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png" 
+                                alt="birthday-cake" 
+                                id="cake" />
                             {baby.age}
                         </span>
                         <span className="country">
-                            <img src="./tinder_icons/house.png" alt="house" id="house" />
+                            <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/house.png" 
+                                alt="house" 
+                                id="house" />
                             {baby.country}
                         </span>
                     </div>
@@ -72,7 +72,10 @@ export default class BabyProfile extends Component {
                         }}
                     >
                         <Link to="/rate">
-                                <img src="./tinder_icons/dislike.png" alt="dislike" className="rate-icon" id="dislike"/>
+                                <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/dislike.png" 
+                                    alt="dislike" 
+                                    className="rate-icon" 
+                                    id="dislike"/>
                         </Link>
                     </button>
                     <button 
@@ -82,7 +85,10 @@ export default class BabyProfile extends Component {
                         }}
                     >
                         <Link to="/rate">
-                            <img src="./tinder_icons/avo.png" alt="like" className="rate-icon" id="like"/>
+                            <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/avo.png" 
+                                alt="like" 
+                                className="rate-icon" 
+                                id="like"/>
                         </Link>
                     </button>
                 </section>

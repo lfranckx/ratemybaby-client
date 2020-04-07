@@ -19,7 +19,9 @@ export default class Nav extends Component {
             <>
                 <nav className="header">
                     <Link id="title-logo" to='/rate'>
-                        <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
+                        <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
+                            alt="logo" 
+                            id="logo" />  
                         <h1 id="todler">toddler</h1>
                     </Link>
                     <div className='Header__logged-in'>
@@ -44,7 +46,9 @@ export default class Nav extends Component {
         return (
             <nav className="header">
                 <Link id="title-logo" to='/'>
-                    <img src="./tinder_icons/logo-red.png" alt="logo" id="logo" />  
+                    <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
+                        alt="logo" 
+                        id="logo" />  
                     <h1 id="todler">toddler</h1>
                 </Link>
                 <div className='Header__not-logged-in'>

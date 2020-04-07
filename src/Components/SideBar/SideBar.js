@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './SideBar.css'
-import BabiesContext from '../../Contexts/BabiesContext'
+import BabyContext from '../../Contexts/BabyContext'
 import BabyApiService from '../../Services/baby-api-service'
 import UsersBabies from './UsersBabies'
 
@@ -9,7 +9,7 @@ export default class SideBar extends Component {
         match: { params: {} }
     }
 
-    static contextType = BabiesContext
+    static contextType = BabyContext
 
     componentDidMount() {
         BabyApiService.getByParentId()
@@ -25,7 +25,7 @@ export default class SideBar extends Component {
         const { usersBabies } = this.context
         
         if (!usersBabies) {
-            return <div className='loading'>Loading...</div>
+            return <div className='loading'></div>
         }   
 
         return  usersBabies.map(baby => 
@@ -37,13 +37,15 @@ export default class SideBar extends Component {
 
     render() {
         const { error } = this.context
-        const usersBabies = this.context
+        const { usersBabies } = this.context
+        console.log('usersbabies:', usersBabies);
+        
         if (usersBabies.length === 0) {
             return <></>
         }
         return (
             <nav id="sidebar">
-                <div id='sidebarheader'><h3>Babies</h3></div>
+                <div id='sidebarheader'><h3>Toddlers</h3></div>
                 <ul>
                     {error
                         ? <p className='red'>There was an error, try again</p>

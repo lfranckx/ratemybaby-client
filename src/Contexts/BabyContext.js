@@ -6,19 +6,25 @@ export const nullBaby = {
 }
 
 const BabyContext = React.createContext({
+    usersBabies: [],
+    babies: [],
     baby: nullBaby,
     error: null,
     setError: () => {},
     clearError: () => {},
     setBaby: () => {},
     clearBaby: () => {},
-    updateBaby: () => {}
+    updateBaby: () => {},
+    setBabies: () => {},
+    setUsersBabies: () => {}
 })
 
 export default BabyContext
 
 export class BabyProvider extends Component {
     state = {
+        usersBabies: [],
+        babies: [],
         baby: nullBaby,
         error: null
     }
@@ -55,19 +61,30 @@ export class BabyProvider extends Component {
         })
         BabyApiService.updateBaby(baby)
     }
+
+    setBabies = babies => {
+        console.log('BabiesContext setting babies', babies)
+        this.setState({ babies })
+    }
+
+    setUsersBabies = usersBabies => {
+        console.log('setUsersBabies:', usersBabies);
+        this.setState({ usersBabies })
+    }
       
     render() {
         console.log('BabyContext State', this.state);
         
         const value = {
+            usersBabies: this.state.usersBabies,
+            babies: this.state.babies,
             baby: this.state.baby,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
             setBaby: this.setBaby,
             clearBaby: this.clearBaby,
-            updateBaby: this.updateBaby,
-            clearUser: this.clearUser
+            updateBaby: this.updateBaby
         }
         return (
             <BabyContext.Provider value={value}>

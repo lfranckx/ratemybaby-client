@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import EditProfileForm from '../../Components/EditProfileForm/EditProfileForm'
 import BabyContext from '../../Contexts/BabyContext'
-import BabyApiService from '../../Services/baby-api-service'
+// import BabyApiService from '../../Services/baby-api-service'
 import './EditProfilePage.css'
 
 export default class EditProfile extends Component {

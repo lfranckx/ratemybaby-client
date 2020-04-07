@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
-import BabiesContext from '../../Contexts/BabiesContext'
+import BabyContext from '../../Contexts/BabyContext'
 import GenRandomBaby from '../../Components/GenRandomBaby/GenRandomBaby'
 
 export default class BabiesPage extends Component {
-    static contextType = BabiesContext
+    static contextType = BabyContext
 
     componentDidMount() {
         this.context.clearError()
