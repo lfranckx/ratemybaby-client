@@ -3,7 +3,7 @@
     min-height: 200px;
     position: fixed; 
     top: 87px;
-    left: 10px;
+    left: 50px;
     overflow-x: hidden; /* Disable horizontal scroll */
     display: flex;
     flex-direction: column;

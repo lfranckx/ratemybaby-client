@@ -15,7 +15,6 @@ export default class EditProfile extends Component {
     static contextType = BabyContext
 
     handleSubmitForm = () => {
-        console.log('successfully updating profile');
         const { baby } = this.context   
         const { location, history } = this.props
         const destination = (location.state || {}).from || `/profile/${baby.id}`

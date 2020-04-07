@@ -14,19 +14,23 @@ export default class UploadImagePage extends Component {
     static contextType = BabyContext
 
     handleUploadSuccess = () => {
+        const { baby } = this.context
         const { location, history } = this.props
-        const destination = (location.state || {}).from || '/rate'
+        const destination = (location.state || {}).from || `/profile/${baby.id}`
         history.push(destination)
     }
 
     render() {
-        const { babies } = this.context
+        console.log('UploadImage props', this.props);
+        console.log('UploadImage context', this.context);
+        
+        const { baby } = this.context
         return (
             <section id="upload-section">
                 <h3 id="upload-header">Upload Image</h3>
                     <UploadImageForm 
                         onUploadSuccess={this.handleUploadSuccess}
-                        baby={babies}    
+                        baby={baby}    
                     />
             </section>
         )

@@ -39,11 +39,8 @@ class EditProfile extends Component {
                 name.value = ''
                 about.value = ''
                 console.log('EditForm Submit Response', res);
-                
                 this.props.onSubmitForm()
-            })
-            .then(data => console.log('EditForm Submit Response Data', data))
-    }
+            })    }
 
     render() {
         const { error } = this.state

@@ -27,6 +27,7 @@ export default class SideBar extends Component {
         if (!usersBabies) {
             return <div className='loading'>Loading...</div>
         }   
+
         return  usersBabies.map(baby => 
                     <UsersBabies 
                         key={baby.id}
@@ -36,6 +37,10 @@ export default class SideBar extends Component {
 
     render() {
         const { error } = this.context
+        const usersBabies = this.context
+        if (usersBabies.length === 0) {
+            return <></>
+        }
         return (
             <nav id="sidebar">
                 <div id='sidebarheader'><h3>Babies</h3></div>
