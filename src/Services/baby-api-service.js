@@ -3,7 +3,6 @@ import TokenService from '../Services/token-service'
 
 const BabyApiService = {
   getBabies() {
-    console.log('running BabyApiService');
     return fetch(`${config.API_ENDPOINT}/babies`, {
       headers: {
         'Content-Type': 'application/json',
@@ -16,7 +15,6 @@ const BabyApiService = {
       )
   },
   getBaby(id) {
-    console.log('getting baby by id:', id);
     return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -29,7 +27,6 @@ const BabyApiService = {
       )
   },
   getByParentId() {
-    console.log('Running getByParentId');
     return fetch(`${config.API_ENDPOINT}/babies/parent/id`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -42,7 +39,6 @@ const BabyApiService = {
     )
   },
   async postBaby(baby) {
-    console.log('BabyApiService postBaby:', baby);
     const Response = await fetch(`${config.API_ENDPOINT}/babies`, {
       method: 'POST',
       headers: {
@@ -52,11 +48,9 @@ const BabyApiService = {
       body: JSON.stringify(baby)
     })
     const json = await Response.json();
-    console.log('BabyApiService Response', Response, json);
     return (Response, json)
   },
   updateBaby(baby) {
-    console.log('updateBaby sending to server:', baby);
     return fetch(`${config.API_ENDPOINT}/babies/${baby.id}`, {
       method: 'PATCH',
       headers: {
@@ -67,7 +61,6 @@ const BabyApiService = {
     })
   },
   postImageFile(file) {
-    console.log('sending file to server:', file);
     const options = {
       method: 'POST',
       headers: {

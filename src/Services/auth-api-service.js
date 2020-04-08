@@ -4,7 +4,6 @@ import IdleService from './idle-service'
 
 const AuthApiService = {
     postUser(user) {
-        console.log('posting user...', user);
         return fetch(`${config.API_ENDPOINT}/users`, {
             method: 'POST',
             headers: {
@@ -19,7 +18,6 @@ const AuthApiService = {
         )
     },
     postLogin(credentials) {
-        console.log('authenticating user...', credentials);        
         return fetch(`${config.API_ENDPOINT}/auth/login`, {
             method: 'POST',
             headers: {
@@ -72,7 +70,6 @@ const AuthApiService = {
             return res
         })
         .catch(err => {
-            console.log('refresh token request error')
             console.error(err)
         })
     },
