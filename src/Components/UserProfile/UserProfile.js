@@ -10,8 +10,8 @@ export default class UserProfile extends Component {
 
     renderWithBabyProfile() {
         const baby  = this.context.baby
-        if(baby.image_url === undefined) {
-            return baby.image_url === noProfilePic
+        if(baby.image_url === "") {
+            return baby.image_url === "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
 
         return (
