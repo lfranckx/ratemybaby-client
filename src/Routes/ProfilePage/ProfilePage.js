@@ -19,6 +19,15 @@ class ProfilePage extends Component {
             .catch(this.context.setError)
     }
     
+    componentWillUnmount() {
+        this.context.clearError()
+        BabyApiService.getByParentId()
+            .then(res => {
+                this.context.setUsersBabies(res)
+            })
+            .catch(this.context.setError)
+    }
+    
     render() {
         const { baby } = this.context
         if (!baby) {

@@ -2,11 +2,10 @@
     display: inline-block;
     background-color: white;
     border-radius: 10px;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 1.5px 3px 5px grey;
     width: 400px;
-    color: rgb(41, 39, 39);
-}
+    color: rgb(41, 39, 39);}
 
 #login-header {
     font-size: 2.6rem;
@@ -18,7 +17,7 @@
 }
 
 #login-button {
-    margin-top: 30px;
+    margin-top: 50px;
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(249, 147, 103));    
     display: inline-block;
@@ -28,4 +27,9 @@
     border: none;
     color: white;
     cursor: pointer;
+}
+
+#login-signup-button {
+    position: relative;
+    top: 100px;
 }

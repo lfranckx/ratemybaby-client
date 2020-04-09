@@ -1,20 +1,36 @@
 import React, { Component } from 'react'
-import noProfilePic from '../../images/babydrawing.png'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
+import BabyApiService from '../../Services/baby-api-service'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
-    renderWithBabyProfile() {
+    deleteBaby = () => {
+        const baby = this.context.baby
+        console.log('BabyApiService delete', baby);
+        BabyApiService.deletBaby(baby.id)
+    }
+
+    render() {
         const baby  = this.context.baby
+
+        if (!baby) {
+            return <div className='loading'>Loading...</div>
+        }
+        
         if(baby.image_url === "") {
             return baby.image_url === "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
 
+        let rating = (baby.total_score / baby.total_votes)
+        let percent = rating * 100
+        let roundPercent = Math.round(percent) + '%'
+
         return (
+            <>
             <section className="profile-container">
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
                 <Link id="change-photo" to="/uploadimage">Change Photo</Link>  
@@ -36,14 +52,27 @@ export default class UserProfile extends Component {
                 <div className="about">
                     {baby.about}
                 </div>
-                <button className="edit-info">
-                    <Link to="/editprofile">Edit Info</Link>
+                <div className='edit-info-box'>
+                    <div className="user-rating">{roundPercent}</div>
+                    <button className="edit-info">
+                        <Link to="/editprofile">Edit Info</Link>
+                    </button>
+                </div>
+                
+                <button 
+                    id='delete-button' 
+                    type='submit' 
+                    onClick={() => {this.deleteBaby(baby)}}
+                >
+                    <Link to='/rate'>Delete</Link> 
                 </button>
             </section>
+            {/* <button 
+                id='continue-button'
+            >
+                <Link to="/rate">Continue Rating</Link>
+            </button>     */}
+            </>
         )
-    }
-
-    render() {
-        return this.renderWithBabyProfile()
     }
 }

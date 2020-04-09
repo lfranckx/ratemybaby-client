@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
+import superlike from '../../images/blueavocado.png'
 
 export default class BabyProfile extends Component {
 
@@ -21,13 +22,19 @@ export default class BabyProfile extends Component {
     }
 
     handleLike = (baby) => {
+        baby.total_score += 2
+        baby.total_votes += 2
+        this.context.updateBaby(baby)
+    }
+
+    handleSuperLike = (baby) => {
         baby.total_score += 5
         baby.total_votes += 5
         this.context.updateBaby(baby)
     }
 
     handleDislike = (baby) => {
-        baby.total_votes += 5
+        baby.total_votes += 2
         this.context.updateBaby(baby)
     }
     
@@ -36,6 +43,10 @@ export default class BabyProfile extends Component {
         
         if (!baby) {
             return <div className='loading'>Loading...</div>
+        }
+
+        if (baby.image_url === "") {
+            return baby.image_url === "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
         
         let rating = (baby.total_score / baby.total_votes)
@@ -74,6 +85,18 @@ export default class BabyProfile extends Component {
                                     alt="dislike" 
                                     className="rate-icon" 
                                     id="dislike"/>
+                        </Link>
+                    </button>
+                    <button 
+                        id="superlikebutton"
+                        onClick={() => {
+                            this.handleSuperLike(baby)
+                        }}
+                    >
+                        <Link to="/rate">
+                            <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/blueavocado.png" 
+                                alt="superlike" 
+                                id="superlike"/>
                         </Link>
                     </button>
                     <button 

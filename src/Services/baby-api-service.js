@@ -60,6 +60,17 @@ const BabyApiService = {
       body: JSON.stringify(baby)
     })
   },
+  deletBaby(id) {
+    console.log('deleteBaby', id);
+    
+    return fetch(`${config.API_ENDPOINT}/babies/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+  },
   postImageFile(file) {
     const options = {
       method: 'POST',

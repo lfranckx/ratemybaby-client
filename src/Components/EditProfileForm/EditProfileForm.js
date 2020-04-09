@@ -99,9 +99,10 @@ class EditProfile extends Component {
                     </div>
                     <div className="editFormItems">
                         <textarea 
-                            className="width-100 about"
+                            className="width-100 edit-about"
                             name="about" 
                             rows="10" 
+                            
                             defaultValue={this.state.about}
                         />
                     </div>

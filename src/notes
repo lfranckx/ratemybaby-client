@@ -1,0 +1,10 @@
+[] Change the random profile algorithm to not hit the same profile twice in a row.  
+[x] Change the rating method to not increase or decrease the percentage so quickly.
+[x] Add a superlike button to add extra points to the score
+[x] Change the user's baby's profile screen to show their score.
+[x] Make it so profile about me section retains line returns when entered in.  No new paragraphs start on new lines.
+[x] Add a start rating button when on the user's profile screen to go to the rating profiles page
+[x] Add a Sign Up button on the Login screen
+[] Add a delete profile button
+[x] Add the logo on the title-bar tab
+[] Add burger icon for small device screens 
