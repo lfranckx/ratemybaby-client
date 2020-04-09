@@ -19,13 +19,18 @@ export default class LoginPage extends Component {
   
     render() {
       return (
-        <section id="login-section">
-          <h3 id="login-header">Login</h3>
-          <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
-          <Link id="login-signup-button"className="register" to='/register'>
-            Sign Up
-          </Link>  
-        </section>
+        <>
+          <section id="login-section">
+            <h3 id="login-header">Login</h3>
+            <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
+          </section>
+          <div className='link-container'>
+            <Link className="register" to='/register'>
+              Sign Up
+            </Link> 
+          </div>
+          
+        </> 
       )
     }
   }
