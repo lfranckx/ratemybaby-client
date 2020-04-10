@@ -34,7 +34,6 @@ export default class DeletePage extends Component {
 
     render() {
         const { baby } = this.context
-        console.log(baby);
         
         if (!baby) {
             return <div className='loading'>Loading...</div>
