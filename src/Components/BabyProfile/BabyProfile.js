@@ -13,7 +13,6 @@ export default class BabyProfile extends Component {
 
     componentDidMount() {
         this.context.setBaby(this.props.baby)
-        console.log(this.context.baby);
     }
 
     handleLike = (baby) => {

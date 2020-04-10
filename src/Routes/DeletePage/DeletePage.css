@@ -1,8 +1,28 @@
 #delete-section {
+    display: inline-block;
     background-color: white;
+    border-radius: 10px;
     padding: 20px;
+    box-shadow: 1.5px 3px 5px grey;
+    width: 400px;
+
 }
 
-/* #delete-section h3 {
+#delete-section h3 {
+    font-size: 15pt;
+}
 
-} */
+@media (max-width: 700px) {
+    #delete-section {
+        width: 200px;
+    }
+
+    #delete-section h3 {
+        font-size: 12pt;
+    }
+
+    #delete-link {
+        font-size: 10pt;
+    }
+
+}

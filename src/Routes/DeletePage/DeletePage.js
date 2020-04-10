@@ -14,16 +14,17 @@ export default class DeletePage extends Component {
 
     componentDidMount() {
         this.context.clearError()
-        let babyId = this.props.match.params.babyId
-        BabyApiService.getBaby(babyId)
-            .then(this.context.setBaby)
+        BabyApiService.getByParentId()
+            .then(res => {
+                this.context.setUsersBabies(res)
+            })
             .catch(this.context.setError)
     }
 
     componentWillUnmount() {
         this.context.clearError()
         this.context.clearBaby()
-        // refresh page to update after deleting profile
+        // refresh page to update sidebar after deleting profile
         window.location.reload(false)
         BabyApiService.getByParentId()
             .then(res => {
@@ -38,6 +39,8 @@ export default class DeletePage extends Component {
 
     render() {
         const { baby } = this.context
+        console.log(baby);
+        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }
@@ -49,7 +52,13 @@ export default class DeletePage extends Component {
                     onClick={() => {
                         this.deleteBaby(baby.id)
                     }}
-                ><Link to='/rate'>Delete</Link></button>
+                >
+                    <Link 
+                        id='delete-link' 
+                        to='/rate'>
+                            Delete
+                    </Link>
+                </button>
             </section>
             
         )

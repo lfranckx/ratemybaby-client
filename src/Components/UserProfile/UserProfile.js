@@ -1,22 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
-import BabyApiService from '../../Services/baby-api-service'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
 
     static contextType = BabyContext
-
-    deleteBaby = (baby) => {
-        BabyApiService.deletBaby(baby.id)
-    }
-
-    componentWillUnmount() {
-        this.context.clearBaby()
-        // refresh page to update after deleting profile
-        window.location.reload(false)
-    }
 
     render() {
         const baby  = this.context.baby
@@ -62,14 +51,7 @@ export default class UserProfile extends Component {
                         <Link to="/editprofile">Edit Info</Link>
                     </button>
                 </div>
-                
-                <button 
-                    id='delete-button' 
-                    type='submit' 
-                    onClick={() => {this.deleteBaby(baby)}}
-                >
-                    <Link to='/rate'>Delete</Link> 
-                </button>
+                <Link to={`/delete/:${baby.id}`}>Delete</Link> 
             </section>
             </>
         )
