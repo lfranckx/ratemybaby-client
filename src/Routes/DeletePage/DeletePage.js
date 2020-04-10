@@ -6,9 +6,6 @@ import './DeletePage.css'
 
 
 export default class DeletePage extends Component {
-    static defaultProps = {
-        match: { params: {} }
-    }
 
     static contextType = BabyContext
 
@@ -24,8 +21,6 @@ export default class DeletePage extends Component {
     componentWillUnmount() {
         this.context.clearError()
         this.context.clearBaby()
-        // refresh page to update sidebar after deleting profile
-        window.location.reload(false)
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)

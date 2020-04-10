@@ -141,7 +141,7 @@ class App extends Component {
             />
             <PrivateRoute
               component={DeletePage}
-              path='/delete/:babyId'
+              path='/delete'
             />
             <PrivateRoute 
               component={NotFoundPage}
