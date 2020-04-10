@@ -50,10 +50,8 @@
     font-size: 12pt;
 }
 
-#delete-button {
-    border: none;
-    background-color: white;
-    padding: 5px;
+#delete-link {
+    margin: 10px;
 }
 
 /* MEDIA QUERIES */

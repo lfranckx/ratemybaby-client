@@ -12,6 +12,7 @@ import ProfilePage from '../../Routes/ProfilePage/ProfilePage'
 import SignUpPage from '../../Routes/SignUpPage/SignUpPage'
 import UploadImagePage from '../../Routes/UploadImagePage/UploadImagePage'
 import CreateBabyPage from '../../Routes/CreateBabyPage/CreateBabyPage'
+import DeletePage from '../../Routes/DeletePage/DeletePage'
 
 import TokenService from '../../Services/token-service'
 import AuthApiService from '../../Services/auth-api-service'
@@ -137,6 +138,10 @@ class App extends Component {
             <PrivateRoute 
               path='/uploadimage'
               component={UploadImagePage}
+            />
+            <PrivateRoute 
+              path='/delete/:babyId'
+              component={DeletePage}
             />
             <PrivateRoute 
               component={NotFoundPage}

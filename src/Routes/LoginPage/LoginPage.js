@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import LoginForm from '../../Components/LoginForm/LoginForm'
+import BabyApiService from '../../Services/baby-api-service'
 import './LoginPage.css'
+
 
 export default class LoginPage extends Component {
     static defaultProps = {
@@ -9,12 +11,6 @@ export default class LoginPage extends Component {
       history: {
         push: () => {},
       },
-    }
-  
-    handleLoginSuccess = () => {
-      const { location, history } = this.props
-      const destination = (location.state || {}).from || '/rate'
-      history.push(destination)
     }
   
     render() {

@@ -1,0 +1,18 @@
+#delete-section {
+    display: inline-block;
+    text-align: center;
+    /* flex-direction: column; */
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 1.5px 3px 5px grey;
+    width: 400px;
+}
+
+#delete-form {
+    display: block;
+}
+
+#delete-button {
+
+}
