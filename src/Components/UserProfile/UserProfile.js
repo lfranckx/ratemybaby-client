@@ -8,8 +8,7 @@ export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
-    deleteBaby = () => {
-        const baby = this.context.baby
+    deleteBaby = (baby) => {
         BabyApiService.deletBaby(baby.id)
     }
 

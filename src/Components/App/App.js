@@ -138,6 +138,9 @@ class App extends Component {
               path='/uploadimage'
               component={UploadImagePage}
             />
+            <PrivateRoute
+              path='/delete/:id'
+            />
             <PrivateRoute 
               component={NotFoundPage}
             />
