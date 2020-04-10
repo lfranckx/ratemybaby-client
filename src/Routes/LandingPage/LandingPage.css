@@ -23,3 +23,21 @@
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87));    
 }
+
+/* MEDIA QUERIES */
+@media (max-width: 700px) {
+    #landing-header {
+        font-size: 2rem;
+        margin-bottom: 80px;
+    }
+    
+    .register{
+        padding: 7.5px 45px;
+        border-radius: 40px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    
+}

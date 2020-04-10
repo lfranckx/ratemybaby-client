@@ -59,7 +59,6 @@
 }
 
 #create-button {
-    margin-top: 30px;
     background: white;
     color: rgb(249, 103, 103);
     box-shadow: 1.5px 2px 3px grey;
@@ -77,4 +76,37 @@
 
 .selector {
     box-shadow: 1.5px 1px 1px grey;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+    #create-section {
+        width: 320px;
+    }
+
+    #create-header {
+        font-size: 1.5rem;
+    }
+
+    #create-form {
+        font-size: 1rem;
+    }
+
+    #create-form input {
+        font-size: 10px;
+    }
+
+    #country-selector {
+        width: 220px;
+    }
+
+    #login-button {
+        font-size: 15px;
+        padding: 6.5px 35px;
+    }
+
+    #create-button {
+        padding: 6.5px 35px;
+    }
 }

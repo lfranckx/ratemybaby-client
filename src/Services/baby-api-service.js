@@ -6,6 +6,7 @@ const BabyApiService = {
     return fetch(`${config.API_ENDPOINT}/babies`, {
       headers: {
         'Content-Type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
     })
       .then(res =>

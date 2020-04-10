@@ -53,4 +53,14 @@
 #delete-button {
     border: none;
     background-color: white;
+    padding: 5px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+    .edit-info {
+        font-size: 15px;
+        padding: 6.5px 35px;
+    }
 }

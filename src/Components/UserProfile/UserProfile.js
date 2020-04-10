@@ -8,9 +8,13 @@ export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
+    componentWillUnmount() {
+        // refresh page to update after deleting profile
+        window.location.reload(false)
+    }
+
     deleteBaby = () => {
         const baby = this.context.baby
-        console.log('BabyApiService delete', baby);
         BabyApiService.deletBaby(baby.id)
     }
 
@@ -67,11 +71,6 @@ export default class UserProfile extends Component {
                     <Link to='/rate'>Delete</Link> 
                 </button>
             </section>
-            {/* <button 
-                id='continue-button'
-            >
-                <Link to="/rate">Continue Rating</Link>
-            </button>     */}
             </>
         )
     }

@@ -42,12 +42,10 @@ export default class SideBar extends Component {
         }
         return (
             <nav id="sidebar">
-                <div id='sidebarheader'><h3>Toddlers</h3></div>
-                <ul>
+                <h3 id='sidebarheader'>Toddlers</h3>
                     {error
                         ? <p className='red'>There was an error, try again</p>
                         : this.renderUsersBabies()}
-                </ul>
             </nav>
         )
     }

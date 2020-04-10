@@ -4,8 +4,8 @@
     box-shadow: 1.5px 3px 5px grey;
     border-radius: 8px;
     width: 400px;
-    padding-bottom: 10px;
-    margin: 0 215px
+    padding-bottom: 5px;
+    margin: 0 215px;
 }
 
 .baby-pic {
@@ -76,18 +76,16 @@
     height: 50px;
     width: 50px;
     position: relative;
-    right: 1.6px;
-    top: 0.2px;
 }
 
 #dislike {
-    top: 4px;
+    top: 5px;
+    left: .12px
 }
 
 #like {
-    top: 2px;
-    left: .3px;
-
+    top: 2.5px;
+    left: .2px;
 }
 
 #superlike {
@@ -119,4 +117,81 @@
 
 .rate-button:active {
     transform: translateY(2px);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+
+    .profile-container {
+        width: 320px;
+        margin: 0px;
+    }
+
+    .baby-pic {
+        width: 320px;
+        height: 350px;
+    }
+
+    .profile-container h3 {
+        font-size: 18pt
+    }
+
+    #cake {
+        height: 20px;
+        width: 20px;
+    }
+    
+    #house {
+        height: 15px;
+        width: 15px;
+        margin-right: 10px;
+        top: 0;
+    }
+
+    .age {
+        font-size: 16px;
+    }
+
+    .country {
+        font-size: 16px;
+    }
+
+    .about {
+        font-size: 16px;
+    }
+
+    .rating {
+        font-size: 20px;
+    }
+
+    .rate-icon {
+        height: 25px;
+        width: 25px;
+    }
+
+    #dislike {
+        bottom: 5px;
+    }
+
+    #superlike {
+        height: 25px;
+        width: 25px;
+        top: 1px;
+    }
+}
+
+@media (max-width: 500px) {
+    #sidebar {
+        top: 55px;
+        left: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 321px) {
+    .profile-container {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }

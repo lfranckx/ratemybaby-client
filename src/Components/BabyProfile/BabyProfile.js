@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
-import superlike from '../../images/blueavocado.png'
 
 export default class BabyProfile extends Component {
 
@@ -13,7 +12,6 @@ export default class BabyProfile extends Component {
     static contextType = BabyContext
 
     componentDidMount() {
-        this.context.clearError()
         this.context.setBaby(this.props.baby)
     }
 
@@ -40,7 +38,6 @@ export default class BabyProfile extends Component {
     
     render() {
         const { baby } = this.props
-        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }
@@ -96,6 +93,7 @@ export default class BabyProfile extends Component {
                         <Link to="/rate">
                             <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/blueavocado.png" 
                                 alt="superlike" 
+                                classNamne="rate-icon"
                                 id="superlike"/>
                         </Link>
                     </button>

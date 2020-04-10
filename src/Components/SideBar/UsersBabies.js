@@ -6,15 +6,15 @@ export default class ThingListItem extends Component {
     
     render() {
         const {baby} = this.props
-        // console.log('UsersBabies props:', baby);
         
-        return  <li className='side-bar-link'>
+        return ( 
                     <Link 
-                        to={`/profile/${baby.id}`}
+                    className="toddler-links"
+                    to={`/profile/${baby.id}`}
                     >
                         {baby.baby_name}
                     </Link>
-                </li>
+        )        
     }              
 }
 

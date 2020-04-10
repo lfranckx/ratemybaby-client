@@ -11,7 +11,7 @@ h1 {
     font-size: 3.5rem;
     font-weight: 500;
     font-family: 'ProximaNova';
-    color: white;
+    color: rgb(228, 95, 95);
 }
 
 #title-logo {
@@ -26,10 +26,6 @@ h1 {
     margin-right: 5px;
 }
 
-#todler {
-    color: rgb(228, 95, 95);
-}
-
 .Header__not-logged-in a:last-child {
     background: white;
     color: rgb(249, 103, 103);
@@ -38,7 +34,6 @@ h1 {
     padding: 8px 20px;
     border-radius: 5px;
     margin-left: 10px;
-    /* font-size: large; */
     font-weight: bold;
 }
 
@@ -62,3 +57,63 @@ h1 {
     background: rgb(249, 103, 103);
     color: white;
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    #logo {
+        position: relative;
+        top: 6px;
+        height: 24px;
+        width: 22px;
+    }
+
+    
+    .Header__not-logged-in a:last-child {
+        border: solid 1.5px rgb(249, 103, 103);
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+
+    .Header__logged-in a {
+        border: solid 1.5px rgb(249, 103, 103);
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }  
+}
+
+@media (max-width: 400px) {
+    .header {
+        padding: 10px 10px
+    }
+
+    .Header__not-logged-in a:last-child {
+        border: solid 1.5px rgb(249, 103, 103);
+        font-size: 10px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+
+    .Header__logged-in a {
+        border: solid 1.5px rgb(249, 103, 103);
+        font-size: 10px;
+        padding: 2px 5px;
+        border-radius: 5px;
+        margin-left: 5px;
+    }  
+
+} 

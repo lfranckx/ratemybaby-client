@@ -1,7 +1,7 @@
 main {
     display: block;
     text-align: center;
-    padding: 0 50px 20px;
+    /* padding: 0 50px 20px; */
 }
 
 section {
@@ -76,4 +76,10 @@ input  {
     color: rgb(37, 35, 36);
     font-size: 20pt;
     font-weight: bold;
+}
+
+@media (max-width: 500) {
+    main {
+        padding: 0;
+    }
 }

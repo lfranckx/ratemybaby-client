@@ -35,3 +35,36 @@
     background-color: rgb(249, 103, 103);
     background-image: linear-gradient(to right, rgb(247, 87, 87) , rgb(247, 87, 87)); 
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+    #register-section {
+        margin-top: 0px;
+        width: 300px;
+        padding: 20px;
+    }
+    
+    #register-header {
+        font-size: 1.5rem;
+    }
+
+    #sign-up-form label {
+        font-size: 1rem;
+    }
+
+    #sign-up-form input {
+        font-size: 10px;
+    }
+
+    #sign-up-button {
+        font-size: 15px;
+        padding: 6.5px 35px;
+    }
+}
+
+@media (max-width: 400px) {
+    #register-section {
+        width: 230px;
+    }
+}

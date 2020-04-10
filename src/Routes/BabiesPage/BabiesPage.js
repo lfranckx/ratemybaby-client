@@ -7,6 +7,7 @@ export default class BabiesPage extends Component {
     static contextType = BabyContext
 
     componentDidMount() {
+        this.forceUpdate()
         this.context.clearError()
         BabyApiService.getBabies()
             .then(this.context.setBabies)

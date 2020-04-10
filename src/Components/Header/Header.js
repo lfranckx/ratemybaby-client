@@ -21,7 +21,7 @@ export default class Nav extends Component {
                         <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
                             alt="logo" 
                             id="logo" />  
-                        <h1 id="todler">toddler</h1>
+                        <h1>toddler</h1>
                     </Link>
                     <div className='Header__logged-in'>
                         <Link 
@@ -48,7 +48,7 @@ export default class Nav extends Component {
                     <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
                         alt="logo" 
                         id="logo" />  
-                    <h1 id="todler">toddler</h1>
+                    <h1>toddler</h1>
                 </Link>
                 <div className='Header__not-logged-in'>
                     <Link 
@@ -62,11 +62,11 @@ export default class Nav extends Component {
 
     render() {
         return ( 
-                <>
+                <header>
                     {TokenService.hasAuthToken()
                     ? this.renderLogoutLink()
                     : this.renderLoginLink()}
-                </>
+                </header>
         )
     }
 }
