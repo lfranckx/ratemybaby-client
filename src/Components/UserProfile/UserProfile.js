@@ -13,6 +13,12 @@ export default class UserProfile extends Component {
         BabyApiService.deletBaby(baby.id)
     }
 
+    componentWillUnmount() {
+        this.context.clearBaby()
+        // refresh page to update after deleting profile
+        window.location.reload(false)
+    }
+
     render() {
         const baby  = this.context.baby
 

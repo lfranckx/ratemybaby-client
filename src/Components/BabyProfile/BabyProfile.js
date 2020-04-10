@@ -14,13 +14,6 @@ export default class BabyProfile extends Component {
     componentDidMount() {
         this.context.setBaby(this.props.baby)
         console.log(this.context.baby);
-        
-    }
-
-    componentWillUnmount() {
-        this.context.clearBaby()
-        // refresh page to update after deleting profile
-        window.location.reload(false)
     }
 
     handleLike = (baby) => {
