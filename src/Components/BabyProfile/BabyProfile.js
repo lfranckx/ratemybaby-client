@@ -13,10 +13,14 @@ export default class BabyProfile extends Component {
 
     componentDidMount() {
         this.context.setBaby(this.props.baby)
+        console.log(this.context.baby);
+        
     }
 
     componentWillUnmount() {
         this.context.clearBaby()
+        // refresh page to update after deleting profile
+        window.location.reload(false)
     }
 
     handleLike = (baby) => {
@@ -93,7 +97,7 @@ export default class BabyProfile extends Component {
                         <Link to="/rate">
                             <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/blueavocado.png" 
                                 alt="superlike" 
-                                classNamne="rate-icon"
+                                className="rate-icon"
                                 id="superlike"/>
                         </Link>
                     </button>

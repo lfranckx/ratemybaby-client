@@ -8,11 +8,6 @@ export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
-    componentWillUnmount() {
-        // refresh page to update after deleting profile
-        window.location.reload(false)
-    }
-
     deleteBaby = () => {
         const baby = this.context.baby
         BabyApiService.deletBaby(baby.id)
