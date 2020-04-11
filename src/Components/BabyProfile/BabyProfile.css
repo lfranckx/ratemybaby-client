@@ -110,6 +110,13 @@
     transform: translateY(-10%)
 }
 
+.rate-labels {
+    margin: 0 17px;
+    color: grey;
+}
+
+.labels-container >
+
 @keyframes heyjump {
     0%{transform: translateY(0px);}
     50%{transform: translateY(-25px);}

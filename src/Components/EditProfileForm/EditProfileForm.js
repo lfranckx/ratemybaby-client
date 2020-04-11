@@ -16,7 +16,7 @@ class EditProfile extends Component {
             error: null,
             id: baby.id,
             name: baby.baby_name,
-            age: baby.age,
+            age: parseInt(baby.age),
             country: baby.country,
             about: baby.about,
         }

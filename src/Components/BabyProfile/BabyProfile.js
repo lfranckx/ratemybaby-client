@@ -106,6 +106,11 @@ export default class BabyProfile extends Component {
                                 id="like"/>
                         </Link>
                     </button>
+                    <div className="labels-container">
+                        <span className="rate-labels">Dislike</span>
+                        <span className="rate-labels">Superlike</span>
+                        <span className="rate-labels">Like</span>
+                    </div>
                 </section>
         )
     }

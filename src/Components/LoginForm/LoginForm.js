@@ -46,7 +46,8 @@ export default class LoginForm extends Component {
                     <input
                         type="text" 
                         name='username' 
-                        className='username' />
+                        className='username' 
+                        required />
                 </div>
                 <div className="input-box">
                     <label className='label'>
@@ -56,7 +57,8 @@ export default class LoginForm extends Component {
                     <input 
                         type="password" 
                         name='password' 
-                        className='password' />
+                        className='password'
+                        required />
                 </div>
                 <button id="login-button" type="submit">Login</button>
             </form>
