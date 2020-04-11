@@ -74,7 +74,7 @@ const BabyApiService = {
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'Content-Type: .png, .jpg, .jpeg .gif',
+        'Content-Type': '.png, .jpg, .jpeg .gif',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: file
