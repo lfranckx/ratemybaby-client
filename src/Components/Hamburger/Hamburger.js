@@ -40,12 +40,11 @@ export default class Hamburger extends Component {
         if (this.state.isChecked) {
             menuWrap.classList.add('checked')
         } 
-        if (this.state.isChecked === false) {
-            menuWrap.classList.remove('checked')
-            menuWrap.classList.add('notChecked')
-        }
+        // if (!this.state.isChecked) {
+        //     menuWrap.classList.remove('checked')
+        //     menuWrap.classList.add('notChecked')
+        // }
         
-
         return (
             <div id="menu-wrap">
                 <label id="menu-label">Babies</label>
