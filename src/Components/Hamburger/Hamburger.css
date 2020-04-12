@@ -1,22 +1,24 @@
-/* Hamburger Design */
-#menu-label {
+/* Hamburger Menu */
+.menu-wrap {
+    position: absolute;
+    top: 14px;
+    left: 210pt;
+    z-index: 1;
+    min-width: 120pt;
+}
+
+.menu-label {
     position: absolute;
     top: 1.1rem;
     left: 3.5rem;
     font-size: 16pt;
     color: rgb(228, 95, 95);
     font-weight: bold;
+    visibility: hidden;
 }
 
-#menu-wrap {
-    position: absolute;
-    top: 11px;
-    left: 205pt;
-    z-index: 1;
-    min-width: 120pt;
-}
 
-#menu-wrap .toggler {
+.menu-wrap .toggler {
     position: absolute;
     top: 11px;
     z-index: 2;
@@ -26,7 +28,7 @@
     opacity: 0;
 }
 
-#menu-wrap .hamburger {
+.menu-wrap .hamburger {
     z-index: 1;
     width: 60px;
     height: 60px;
@@ -38,7 +40,7 @@
 }
 
 /* Hamburger Line */
-#menu-wrap .hamburger > div {
+.menu-wrap .hamburger > div {
     position: relative;
     width: 100%;
     height: 2px;
@@ -49,8 +51,8 @@
     transition: all 0.4s ease
 }
 
-#menu-wrap .hamburger > div:before,
-#menu-wrap .hamburger > div:after {
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
     content: '';
     position: absolute;
     z-index: 1;
@@ -60,59 +62,68 @@
     background: inherit;
 }
 /* Moves lines down */
-#menu-wrap .hamburger > div:after {
+.menu-wrap .hamburger > div:after {
     top: 10px;
 }
 /* Toggler animate */
-#menu-wrap .toggler:checked + .hamburger > div {
+.menu-wrap .toggler:checked + .hamburger > div {
     transform: rotate(135deg)
 }
 /* Turn lines into X */
-#menu-wrap .toggler:checked + .hamburger > div:before,
-#menu-wrap .toggler:checked + .hamburger > div:after {
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
     top: 0;
     transform: rotate(90deg);
 }
 /* Rotate on hover when checked */
-#menu-wrap .toggler:checked:hover + .hamburger > div {
+.menu-wrap .toggler:checked:hover + .hamburger > div {
     transform: rotate(225deg)
 }
 
 /* Menu, ul, and li Styling */
-#menu-wrap .menu {
+.menu-wrap .menu {
     width: 100%;
     height: 100%;
     visibility: hidden;
     text-align: left;
-    padding: 10px;
+    padding: 5px;
 }
 
-#menu-wrap .menu > ul {
+.menu-wrap .menu > ul {
     padding: 0;
     margin: 0;
 }
 
-#menu-wrap .menu > ul > li {
+.menu-wrap .menu > ul > li {
     list-style: none;
     margin: .8rem .5rem 1.4rem;
-}
-
-/* Show Menu */
-#menu-wrap .toggler:checked ~ .menu {
-    visibility: visible;
-}
-
-#menu-wrap .menu {
     visibility: hidden;
 }
 
-.checked {
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu-label {
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > ul > li {
+    visibility: visible
+}
+
+.show-label {
+    visibility: visible;
+}
+
+.active {
     background: #fff;
     border: solid 4px rgb(249, 103, 103);
     border-radius: 8px;
 }
 
-.notChecked {
+.disabled {
     background: none;
     border: none;
 }

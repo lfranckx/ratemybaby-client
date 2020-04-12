@@ -6,12 +6,15 @@ export const nullBaby = {
 }
 
 const BabyContext = React.createContext({
+    active: false,
     usersBabies: [],
     babies: [],
     baby: nullBaby,
     error: null,
     setError: () => {},
     clearError: () => {},
+    toggleActive: () => {},
+    setNotActive: () => {},
     setBaby: () => {},
     clearBaby: () => {},
     updateBaby: () => {},
@@ -23,6 +26,7 @@ export default BabyContext
 
 export class BabyProvider extends Component {
     state = {
+        active: false,
         usersBabies: [],
         babies: [],
         baby: nullBaby,
@@ -36,6 +40,14 @@ export class BabyProvider extends Component {
 
     clearError = () => {
         this.setState({ error: null })
+    }
+
+    toggleActive = () => {
+        this.setState({ active: !this.state.active })
+    }
+
+    setNotActive = () => {
+        this.setState({ active: false })
     }
 
     setBaby = baby => {
@@ -67,12 +79,15 @@ export class BabyProvider extends Component {
     render() {
         
         const value = {
+            active: this.state.active,
             usersBabies: this.state.usersBabies,
             babies: this.state.babies,
             baby: this.state.baby,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
+            toggleActive: this.toggleActive,
+            setNotActive: this.setNotActive,
             setBaby: this.setBaby,
             setBabies: this.setBabies,
             setUsersBabies: this.setUsersBabies,

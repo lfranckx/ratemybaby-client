@@ -24,7 +24,6 @@ export default class Nav extends Component {
                         <h1>toddler</h1>
                     </Link>
                     <Hamburger />
-                     
                     <div className='Header__logged-in'>
                         <Link 
                             to='/createprofile'

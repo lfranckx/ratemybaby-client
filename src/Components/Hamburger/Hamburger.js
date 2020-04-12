@@ -3,18 +3,10 @@ import './Hamburger.css'
 import BabyContext from '../../Contexts/BabyContext'
 import BabyApiService from '../../Services/baby-api-service'
 import UsersBabies from './UsersBabies'
-import { min } from 'date-fns'
 
 export default class Hamburger extends Component { 
-    static defaultProps = {
-        match: { params: {} }
-    }
 
     static contextType = BabyContext
-
-    state = { 
-        isChecked: false
-    }
 
     componentDidMount() {
         BabyApiService.getByParentId()
@@ -24,35 +16,22 @@ export default class Hamburger extends Component {
             .catch(this.context.setError)
     }
 
-    toggleCheck = () => {
-        this.setState({ isChecked: !this.state.isChecked })
-    }
-
     render() {
         const { usersBabies } = this.context
-        console.log(this.state);
-        
         if (usersBabies.length === 0) {
             return <></>
         }
 
-        const menuWrap = document.getElementById('menu-wrap')
-        if (this.state.isChecked) {
-            menuWrap.classList.add('checked')
-        } 
-        // if (!this.state.isChecked) {
-        //     menuWrap.classList.remove('checked')
-        //     menuWrap.classList.add('notChecked')
-        // }
+        console.log(this.context);
         
-        return (
-            <div id="menu-wrap">
-                <label id="menu-label">Babies</label>
+        // children of Hamburger Menu
+        const children = (
+            <>
                 <input 
                     name="babies"
                     type='checkbox' 
                     className='toggler'
-                    onClick={() => {this.toggleCheck()}} />
+                    onClick={() => {this.context.toggleActive()}} />
                 <div className="hamburger"><div></div></div>
                 <div className="menu">
                     <ul>
@@ -63,7 +42,20 @@ export default class Hamburger extends Component {
                         ))}
                     </ul>
                 </div>
+            </>
+        )
+        // Trigger for activating menu
+        const active = this.context.active
+ 
+        const menuWrap = (active) => (
+            <div
+                className={`menu-wrap ${active ? "active" : "disabled"}`}
+            >
+                <label className={`menu-label ${active ? "show-label" : ""}`}>Babies</label>
+                {children}
             </div>
         )
+
+        return menuWrap(active)
     }
 }

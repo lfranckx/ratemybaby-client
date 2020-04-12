@@ -9,6 +9,7 @@ export default class BabiesPage extends Component {
     componentDidMount() {
         this.forceUpdate()
         this.context.clearError()
+        this.context.setNotActice()
         BabyApiService.getBabies()
             .then(this.context.setBabies)
             .catch(this.context.setError)
