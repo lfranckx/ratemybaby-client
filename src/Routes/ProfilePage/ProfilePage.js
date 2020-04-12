@@ -30,6 +30,7 @@ class ProfilePage extends Component {
     
     render() {
         const { baby } = this.context
+        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }

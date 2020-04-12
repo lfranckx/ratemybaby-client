@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: url('/images/baby-dog.jpeg') no-repeat center center fixed; 
+  background: url('https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/baby-dog.jpeg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

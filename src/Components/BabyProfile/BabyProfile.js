@@ -68,7 +68,7 @@ export default class BabyProfile extends Component {
                     <div className="about">{baby.about}</div>
                     <div className="rating">{roundPercent}</div>
                     <button 
-                        className="rate-button" 
+                        className="rate-button buttons" 
                         onClick={() => {
                             this.handleDislike(baby)
                         }}
@@ -81,6 +81,7 @@ export default class BabyProfile extends Component {
                         </Link>
                     </button>
                     <button 
+                        className="buttons"
                         id="superlikebutton"
                         onClick={() => {
                             this.handleSuperLike(baby)
@@ -94,7 +95,7 @@ export default class BabyProfile extends Component {
                         </Link>
                     </button>
                     <button 
-                        className="rate-button"
+                        className="rate-button buttons"
                         onClick={() => {
                             this.handleLike(baby)
                         }}
@@ -106,10 +107,11 @@ export default class BabyProfile extends Component {
                                 id="like"/>
                         </Link>
                     </button>
+                    
                     <div className="labels-container">
-                        <span className="rate-labels">Dislike</span>
-                        <span className="rate-labels">Superlike</span>
-                        <span className="rate-labels">Like</span>
+                        <span className="rate-labels" id="dislike-label">Dislike</span>
+                        <span className="rate-labels" id="superlike-label">Superlike</span>
+                        <span className="rate-labels" id="like-label">Like</span>
                     </div>
                 </section>
         )

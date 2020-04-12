@@ -9,7 +9,7 @@ export default class UserProfile extends Component {
 
     render() {
         const baby  = this.context.baby
-
+        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }
@@ -33,7 +33,7 @@ export default class UserProfile extends Component {
                          <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png" 
                             alt="birthday-cake" 
                             id="cake" />
-                        {baby.age}
+                        {baby.age} {baby.age_format}
                     </span>
                     <span className="country">
                         <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/house.png" 
@@ -48,7 +48,7 @@ export default class UserProfile extends Component {
                 <div className='edit-info-box'>
                     <div className="user-rating">{roundPercent}</div>
                     <button className="edit-info">
-                        <Link to="/editprofile">Edit Info</Link>
+                        <Link to={`/editprofile/${baby.id}`}>Edit Info</Link>
                     </button>
                 </div>
                 <Link to={`/delete`}>Delete</Link> 

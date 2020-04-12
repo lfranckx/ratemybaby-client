@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
-import CountryDropDown from '../CountryDropDown/CountryDropDown'
 
 class EditProfile extends Component {
 
@@ -30,7 +29,8 @@ class EditProfile extends Component {
         const { name, age, format, country, about } = ev.target
         const newBaby = {
             baby_name: name.value,
-            age: age.value + " " + format.value,
+            age: age.value,
+            age_format: format.value,
             country: country.value,
             about: about.value,
             image_url: '',
@@ -98,14 +98,11 @@ class EditProfile extends Component {
                     </div>
 
                     <div className="form-items">
-                    <select 
-                        id="country-selector" 
-                        name="country" 
-                        className="selector"
-                        defaultValue="United States"
-                    >
-                        <CountryDropDown />
-                    </select>
+                        <input
+                            id="country" 
+                            name="country" 
+                            className="edit-input"
+                        />
                     </div>
 
                     <div className="form-items">

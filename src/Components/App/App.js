@@ -132,7 +132,7 @@ class App extends Component {
               )}
             />
             <PrivateRoute 
-              path='/editprofile'
+              path='/editprofile/:babyId'
               component={EditProfilePage}
             />
             <PrivateRoute 

@@ -2,24 +2,13 @@ import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import BabyContext from '../../Contexts/BabyContext'
 import { Link } from 'react-router-dom'
-import CountryDropDown from '../CountryDropDown/CountryDropDown'
 
 class EditProfile extends Component {
 
     static contextType = BabyContext
 
-    constructor(props) {
-        super(props)
-        const { baby } = this.props
-        
-        this.state = {
-            error: null,
-            id: baby.id,
-            name: baby.baby_name,
-            age: parseInt(baby.age),
-            country: baby.country,
-            about: baby.about,
-        }
+    state = {
+        error: null,
     }
 
     handleUpdateProfile = ev => {
@@ -28,9 +17,10 @@ class EditProfile extends Component {
         const { name, age, format, country, about } = ev.target
         
         BabyApiService.updateBaby({
-            id: this.state.id,
+            id: this.context.baby.id,
             baby_name: name.value,
-            age: age.value + " " + format.value,
+            age: age.value,
+            age_format: format.value,
             country: country.value,
             about: about.value
         }) 
@@ -38,11 +28,13 @@ class EditProfile extends Component {
                 name.value = ''
                 about.value = ''
                 this.props.onSubmitForm()
-            })    }
+            })    
+    }
 
     render() {
         const { error } = this.state
-        
+        const { baby } = this.context
+
         return  <form 
                     id="edit-form"
                     onSubmit={this.handleUpdateProfile}
@@ -57,7 +49,7 @@ class EditProfile extends Component {
                             type="text"
                             name="name" 
                             required 
-                            defaultValue={this.state.name}
+                            defaultValue={baby.baby_name}
                         />
                     </div>
                     <div className="form-items">
@@ -70,11 +62,14 @@ class EditProfile extends Component {
                             min='1'
                             name="age" 
                             required
-                            defaultValue={this.state.age}
+                            defaultValue={baby.age}
                         />
                     </div>
                     <div className="form-items">
-                        <select name="format" className="month-year selector">
+                        <select 
+                            name="format" 
+                            className="month-year selector" 
+                            defaultValue={baby.age_format} >
                             <option>month</option>
                             <option>months</option>
                             <option>year</option>
@@ -85,14 +80,13 @@ class EditProfile extends Component {
                         <label className='create-form-label'>Country</label>
                     </div>
                     <div className="form-items">
-                        <select 
-                            id="country-selector" 
+                        <input
+                            id="country" 
                             name="country" 
-                            className="selector"
-                            defaultValue={this.state.country}
-                        >
-                            <CountryDropDown />
-                        </select>
+                            className="edit-input"
+                            required
+                            defaultValue={baby.country}
+                        />
                     </div>
                     <div className="editFormItems">
                         <label className="edit-form-label">About</label>
@@ -103,12 +97,12 @@ class EditProfile extends Component {
                             name="about" 
                             rows="10" 
                             
-                            defaultValue={this.state.about}
+                            defaultValue={baby.about}
                         />
                     </div>
                     <div className="editFormButtons" id="cancel-submit-buttons">
                         <button className="edit-buttons cancel-button" type="click">
-                            <Link id="cancel-button" to={`/profile/${this.state.id}`}>Cancel</Link>
+                            <Link id="cancel-button" to={`/profile/${baby.id}`}>Cancel</Link>
                         </button>
                         <button className="edit-buttons submit-button" type="submit">Submit</button>
                     </div>

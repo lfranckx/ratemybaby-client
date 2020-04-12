@@ -25,6 +25,11 @@ h1 {
     margin-right: 5px;
 }
 
+.title-hamburger {
+    display: flex;
+    align-items: center;
+}
+
 .Header__not-logged-in a:last-child {
     background: white;
     color: rgb(249, 103, 103);
@@ -56,6 +61,8 @@ h1 {
     background: rgb(249, 103, 103);
     color: white;
 }
+
+
 
 /* MEDIA QUERIES */
 

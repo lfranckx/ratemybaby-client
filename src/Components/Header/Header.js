@@ -3,7 +3,7 @@ import './Header.css'
 import { Link } from 'react-router-dom'
 import TokenService from '../../Services/token-service'
 import IdleService from '../../Services/idle-service'
-import SideBar from '../SideBar/SideBar'
+import Hamburger from '../Hamburger/Hamburger'
 
 export default class Nav extends Component {
     handleLogout = () => {
@@ -23,6 +23,8 @@ export default class Nav extends Component {
                             id="logo" />  
                         <h1>toddler</h1>
                     </Link>
+                    <Hamburger />
+                     
                     <div className='Header__logged-in'>
                         <Link 
                             to='/createprofile'
@@ -36,7 +38,6 @@ export default class Nav extends Component {
                         </Link>
                     </div>  
                 </nav>    
-                <SideBar />  
             </>    
         )
     }

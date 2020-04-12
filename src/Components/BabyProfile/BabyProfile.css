@@ -24,6 +24,11 @@
     border-bottom: solid 0.5px lightgray;
 }
 
+.buttons {
+    position: relative;
+    right: 5px;
+}
+
 #cake {
     height: 30px;
     width: 30px;
@@ -111,11 +116,21 @@
 }
 
 .rate-labels {
+    position: relative;
+    right: 5px;
     margin: 0 17px;
     color: grey;
 }
 
-.labels-container >
+#superlike-label {
+    position: relative;
+    right: 12px;
+}
+
+#like-label {
+    position: relative;
+    right: 12px;
+}
 
 @keyframes heyjump {
     0%{transform: translateY(0px);}
@@ -186,6 +201,12 @@
         width: 25px;
         top: 1px;
     }
+
+    .rate-labels {
+        font-size: 12px;
+        margin: 0 11px;
+
+    }
 }
 
 @media (max-width: 500px) {
@@ -201,4 +222,6 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
+
+
 }
