@@ -21,8 +21,6 @@ export default class Hamburger extends Component {
         if (usersBabies.length === 0) {
             return <></>
         }
-        console.log(this.context);
-
         // Trigger for activating menu
         const active = this.context.active
  
