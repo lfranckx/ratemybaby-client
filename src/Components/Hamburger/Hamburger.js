@@ -21,41 +21,43 @@ export default class Hamburger extends Component {
         if (usersBabies.length === 0) {
             return <></>
         }
-
         console.log(this.context);
-        
-        // children of Hamburger Menu
-        const children = (
-            <>
-                <input 
-                    name="babies"
-                    type='checkbox' 
-                    className='toggler'
-                    onClick={() => {this.context.toggleActive()}} />
-                <div className="hamburger"><div></div></div>
-                <div className="menu">
+
+        // Trigger for activating menu
+        const active = this.context.active
+ 
+        const hamburgerMenu = (active) => (
+            <nav
+                aria-label='secondary'
+                className={`menu-wrap ${active ? "active" : "disabled"}`}
+            >
+                <div className="toggle-label">
+                    <div className='hamburger-container'>
+                        <div 
+                            id='toggle'
+                            className={`hamburger ${active ? "checked" : ""}`}
+                            onClick={() => {this.context.toggleActive()}} >
+                            <div></div>
+                        </div>
+                    </div>
+                    <h3 className={`menu-label ${active ? "show-label" : ""}`}>
+                        Babies
+                    </h3>
+                </div>
+                
+                <div className={`menu ${active ? "checked" : ""}`}>
                     <ul>
                     {usersBabies.map(baby => (
-                        <UsersBabies 
+                        <UsersBabies
+                            active={active} 
                             key={baby.id}
                             baby={baby} />
                         ))}
                     </ul>
                 </div>
-            </>
+            </nav>
         )
-        // Trigger for activating menu
-        const active = this.context.active
- 
-        const menuWrap = (active) => (
-            <div
-                className={`menu-wrap ${active ? "active" : "disabled"}`}
-            >
-                <label className={`menu-label ${active ? "show-label" : ""}`}>Babies</label>
-                {children}
-            </div>
-        )
-
-        return menuWrap(active)
+        
+        return hamburgerMenu(active)
     }
 }

@@ -16,14 +16,15 @@ export default class Nav extends Component {
     renderLogoutLink() {
         return (
             <>
-                <nav className="header">
+                <nav 
+                    aria-label='primary'
+                    className="header">
                     <Link id="title-logo" to='/rate'>
                         <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
                             alt="logo" 
                             id="logo" />  
                         <h1>toddler</h1>
                     </Link>
-                    <Hamburger />
                     <div className='Header__logged-in'>
                         <Link 
                             to='/createprofile'
@@ -36,7 +37,8 @@ export default class Nav extends Component {
                             Logout
                         </Link>
                     </div>  
-                </nav>    
+                </nav> 
+                <Hamburger />   
             </>    
         )
     }

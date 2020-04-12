@@ -18,16 +18,14 @@ export default class EditProfile extends Component {
 
     componentDidMount() {
         this.context.clearError()
-        console.log('EditProfilePage babyId', this.props.match.params.babyId);
-        
-        let babyId = this.props.match.params.babyId
+        this.context.setNotActive()
+        const babyId = this.props.match.params.babyId
         BabyApiService.getBaby(babyId)
             .then(this.context.setBaby)
             .catch(this.context.setError)
     }
 
     componentWillUnmount() {
-        this.context.clearError()
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)

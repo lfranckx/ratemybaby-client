@@ -5,7 +5,9 @@ import BabyApiService from '../../Services/baby-api-service'
 import './UploadImage.css'
 
 export default class UploadImagePage extends Component {
+
     static defaultProps = {
+        match: { params: {} },
         location: {},
         history: {
           push: () => {},
@@ -13,6 +15,15 @@ export default class UploadImagePage extends Component {
     }
 
     static contextType = BabyContext
+
+    componentDidMount() {
+        this.context.clearError()
+        this.context.setNotActive()
+        const babyId = this.props.match.params.babyId
+        BabyApiService.getBaby(babyId)
+            .then(this.context.setBaby)
+            .catch(this.context.setError)
+    }
 
     componentWillUnmount() {
         BabyApiService.getByParentId()

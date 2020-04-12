@@ -136,7 +136,7 @@ class App extends Component {
               component={EditProfilePage}
             />
             <PrivateRoute 
-              path='/uploadimage'
+              path='/uploadimage/:babyId'
               component={UploadImagePage}
             />
             <PrivateRoute

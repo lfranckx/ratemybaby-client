@@ -26,7 +26,7 @@ export default class UserProfile extends Component {
             <>
             <section className="profile-container">
                 <img src={baby.image_url} alt="profile" className="baby-pic" />
-                <Link id="change-photo" to="/uploadimage">Change Photo</Link>  
+                <Link id="change-photo" to={`/uploadimage/${baby.id}`}>Change Photo</Link>  
                 <div className="name-age">
                     <h3 id="user-baby-name">{baby.baby_name}</h3>
                     <span className="age">

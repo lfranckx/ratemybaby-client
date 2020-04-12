@@ -14,6 +14,10 @@ export default class EditProfile extends Component {
     
     static contextType = BabyContext
 
+    componentDidMount() {
+        this.context.setNotActive()
+    }
+
     componentWillUnmount() {
         BabyApiService.getByParentId()
         .then(res => {

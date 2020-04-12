@@ -20,10 +20,6 @@ export default class UploadImage extends Component {
         }
     }
 
-    componentDidMount() {
-        this.context.clearError()
-    }
-
     handleSingleFileUpload = ev => {
         ev.preventDefault()
         this.setState({ error: null })

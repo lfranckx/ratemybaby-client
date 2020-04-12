@@ -13,6 +13,7 @@ class ProfilePage extends Component {
     
     componentDidMount() {
         this.context.clearError()
+        this.context.setNotActive()
         let babyId = this.props.match.params.babyId
         BabyApiService.getBaby(babyId)
             .then(this.context.setBaby)

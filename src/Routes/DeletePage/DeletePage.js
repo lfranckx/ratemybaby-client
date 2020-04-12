@@ -11,6 +11,7 @@ export default class DeletePage extends Component {
 
     componentDidMount() {
         this.context.clearError()
+        this.context.setNotActive()
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)
