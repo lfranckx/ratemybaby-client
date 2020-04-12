@@ -50,7 +50,7 @@ export default class BabyProfile extends Component {
                 <section className="profile-container">
                     <img src={baby.image_url} alt="baby" className="baby-pic" />
                     <div className="name-age">
-                        <h3>{baby.baby_name}</h3>
+                        <h3 id="babyprofilename">{baby.baby_name}</h3>
                         <span className="age">
                             <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png" 
                                 alt="birthday-cake" 

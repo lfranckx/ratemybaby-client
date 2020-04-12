@@ -18,6 +18,10 @@
     box-shadow: 1.5px 3px 5px grey;
 }
 
+#babyprofilename {
+    font-size: 22pt;
+}
+
 .name-age {
     text-align: left;
     padding: 10px;

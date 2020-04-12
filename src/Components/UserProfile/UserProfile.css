@@ -2,6 +2,14 @@
     margin: 0;
 }
 
+#user-baby-name {
+    font-size: 22pt;
+}
+
+.age {
+    font-size: 16pt
+}
+
 .about {
     white-space: pre-wrap;
 }
