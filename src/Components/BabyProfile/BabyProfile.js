@@ -81,7 +81,7 @@ export default class BabyProfile extends Component {
                         </Link>
                     </button>
                     <button 
-                        className="buttons"
+                        className="rate-button buttons"
                         id="superlikebutton"
                         onClick={() => {
                             this.handleSuperLike(baby)
