@@ -35,6 +35,7 @@ export default class LoginForm extends Component {
         return (
             <form 
                 id='login-form'
+                autoComplete="off"
                 onSubmit={this.handleSubmitJwtAuth}
             >
                 <div role='alert'>{error && <p className='error'>{error}</p>}</div>
