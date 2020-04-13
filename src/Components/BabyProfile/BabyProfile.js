@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
 
-export default class BabyProfile extends PureComponent {
+export default class BabyProfile extends Component {
 
     static defaultProps = {
         match: { params: {} },
@@ -29,15 +29,15 @@ export default class BabyProfile extends PureComponent {
     }
     
     render() {
-        console.log('BabyProfile rendered');
-        
         const { baby } = this.props
+        console.log('babyprofile context', this.context);
+        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }
 
         if (baby.image_url === "") {
-            return baby.image_url === "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
+            baby.image_url = "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
         
         let rating = (baby.total_score / baby.total_votes)

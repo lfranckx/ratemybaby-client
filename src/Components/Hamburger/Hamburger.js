@@ -14,14 +14,9 @@ export default class Hamburger extends Component {
                 this.context.setUsersBabies(res)
             })
             .catch(this.context.setError)
-        BabyApiService.getBabies()
-            .then(this.context.setBabies)
-            .catch(this.context.setError)
     }
 
     render() {
-        console.log('Hamburger rendered');
-        
         const { usersBabies } = this.context
         if (usersBabies.length === 0) {
             return <></>

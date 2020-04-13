@@ -6,33 +6,40 @@ import GenRandomBaby from '../../Components/GenRandomBaby/GenRandomBaby'
 export default class BabiesPage extends Component {
     static contextType = BabyContext
 
-    shouldComponentMount() {
+    componentDidMount() {
         this.context.clearError()
         this.context.setNotActive()
+        BabyApiService.getBabies()
+            .then(this.context.setBabies)
+            .catch(this.context.setError)
+        BabyApiService.getByParentId()
+            .then(res => {
+                console.log('BabiesPage setting usersbabies', res)
+                this.context.setUsersBabies(res)
+            })
+            .catch(this.context.setError)
     }
 
-    // renderBabies() {
-    //     const { babies = [] } = this.context
+    renderBabies() {
+        const { babies = [] } = this.context
         
-    //     if (babies.length === 0) {
-    //         return <div className='loading'>Loading...</div>
-    //     }
+        if (babies.length === 0) {
+            return <div className='loading'>Loading...</div>
+        }
 
-    //     return (
-    //         <GenRandomBaby babies={babies}/>
-    //     )
-    // }
+        return (
+            <GenRandomBaby babies={babies}/>
+        )
+    }
 
     render() {
-        console.log('BabiesPage rendered');
-        console.log('context', this.context);
         const { error } = this.context
         
         return (
             <>
                 {error
                     ? <p className='error'>There was an error, try again</p>
-                    : <GenRandomBaby />}
+                    : this.renderBabies()}
             </>
         )
     }

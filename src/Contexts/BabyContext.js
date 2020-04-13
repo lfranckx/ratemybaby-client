@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import BabyApiService from '../Services/baby-api-service'
 
-export const nullBaby = {
-    baby: null
-}
-
 const BabyContext = React.createContext({
     active: false,
     usersBabies: [],

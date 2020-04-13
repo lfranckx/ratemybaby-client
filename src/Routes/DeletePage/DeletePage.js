@@ -31,7 +31,6 @@ export default class DeletePage extends Component {
         this.context.clearBaby()
         BabyApiService.getByParentId()
             .then(res => {
-                console.log('setting usersbabies DeletePage', res)
                 this.context.setUsersBabies(res)
             })
             .catch(this.context.setError)
@@ -42,10 +41,7 @@ export default class DeletePage extends Component {
     }
 
     render() {
-        console.log('DeletePage rendered');
-        
         const { baby } = this.context
-        console.log('context DeletePage', this.context);
         
         if (!baby) {
             return <div className='loading'>Loading...</div>
