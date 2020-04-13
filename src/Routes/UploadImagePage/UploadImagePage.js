@@ -42,6 +42,7 @@ export default class UploadImagePage extends Component {
     }
 
     render() {
+        console.log('DeletePage rendered');
         console.log('context UploadimagePage',this.context);
         
         const { baby } = this.context

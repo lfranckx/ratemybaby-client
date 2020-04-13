@@ -42,6 +42,8 @@ export default class DeletePage extends Component {
     }
 
     render() {
+        console.log('DeletePage rendered');
+        
         const { baby } = this.context
         console.log('context DeletePage', this.context);
         

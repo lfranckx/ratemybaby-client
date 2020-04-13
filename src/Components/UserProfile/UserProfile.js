@@ -7,15 +7,19 @@ export default class UserProfile extends Component {
 
     static contextType = BabyContext
 
+    state = {
+        baby: this.context.baby
+    }
+
     render() {
-        const baby  = this.context.baby
+        const { baby } = this.state
         
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }
         
         if(baby.image_url === "") {
-            return baby.image_url === "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
+            baby.image_url = "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
 
         let rating = (baby.total_score / baby.total_votes)

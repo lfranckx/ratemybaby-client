@@ -34,6 +34,8 @@ export default class EditProfile extends Component {
     }
 
     render() {     
+        console.log('CreateBabyPage rendered');
+        
         return (
             <section id="create-section">
                 <h3 id="create-header">Create Baby Profile</h3>

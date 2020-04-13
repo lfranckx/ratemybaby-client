@@ -41,6 +41,8 @@ export default class EditProfile extends Component {
     }
 
     render() {
+        console.log('DeletePage rendered');
+
         const { baby } = this.context                
         return (
             <section id="edit-section">

@@ -9,7 +9,7 @@ const BabyContext = React.createContext({
     active: false,
     usersBabies: [],
     babies: [],
-    baby: nullBaby,
+    baby: null,
     error: null,
     setError: () => {},
     clearError: () => {},
@@ -29,7 +29,7 @@ export class BabyProvider extends Component {
         active: false,
         usersBabies: [],
         babies: [],
-        baby: nullBaby,
+        baby: null,
         error: null
     }
 
@@ -57,7 +57,7 @@ export class BabyProvider extends Component {
     }
 
     clearBaby = () => {
-        this.setBaby(nullBaby)
+        this.setBaby({ baby: null })
     }   
 
     updateBaby = baby => {
@@ -77,7 +77,6 @@ export class BabyProvider extends Component {
     }
       
     render() {
-        
         const value = {
             active: this.state.active,
             usersBabies: this.state.usersBabies,

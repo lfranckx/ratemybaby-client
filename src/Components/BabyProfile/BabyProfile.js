@@ -1,19 +1,15 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import BabyContext from '../../Contexts/BabyContext'
 import './BabyProfile.css'
 
-export default class BabyProfile extends Component {
+export default class BabyProfile extends PureComponent {
 
     static defaultProps = {
         match: { params: {} },
     }
 
     static contextType = BabyContext
-
-    componentDidMount() {
-        this.context.setBaby(this.props.baby)
-    }
 
     handleLike = (baby) => {
         baby.total_score += 2
@@ -33,6 +29,8 @@ export default class BabyProfile extends Component {
     }
     
     render() {
+        console.log('BabyProfile rendered');
+        
         const { baby } = this.props
         if (!baby) {
             return <div className='loading'>Loading...</div>
