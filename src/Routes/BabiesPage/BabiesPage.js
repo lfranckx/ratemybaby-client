@@ -11,17 +11,17 @@ export default class BabiesPage extends Component {
         this.context.setNotActive()
     }
 
-    renderBabies() {
-        const { babies = [] } = this.context
+    // renderBabies() {
+    //     const { babies = [] } = this.context
         
-        if (babies.length === 0) {
-            return <div className='loading'>Loading...</div>
-        }
+    //     if (babies.length === 0) {
+    //         return <div className='loading'>Loading...</div>
+    //     }
 
-        return (
-            <GenRandomBaby babies={babies}/>
-        )
-    }
+    //     return (
+    //         <GenRandomBaby babies={babies}/>
+    //     )
+    // }
 
     render() {
         console.log('BabiesPage rendered');
@@ -32,7 +32,7 @@ export default class BabiesPage extends Component {
             <>
                 {error
                     ? <p className='error'>There was an error, try again</p>
-                    : this.renderBabies()}
+                    : <GenRandomBaby />}
             </>
         )
     }
