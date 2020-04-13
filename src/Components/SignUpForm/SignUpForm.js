@@ -41,7 +41,6 @@ export default class SignUp extends Component {
         const { error } = this.state
         return (
             <form 
-                autoComplete="off"
                 id='sign-up-form'
                 onSubmit={this.handleSubmit}
             >
@@ -76,6 +75,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>                    
                     <input 
+                        autoComplete="on"
                         type="password" 
                         name='password'
                         required
