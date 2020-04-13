@@ -28,6 +28,7 @@ export default class UploadImagePage extends Component {
     componentWillUnmount() {
         BabyApiService.getByParentId()
         .then(res => {
+            console.log('UploadImagePage setting usersbabies', res)
             this.context.setUsersBabies(res)
         })
         .catch(this.context.setError)
@@ -41,6 +42,8 @@ export default class UploadImagePage extends Component {
     }
 
     render() {
+        console.log('context UploadimagePage',this.context);
+        
         const { baby } = this.context
         return (
             <section id="upload-section">
