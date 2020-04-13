@@ -55,7 +55,7 @@ export default class BabyProfile extends Component {
                             <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png" 
                                 alt="birthday-cake" 
                                 id="cake" />
-                            {baby.age}
+                            {baby.age} {baby.age_format}
                         </span>
                         <span className="country">
                             <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/house.png" 
