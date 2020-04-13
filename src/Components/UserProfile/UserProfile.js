@@ -51,7 +51,7 @@ export default class UserProfile extends Component {
                         <Link to={`/editprofile/${baby.id}`}>Edit Info</Link>
                     </button>
                 </div>
-                <Link to={`/delete`}>Delete</Link> 
+                <Link to={`/delete/${baby.id}`}>Delete</Link> 
             </section>
             </>
         )

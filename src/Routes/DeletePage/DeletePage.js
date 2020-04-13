@@ -7,11 +7,19 @@ import './DeletePage.css'
 
 export default class DeletePage extends Component {
 
+    static defaultProps = {
+        match: { params: {} }
+    }
+
     static contextType = BabyContext
 
     componentDidMount() {
         this.context.clearError()
         this.context.setNotActive()
+        const babyId = this.props.match.params.babyId
+        BabyApiService.getBaby(babyId)
+            .then(this.context.setBaby)
+            .catch(this.context.setError)
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)

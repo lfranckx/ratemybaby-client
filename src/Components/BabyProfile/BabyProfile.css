@@ -114,11 +114,6 @@
     margin: 5px;
 }
 
- #superlikebutton:active {
-    animation: heyjump .8s 1;
-    transform: translateY(-10%)
-}
-
 .rate-labels {
     position: relative;
     right: 5px;
@@ -136,6 +131,12 @@
     right: 12px;
 }
 
+
+#superlikebutton:active {
+    animation: heyjump .8s 1;
+    transform: translateY(-10%)
+}
+
 @keyframes heyjump {
     0%{transform: translateY(0px);}
     50%{transform: translateY(-25px);}
@@ -144,6 +145,38 @@
 .rate-button:active {
     transform: translateY(2px);
 }
+
+.rate-icon:hover {
+    animation: shake 0.76s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* #superlike:hover {
+    transform: scale(1.2);
+} */
+
+@keyframes shake {
+    /* 10%, 90% {
+        transform: rotate(7deg);
+    } */
+
+    /* 20%, 80% {
+        transform: rotate(-7deg);
+    } */
+
+    30%, 50%, 70% {
+        transform: rotate(7deg);
+    }
+
+    40%, 60% {
+        transform: rotate(-7deg);
+    }
+}
+
+
+
 
 /* MEDIA QUERIES */
 
