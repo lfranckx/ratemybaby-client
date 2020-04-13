@@ -13,7 +13,6 @@ export default class BabiesPage extends Component {
         BabyApiService.getBabies()
             .then(this.context.setBabies)
             .catch(this.context.setError)
-
         BabyApiService.getByParentId()
             .then(res => {
                 this.context.setUsersBabies(res)
