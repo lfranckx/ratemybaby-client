@@ -2,9 +2,22 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+  
+}
+
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background: url('https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/smallfeet.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  height: 100%
 }
 
 p {

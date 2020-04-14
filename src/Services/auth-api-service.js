@@ -1,6 +1,7 @@
 import config from '../config'
 import TokenService from './token-service'
 import IdleService from './idle-service'
+import BabyContext from '../Contexts/BabyContext'
 
 const AuthApiService = {
     postUser(user) {
@@ -70,7 +71,7 @@ const AuthApiService = {
             return res
         })
         .catch(err => {
-            console.error(err)
+            this.context.setError(err)
         })
     },
 }

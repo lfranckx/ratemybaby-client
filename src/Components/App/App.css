@@ -1,18 +1,7 @@
 main {
-    height: 100vh;
-    display: block;
+    height: 100%;
     text-align: center;
-    padding: 20px 10px 10px;
-    /* -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
-    text-align: center;
-    background: url('https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/smallfeet.jpg') no-repeat center center fixed; 
-    /* -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover; */
-    background-size: cover;
-    background-color: rgb(152, 65, 39);
-    background-blend-mode: lighten;
+    padding: 15px;
 }
 
 section {

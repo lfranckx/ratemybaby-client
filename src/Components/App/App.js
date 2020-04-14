@@ -32,7 +32,6 @@ class App extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    console.error(error)
     return { error: true }
   }
 
