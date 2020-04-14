@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import BabyApiService from '../../Services/baby-api-service'
 
 
@@ -8,7 +8,7 @@ export default class UploadImage extends Component {
         onLoginSuccess: () => {}
     }
 
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     constructor(props) {
         super(props)

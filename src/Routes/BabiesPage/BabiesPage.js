@@ -7,6 +7,8 @@ export default class BabiesPage extends Component {
     static contextType = BabyContext
 
     componentDidMount() {
+        console.log('BabiesPage mounted');
+        
         this.context.clearError()
         this.context.setNotActive()
         BabyApiService.getBabies()
@@ -14,7 +16,6 @@ export default class BabiesPage extends Component {
             .catch(this.context.setError)
         BabyApiService.getByParentId()
             .then(res => {
-                console.log('BabiesPage setting usersbabies', res)
                 this.context.setUsersBabies(res)
             })
             .catch(this.context.setError)

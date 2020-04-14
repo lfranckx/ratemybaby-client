@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UploadImageForm from '../../Components/UploadImageForm/UploadImageForm'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import BabyApiService from '../../Services/baby-api-service'
 import './UploadImage.css'
 
@@ -14,7 +14,7 @@ export default class UploadImagePage extends Component {
         },
     }
 
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     componentDidMount() {
         this.context.clearError()
@@ -28,7 +28,6 @@ export default class UploadImagePage extends Component {
     componentWillUnmount() {
         BabyApiService.getByParentId()
         .then(res => {
-            console.log('UploadImagePage setting usersbabies', res)
             this.context.setUsersBabies(res)
         })
         .catch(this.context.setError)
@@ -41,10 +40,7 @@ export default class UploadImagePage extends Component {
         history.push(destination)
     }
 
-    render() {
-        console.log('DeletePage rendered');
-        console.log('context UploadimagePage',this.context);
-        
+    render() {        
         const { baby } = this.context
         return (
             <section id="upload-section">

@@ -4,14 +4,14 @@ import './index.css';
 import App from './Components/App/App';
 import { BrowserRouter } from 'react-router-dom';
 import { BabyProvider } from './Contexts/BabyContext'
-// import { HamburgerProvider } from './Contexts/HamburgerContext';
+import { HamburgerProvider } from './Contexts/HamburgerContext';
 
 ReactDOM.render(
         <BrowserRouter>
             <BabyProvider>
-                {/* <HamburgerProvider> */}
+                <HamburgerProvider>
                     <App />
-                {/* </HamburgerProvider> */}
+                </HamburgerProvider>
             </BabyProvider>
         </BrowserRouter>, 
         document.getElementById('root')

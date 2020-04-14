@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import UserProfile from '../../Components/UserProfile/UserProfile'
 
 class ProfilePage extends Component {
@@ -9,8 +9,8 @@ class ProfilePage extends Component {
         match: { params: {} }
     }
     
-    static contextType = BabyContext
-    
+    static contextType = HamburgerContext
+
     componentDidMount() {
         this.context.clearError()
         this.context.setNotActive()
@@ -18,20 +18,21 @@ class ProfilePage extends Component {
         BabyApiService.getBaby(babyId)
             .then(this.context.setBaby)
             .catch(this.context.setError)
+            .then(res => {
+                BabyApiService.getByParentId()
+                .then(res => {
+                    this.context.setUsersBabies(res)
+                })
+                .catch(this.context.setError)
+            })
     }
     
     componentWillUnmount() {
-        this.context.clearError()
-        BabyApiService.getByParentId()
-            .then(res => {
-                this.context.setUsersBabies(res)
-            })
-            .catch(this.context.setError)
+        this.context.setNotActive()
     }
     
     render() {
-        const { baby } = this.context
-        
+        const { baby } = this.context        
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }

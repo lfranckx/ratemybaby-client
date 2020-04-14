@@ -1,25 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import './UserProfile.css'
 
 export default class UserProfile extends Component {
 
-    static contextType = BabyContext
-
-    state = {
-        baby: this.context.baby
-    }
+    static contextType = HamburgerContext
 
     render() {
-        const { baby } = this.state
-        
+        const { baby } = this.context      
         if (!baby) {
             return <div className='loading'>Loading...</div>
-        }
-        
-        if(baby.image_url === "") {
-            baby.image_url = "https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/babydrawing.png"
         }
 
         let rating = (baby.total_score / baby.total_votes)

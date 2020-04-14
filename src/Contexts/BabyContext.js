@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import BabyApiService from '../Services/baby-api-service'
 
+export const nullBaby = {
+    baby: null
+}
+
 const BabyContext = React.createContext({
     active: false,
     usersBabies: [],
     babies: [],
-    baby: null,
+    baby: nullBaby,
     error: null,
     setError: () => {},
     clearError: () => {},
@@ -25,7 +29,7 @@ export class BabyProvider extends Component {
         active: false,
         usersBabies: [],
         babies: [],
-        baby: null,
+        baby: nullBaby,
         error: null
     }
 
@@ -53,7 +57,7 @@ export class BabyProvider extends Component {
     }
 
     clearBaby = () => {
-        this.setBaby({ baby: null })
+        this.setBaby(nullBaby)
     }   
 
     updateBaby = baby => {
@@ -83,9 +87,9 @@ export class BabyProvider extends Component {
             clearError: this.clearError,
             toggleActive: this.toggleActive,
             setNotActive: this.setNotActive,
-            setBaby: this.setBaby,
             setBabies: this.setBabies,
             setUsersBabies: this.setUsersBabies,
+            setBaby: this.setBaby,
             clearBaby: this.clearBaby,
             updateBaby: this.updateBaby
         }

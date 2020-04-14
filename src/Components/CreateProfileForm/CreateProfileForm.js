@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 
 class EditProfile extends Component {
 
@@ -8,7 +8,7 @@ class EditProfile extends Component {
         onSubmitForm: () => {}
     }
 
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     constructor(props) {
         super(props)
@@ -16,10 +16,6 @@ class EditProfile extends Component {
         this.state = {
             error: null
         }
-    }
-
-    componentDidMount() {
-        this.context.clearError()
     }
 
     handleCreateBaby = ev => {

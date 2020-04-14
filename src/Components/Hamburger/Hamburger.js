@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import './Hamburger.css'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import BabyApiService from '../../Services/baby-api-service'
 import UsersBabies from './UsersBabies'
 
 export default class Hamburger extends Component { 
 
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     componentDidMount() {
         BabyApiService.getByParentId()

@@ -13,7 +13,8 @@ export default class SignUpPage extends Component {
   handleSignUpSuccess = () => {
     const { location, history } = this.props
     const destination = (location.state || {}).from || '/rate'
-    history.push(destination)  }
+    history.push(destination)  
+  }
 
   render() {
     return (

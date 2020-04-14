@@ -30,8 +30,7 @@ export default class BabyProfile extends Component {
     
     render() {
         const { baby } = this.props
-        console.log('babyprofile context', this.context);
-        
+                
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }

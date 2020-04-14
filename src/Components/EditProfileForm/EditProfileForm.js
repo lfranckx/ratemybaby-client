@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import { Link } from 'react-router-dom'
 
 class EditProfile extends Component {
 
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     state = {
         error: null,
@@ -34,7 +34,7 @@ class EditProfile extends Component {
     render() {
         const { error } = this.state
         const { baby } = this.context
-
+        
         return  <form 
                     id="edit-form"
                     onSubmit={this.handleUpdateProfile}

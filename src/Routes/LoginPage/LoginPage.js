@@ -18,7 +18,6 @@ export default class LoginPage extends Component {
     }
   
     render() {
-      console.log('DeletePage rendered');
       return (
         <>
           <section id="login-section">

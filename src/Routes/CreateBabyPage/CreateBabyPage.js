@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CreateProfileForm from '../../Components/CreateProfileForm/CreateProfileForm'
-import BabyContext from '../../Contexts/BabyContext'
+import HamburgerContext from '../../Contexts/HamburgerContext'
 import BabyApiService from '../../Services/baby-api-service'
 import './CreateBabyPage.css'
 
@@ -12,7 +12,7 @@ export default class EditProfile extends Component {
         }
     }
     
-    static contextType = BabyContext
+    static contextType = HamburgerContext
 
     componentDidMount() {
         this.context.setNotActive()
@@ -33,9 +33,7 @@ export default class EditProfile extends Component {
         history.push(destination)
     }
 
-    render() {     
-        console.log('CreateBabyPage rendered');
-        
+    render() {             
         return (
             <section id="create-section">
                 <h3 id="create-header">Create Baby Profile</h3>
