@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import BabiesPage from '../BabiesPage/BabiesPage';
+import Hamburger from './Hamburger';
 
-describe(`BabiesPage component`, () => {
+describe(`Hamburger component`, () => {
     const props = {
         babies: [
             {
+                "id": "12",
                 "baby_name": "Jeb",
                 "age": "11", 
                 "age_format": "months",
@@ -18,6 +19,7 @@ describe(`BabiesPage component`, () => {
                 "parent_id": "9"
             },
             {
+                "id": "13",
                 "baby_name": "Sam",
                 "age": "4", 
                 "age_format": "months",
@@ -29,6 +31,7 @@ describe(`BabiesPage component`, () => {
                 "parent_id": "6"
             },
             {
+                "id": "14",
                 "baby_name": "Test",
                 "age": "7", 
                 "age_format": "months",
@@ -42,13 +45,19 @@ describe(`BabiesPage component`, () => {
         ]
     };
 
-    it(`renders loading by default`, () => {
-        const wrapper = shallow(<BabiesPage />)
+    it(`renders empty without props`, () => {
+        const wrapper = shallow(<Hamburger />)
         expect(toJson(wrapper)).toMatchSnapshot()
     });
+
+    it(`renders the user's babies`, () => {
+        const wrapper = shallow(<Hamburger {...props}/>)
+        wrapper.find('Link').prop('to').toEqual('/login')
+    });
+
+    // it(`navigates you to the profile page of the baby selected`, () => {
+    //     const wrapper = shallow(<Hamburger {...props}/>)
+    //     wrapper.find('Link').prop('to').toEqual(`/${props.baby}`)
+    // });
     
-    it('generates random profile from array', () => {
-        const wrapper = shallow(<BabiesPage {...props}/>)
-        expect(toJson(wrapper)).toMatchSnapshot()
-    })
 })

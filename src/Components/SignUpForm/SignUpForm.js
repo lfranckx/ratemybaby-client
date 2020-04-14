@@ -53,6 +53,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>
                     <input 
+                        id="siginemail"
                         type="text" 
                         aria-label='email'
                         name='email' 
@@ -65,6 +66,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>
                     <input 
+                        id="siginuser"
                         type="text" 
                         name='username' 
                         aria-label='username'
@@ -77,6 +79,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>                    
                     <input 
+                        id="siginpass"
                         autoComplete="on"
                         type="password"
                         aria-label='password' 

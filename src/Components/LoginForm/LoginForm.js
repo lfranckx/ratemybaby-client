@@ -43,6 +43,7 @@ export default class LoginForm extends Component {
                         Username
                     </label>
                     <input
+                        id="loginuser"
                         type="text" 
                         name='username' 
                         aria-label='username'
@@ -55,6 +56,7 @@ export default class LoginForm extends Component {
                     </label> 
                     <input 
                         autoComplete="on"
+                        id="loginpass"
                         type="password" 
                         name='password' 
                         aria-label='password'

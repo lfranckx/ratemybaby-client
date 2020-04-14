@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import BabyProfile from './BabyProfile';
-import { it } from 'date-fns/locale';
+import ProfilePage from './ProfilePage';
 
-describe(`BabyProfile component`, () => {
+describe(`ProfilePage component`, () => {
     const props = {
         "baby_name": "Test",
         "age": "7", 
@@ -18,12 +17,12 @@ describe(`BabyProfile component`, () => {
     };
 
     it(`renders a profile given props`, () => {
-        const wrapper = shallow(<BabyProfile {...props}/>)
+        const wrapper = shallow(<ProfilePage {...props}/>)
         expect(toJson(wrapper)).toMatchSnapshot()
     });
 
     it(`renders loading without props`, () => {
-        const wrapper = shallow(<BabyProfile />)
+        const wrapper = shallow(<ProfilePage />)
         expect(toJson(wrapper)).toMatchSnapshot()
     });
 });

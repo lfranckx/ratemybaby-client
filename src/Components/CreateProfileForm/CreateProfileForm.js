@@ -10,12 +10,8 @@ class EditProfile extends Component {
 
     static contextType = HamburgerContext
 
-    constructor(props) {
-        super(props)
-        this.fileInput = React.createRef()
-        this.state = {
-            error: null
-        }
+    state = {
+        error: null
     }
 
     handleCreateBaby = ev => {
@@ -61,6 +57,7 @@ class EditProfile extends Component {
                         <input 
                             aria-label="name"
                             className="create-input"
+                            id="name"
                             type="text"
                             name="name" 
                             required 
@@ -73,6 +70,7 @@ class EditProfile extends Component {
 
                     <div className="form-items">
                         <input 
+                            id="age"
                             aria-label="age"
                             className="create-input"
                             type="number"
@@ -83,7 +81,7 @@ class EditProfile extends Component {
                     </div>
 
                     <div className="form-items">
-                        <select aria-label="format" name='format' className="month-year selector">
+                        <select aria-label="format" name='format' id='format' className="month-year selector">
                             <option>month</option>
                             <option>months</option>
                             <option>year</option>
@@ -112,6 +110,7 @@ class EditProfile extends Component {
                             aria-label="about"
                             className="width-100 create-about"
                             name="about" 
+                            id='about'
                             rows="10" 
                         />
                     </div>
