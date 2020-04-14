@@ -54,6 +54,7 @@ export default class SignUp extends Component {
                     </label>
                     <input 
                         type="text" 
+                        aria-label='email'
                         name='email' 
                         required
                         id='email' />
@@ -66,6 +67,7 @@ export default class SignUp extends Component {
                     <input 
                         type="text" 
                         name='username' 
+                        aria-label='username'
                         required
                         className='username' />
                 </div>
@@ -76,7 +78,8 @@ export default class SignUp extends Component {
                     </label>                    
                     <input 
                         autoComplete="on"
-                        type="password" 
+                        type="password"
+                        aria-label='password' 
                         name='password'
                         required
                         className='password' />

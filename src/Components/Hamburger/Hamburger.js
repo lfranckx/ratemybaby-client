@@ -38,9 +38,9 @@ export default class Hamburger extends Component {
                             <div></div>
                         </div>
                     </div>
-                    <h3 className={`menu-label ${active ? "show-label" : ""}`}>
+                    <h2 className={`menu-label ${active ? "show-label" : ""}`}>
                         Babies
-                    </h3>
+                    </h2>
                 </div>
                 
                 <div className={`menu ${active ? "checked" : ""}`}>

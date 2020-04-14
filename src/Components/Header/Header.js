@@ -34,7 +34,7 @@ export default class Nav extends Component {
                         <Link
                             onClick={this.handleLogout}
                             to='/'>
-                            Logout
+                            LOG OUT
                         </Link>
                     </div>  
                 </nav> 
@@ -55,7 +55,7 @@ export default class Nav extends Component {
                 <div className='Header__not-logged-in'>
                     <Link 
                         to='/login'>
-                        LOG IN
+                        LOGIN
                     </Link>
                 </div>
             </nav>

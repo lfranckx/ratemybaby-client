@@ -45,6 +45,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="editFormItems">
                         <input 
+                            aria-label="name"
                             className="edit-input"
                             type="text"
                             name="name" 
@@ -57,6 +58,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="form-items">
                         <input 
+                            aria-label="age"
                             className="edit-input"
                             type="number"
                             min='1'
@@ -67,6 +69,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="form-items">
                         <select 
+                            aria-label="format"
                             name="format" 
                             className="month-year selector" 
                             defaultValue={baby.age_format} >
@@ -81,6 +84,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="form-items">
                         <input
+                            aria-label="country"
                             id="country" 
                             name="country" 
                             className="edit-input"
@@ -93,6 +97,7 @@ class EditProfile extends Component {
                     </div>
                     <div className="editFormItems">
                         <textarea 
+                            aria-label="about"
                             className="width-100 edit-about"
                             name="about" 
                             rows="10" 

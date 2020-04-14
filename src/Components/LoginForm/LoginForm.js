@@ -41,23 +41,23 @@ export default class LoginForm extends Component {
                 <div className="input-box">
                     <label className='label'>
                         Username
-                        {/* <span className='required'>*</span> */}
                     </label>
                     <input
                         type="text" 
                         name='username' 
+                        aria-label='username'
                         className='username' 
                         required />
                 </div>
                 <div className="input-box">
                     <label className='label'>
                         Password
-                        {/* <span className='required'>*</span> */}
                     </label> 
                     <input 
                         autoComplete="on"
                         type="password" 
                         name='password' 
+                        aria-label='password'
                         className='password'
                         required />
                 </div>

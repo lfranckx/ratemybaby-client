@@ -1,10 +1,10 @@
 #landing-header {
-    background: -webkit-linear-gradient(rgb(195, 37, 37) , rgb(80, 27, 11));   
+    background: -webkit-linear-gradient(rgb(169, 9, 9) , rgb(74, 38, 27));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     font-size: 4rem;
     opacity: 0.9;    
-    margin: 60px 0 180px;
+    margin: 50px 0 100px;
 }
 
 .register {

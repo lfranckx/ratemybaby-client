@@ -36,7 +36,7 @@ export default class EditProfile extends Component {
     render() {             
         return (
             <section id="create-section">
-                <h3 id="create-header">Create Baby Profile</h3>
+                <h2 id="create-header">Create Baby Profile</h2>
                 <CreateProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
                 />

@@ -6,9 +6,7 @@ import GenRandomBaby from '../../Components/GenRandomBaby/GenRandomBaby'
 export default class BabiesPage extends Component {
     static contextType = BabyContext
 
-    componentDidMount() {
-        console.log('BabiesPage mounted');
-        
+    componentDidMount() {        
         this.context.clearError()
         this.context.setNotActive()
         BabyApiService.getBabies()

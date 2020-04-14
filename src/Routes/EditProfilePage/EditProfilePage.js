@@ -19,9 +19,7 @@ export default class EditProfile extends Component {
     componentDidMount() {
         this.context.clearError()
         this.context.setNotActive()
-        const babyId = this.props.match.params.babyId
-        console.log('babyId', babyId);
-        
+        const babyId = this.props.match.params.babyId        
         BabyApiService.getBaby(babyId)
             .then(this.context.setBaby)
             .catch(this.context.setError)
@@ -50,7 +48,7 @@ export default class EditProfile extends Component {
                      
         return (
             <section id="edit-section">
-                <h3 id="edit-header">Edit Profile</h3>
+                <h2 id="edit-header">Edit Profile</h2>
                 <EditProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
                     baby={baby}

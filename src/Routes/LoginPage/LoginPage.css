@@ -5,10 +5,12 @@
     padding: 20px;
     box-shadow: 1.5px 3px 5px grey;
     width: 400px;
-    color: rgb(41, 39, 39);}
+    color: rgb(41, 39, 39);
+    margin-top: 10px;
+}
 
 #login-header {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     opacity: 0.9;    
 }
 

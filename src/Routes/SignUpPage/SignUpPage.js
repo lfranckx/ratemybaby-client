@@ -19,7 +19,7 @@ export default class SignUpPage extends Component {
   render() {
     return (
       <section id="register-section">
-        <h3 id="register-header">Register</h3>
+        <h2 id="register-header">Register</h2>
         <SignUpForm
           onSignUpSuccess={this.handleSignUpSuccess}
         />

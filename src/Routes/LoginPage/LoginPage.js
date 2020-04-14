@@ -21,7 +21,7 @@ export default class LoginPage extends Component {
       return (
         <>
           <section id="login-section">
-            <h3 id="login-header">Login</h3>
+            <h2 id="login-header">Login</h2>
             <LoginForm onLoginSuccess={this.handleLoginSuccess}/>
           </section>
           <div className='link-container'>
