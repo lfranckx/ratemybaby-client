@@ -52,6 +52,7 @@ export default class UploadImage extends Component {
                     <div role='alert'>{error && <p className='error'>{error}</p>}</div>
                     <label>Select an image to upload:</label>
                     <input 
+                        aria-label='file'
                         ref={this.fileInput}
                         type="file"
                         accept=".png, .jpg, .jpeg .gif"

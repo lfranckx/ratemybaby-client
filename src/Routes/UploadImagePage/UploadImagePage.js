@@ -44,7 +44,7 @@ export default class UploadImagePage extends Component {
         const { baby } = this.context
         return (
             <section id="upload-section">
-                <h3 id="upload-header">Upload Image</h3>
+                <h2 id="upload-header">Upload Image</h2>
                     <UploadImageForm 
                         onUploadSuccess={this.handleUploadSuccess}
                         baby={baby}    

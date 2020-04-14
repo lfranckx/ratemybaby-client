@@ -8,13 +8,13 @@
     margin-top: 4rem;
 }
 
-#delete-section h3 {
+#delete-section h2 {
     font-size: 15pt;
 }
 
 #delete-button {
     margin-top: 10px;
-    font-size: 15pt;
+    font-size: 14pt;
     color: rgb(255, 74, 74);
 }
 
@@ -30,5 +30,4 @@
     #delete-button {
         font-size: 10pt;
     }
-
 }

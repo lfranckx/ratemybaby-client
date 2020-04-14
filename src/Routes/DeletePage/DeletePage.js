@@ -60,7 +60,7 @@ export default class DeletePage extends Component {
         }
         return ( 
             <section id="delete-section">
-                <h3 >Are you sure you want to delete?</h3>
+                <h2 >Are you sure you want to delete?</h2>
                 <button 
                     id='delete-button'
                     onClick={() => {
