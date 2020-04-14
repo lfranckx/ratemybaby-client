@@ -35,6 +35,10 @@
     ]
   },
   "devDependencies": {
-    "react-edit-inline": "^1.0.8"
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "react-edit-inline": "^1.0.8",
+    "react-test-renderer": "^16.13.1"
   }
 }
