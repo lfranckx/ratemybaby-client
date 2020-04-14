@@ -13,6 +13,7 @@
 }
 
 #delete-button {
+    margin-top: 10px;
     font-size: 15pt;
     color: rgb(255, 74, 74);
 }

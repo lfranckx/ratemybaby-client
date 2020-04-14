@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BabyApiService from '../../Services/baby-api-service'
 import HamburgerContext from '../../Contexts/HamburgerContext'
-import { Link } from 'react-router-dom'
 import './DeletePage.css'
 
 
@@ -32,6 +31,7 @@ export default class DeletePage extends Component {
 
     componentWillUnmount() {
         this.context.clearBaby()
+        this.context.setNotActive()
     }
 
     deleteBaby = (babyId) => {
