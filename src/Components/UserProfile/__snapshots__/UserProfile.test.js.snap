@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserProfile component renders a profile given props 1`] = `
+exports[`UserProfile component renders a profile given context 1`] = `
 <div
   className="loading"
 >
@@ -8,7 +8,7 @@ exports[`UserProfile component renders a profile given props 1`] = `
 </div>
 `;
 
-exports[`UserProfile component renders loading without props 1`] = `
+exports[`UserProfile component renders loading by default 1`] = `
 <div
   className="loading"
 >

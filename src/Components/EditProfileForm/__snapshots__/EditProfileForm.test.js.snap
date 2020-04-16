@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditProfileForm component renders a form with defaultValue text from context 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "active": false,
+      "babies": Array [],
+      "baby": Object {
+        "baby": null,
+      },
+      "clearBaby": [Function],
+      "clearError": [Function],
+      "error": null,
+      "setBabies": undefined,
+      "setBaby": [Function],
+      "setError": [Function],
+      "setNotActive": [Function],
+      "setUsersBabies": [Function],
+      "toggleActive": [Function],
+      "usersBabies": Array [],
+    }
+  }
+>
+  <EditProfile
+    handleSubmitForm={[Function]}
+  />
+</ContextProvider>
+`;

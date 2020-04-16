@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import CreateBabyPage from './CreateBabyPage';
@@ -27,7 +26,5 @@ describe(`CreateBabyPage component`, () => {
     it(`renders page without crashing`, () => {
         const wrapper = mount(<CreateBabyPage />, { context: context })
         expect(toJson(wrapper)).toMatchSnapshot()
-    });
-
-    
+    });    
 })

@@ -44,14 +44,12 @@ export default class EditProfile extends Component {
     }
 
     render() {
-        const { baby } = this.context 
-                     
+        
         return (
             <section id="edit-section">
                 <h2 id="edit-header">Edit Profile</h2>
                 <EditProfileForm 
                     onSubmitForm={this.handleSubmitForm} 
-                    baby={baby}
                 />
             </section>
         )
