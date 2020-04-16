@@ -112,7 +112,7 @@ class EditProfile extends Component {
                         <button className="edit-buttons cancel-button" type="click">
                             <Link id="cancel-button" to={`/profile/${baby.id}`}>Cancel</Link>
                         </button>
-                        <button className="edit-buttons submit-button" type="submit">Submit</button>
+                        <button id="edit-submit" className="edit-buttons submit-button" type="submit">Submit</button>
                     </div>
                 </form>
     }

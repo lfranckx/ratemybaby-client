@@ -54,6 +54,7 @@ export default class Nav extends Component {
                 </Link>
                 <div className='Header__not-logged-in'>
                     <Link 
+                        id='loginlink'
                         to='/login'>
                         LOGIN
                     </Link>

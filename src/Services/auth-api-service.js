@@ -1,7 +1,6 @@
 import config from '../config'
 import TokenService from './token-service'
 import IdleService from './idle-service'
-import BabyContext from '../Contexts/BabyContext'
 
 const AuthApiService = {
     postUser(user) {

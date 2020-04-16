@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders header without crashing 1`] = `
+<header>
+  <nav
+    className="header"
+  >
+    <Link
+      id="title-logo"
+      to="/"
+    >
+      <img
+        alt="logo"
+        id="logo"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png"
+      />
+      <h1>
+        toddler
+      </h1>
+    </Link>
+    <div
+      className="Header__not-logged-in"
+    >
+      <Link
+        id="loginlink"
+        to="/login"
+      >
+        LOGIN
+      </Link>
+    </div>
+  </nav>
+</header>
+`;

@@ -4,7 +4,7 @@ import toJson from 'enzyme-to-json';
 import CreateProfileForm from './CreateProfileForm';
 
 const simulateChangeOnInput = (wrapper, inputSelector, newValue) => {
-    const input = wrapper.find(inputSelector);
+    let input = wrapper.find(inputSelector);
     input.simulate('change', {
         target: {value: newValue}
     });

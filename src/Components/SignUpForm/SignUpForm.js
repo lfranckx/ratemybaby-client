@@ -53,12 +53,12 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>
                     <input 
-                        id="siginemail"
+                        id="signinemail"
                         type="text" 
                         aria-label='email'
                         name='email' 
-                        required
-                        id='email' />
+                        required />
+                        {console.log()}
                 </div>
                 <div className="input-box">
                     <label className='label'>
@@ -66,7 +66,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>
                     <input 
-                        id="siginuser"
+                        id="signinuser"
                         type="text" 
                         name='username' 
                         aria-label='username'
@@ -79,7 +79,7 @@ export default class SignUp extends Component {
                         <span className='required'>*</span>
                     </label>                    
                     <input 
-                        id="siginpass"
+                        id="signinpass"
                         autoComplete="on"
                         type="password"
                         aria-label='password' 

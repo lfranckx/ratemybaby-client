@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LandingPage component renders page without crashing 1`] = `
+<section
+  className="landing-section"
+>
+  <h2
+    id="landing-header"
+  >
+    Upload your baby, the world rates it.
+  </h2>
+  <div>
+    <Link
+      className="register"
+      id="registerlink"
+      to="/register"
+    >
+      Sign Up
+    </Link>
+  </div>
+</section>
+`;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm component renders form given props 1`] = `
+<form
+  id="sign-up-form"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <div
+    className="input-box"
+  >
+    <label
+      className="label"
+    >
+      Email Address
+      <span
+        className="required"
+      >
+        *
+      </span>
+    </label>
+    <input
+      aria-label="email"
+      id="signinemail"
+      name="email"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="input-box"
+  >
+    <label
+      className="label"
+    >
+      Username
+      <span
+        className="required"
+      >
+        *
+      </span>
+    </label>
+    <input
+      aria-label="username"
+      className="username"
+      id="signinuser"
+      name="username"
+      required={true}
+      type="text"
+    />
+  </div>
+  <div
+    className="input-box"
+  >
+    <label
+      className="label"
+    >
+      Password
+      <span
+        className="required"
+      >
+        *
+      </span>
+    </label>
+    <input
+      aria-label="password"
+      autoComplete="on"
+      className="password"
+      id="signinpass"
+      name="password"
+      required={true}
+      type="password"
+    />
+  </div>
+  <button
+    id="sign-up-button"
+    type="submit"
+  >
+    Sign Up
+  </button>
+</form>
+`;

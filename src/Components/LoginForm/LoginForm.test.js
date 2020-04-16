@@ -22,8 +22,20 @@ describe(`LoginForm component`, () => {
     });
 
     it(`lets me fill out the form and reset`, () => {
-        const wrapper = shallow(<EditProfileForm {...props}/>);
+        const wrapper = shallow(<LoginForm {...props}/>);
         simulateChangeOnInput(wrapper, '#loginuser', 'test')
         simulateChangeOnInput(wrapper, '#loginpass', 3)
+    });
+
+    it(`lets me fill out the form and submit it`, () => {
+        const wrapper = shallow(<LoginForm {...props}/>);
+        const userInput = simulateChangeOnInput(wrapper, '#loginuser', 'test');
+        const pwInput = simulateChangeOnInput(wrapper, '#loginpass', 'Test1234!');
+
+        expect(userInput.props().value).toEqual('test');
+        expect(pwInput.props().value).toEqual('Test1234!');
+
+        const submitButton = wrapper.find('#login-button');
+        submitButton.simulate('click')
     });
 })

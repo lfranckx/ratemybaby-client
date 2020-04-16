@@ -5,13 +5,13 @@ import LandingPage from './LandingPage';
 
 describe(`LandingPage component`, () => {
 
-    it(`renders page by default`, () => {
-        const wrapper = shallow(<LandingPage />)
-        expect(toJson(wrapper)).toMatchSnapshot()
+    it(`renders page without crashing`, () => {
+        const wrapper = shallow(<LandingPage />);
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it(`links to sign up page`, () => {
-        const wrapper = shallow(<LandingPage />)
-        wrapper.find('Link').prop('to').toEqual('/register')
+        const wrapper = shallow(<LandingPage />);
+        expect(wrapper.find('#registerlink').props().to).toBe('/register');
     });
 })

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginPage component renders log in page by default 1`] = `
+<Fragment>
+  <section
+    id="login-section"
+  >
+    <h2
+      id="login-header"
+    >
+      Login
+    </h2>
+    <LoginForm
+      onLoginSuccess={[Function]}
+    />
+  </section>
+  <div
+    className="link-container"
+  >
+    <Link
+      className="register"
+      to="/register"
+    >
+      Sign Up
+    </Link>
+  </div>
+</Fragment>
+`;

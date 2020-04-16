@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpPage component renders sign up page by default 1`] = `
+<section
+  id="register-section"
+>
+  <h2
+    id="register-header"
+  >
+    Register
+  </h2>
+  <SignUp
+    onRegistrationSuccess={[Function]}
+    onSignUpSuccess={[Function]}
+  />
+</section>
+`;

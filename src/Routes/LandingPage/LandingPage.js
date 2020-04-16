@@ -9,7 +9,7 @@ class LandingPage extends Component {
             <section className="landing-section">
                 <h2 id="landing-header">Upload your baby, the world rates it.</h2>
                 <div>
-                    <Link className="register" to='/register'>
+                    <Link id='registerlink' className="register" to='/register'>
                         Sign Up
                     </Link>
                 </div>

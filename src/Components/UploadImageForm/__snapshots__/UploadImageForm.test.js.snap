@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadImageForm component renders a form given props 1`] = `
+<form
+  id="upload-form"
+  onSubmit={[Function]}
+>
+  <div
+    role="alert"
+  />
+  <label>
+    Select an image to upload:
+  </label>
+  <input
+    accept=".png, .jpg, .jpeg .gif"
+    aria-label="file"
+    id="file"
+    name="file"
+    type="file"
+  />
+  <button
+    id="upload-button"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;
