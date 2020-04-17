@@ -1,9 +1,13 @@
 NAME OF APP: Toddler
+
 LINK TO LIVE APP: https://toddler.now.sh/
+
 CLIENT REPO: https://github.com/lfranckx/ratemybaby-client
+
 API REPO: https://github.com/lfranckx/ratemybaby-api
+
 DEMO USER:
-    Username: demo
+    Username: Demo
     Password: Demo1234!
 
 SUMMARY:
