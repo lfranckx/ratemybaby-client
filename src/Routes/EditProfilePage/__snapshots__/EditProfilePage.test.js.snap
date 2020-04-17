@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditProfileForm component renders a form with text from baby data in context 1`] = `
+exports[`EditProfilePage component renders edit profile page without crashing 1`] = `
 <ContextProvider
   value={
     Object {
@@ -23,7 +23,17 @@ exports[`EditProfileForm component renders a form with text from baby data in co
   }
 >
   <EditProfile
-    handleSubmitForm={[Function]}
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    location={Object {}}
+    match={
+      Object {
+        "params": Object {},
+      }
+    }
   />
 </ContextProvider>
 `;

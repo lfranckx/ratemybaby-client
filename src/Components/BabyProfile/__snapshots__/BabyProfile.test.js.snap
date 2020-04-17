@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BabyProfile component renders a profile given props 1`] = `
+<section
+  className="profile-container"
+>
+  <img
+    alt="baby"
+    className="baby-pic"
+    src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/John.jpg"
+  />
+  <div
+    className="name-age"
+  >
+    <h2
+      id="babyprofilename"
+    >
+      Test
+    </h2>
+    <span
+      className="age"
+    >
+      <img
+        alt="birthday-cake"
+        id="cake"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/bdaycake.png"
+      />
+      7
+       
+      months
+    </span>
+    <span
+      className="country"
+    >
+      <img
+        alt="house"
+        id="house"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/house.png"
+      />
+      United States
+    </span>
+  </div>
+  <div
+    className="about"
+  >
+    Testing data
+  </div>
+  <div
+    className="rating"
+  >
+    71%
+  </div>
+  <button
+    className="rate-button buttons"
+    onClick={[Function]}
+  >
+    <Link
+      to="/rate"
+    >
+      <img
+        alt="dislike"
+        className="rate-icon"
+        id="dislike"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/dislike.png"
+      />
+    </Link>
+  </button>
+  <button
+    className="rate-button buttons"
+    id="superlikebutton"
+    onClick={[Function]}
+  >
+    <Link
+      to="/rate"
+    >
+      <img
+        alt="superlike"
+        className="rate-icon"
+        id="superlike"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/blueavocado.png"
+      />
+    </Link>
+  </button>
+  <button
+    className="rate-button buttons"
+    onClick={[Function]}
+  >
+    <Link
+      to="/rate"
+    >
+      <img
+        alt="like"
+        className="rate-icon"
+        id="like"
+        src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/avo.png"
+      />
+    </Link>
+  </button>
+  <div
+    className="labels-container"
+  >
+    <span
+      className="rate-labels"
+      id="dislike-label"
+    >
+      Dislike
+    </span>
+    <span
+      className="rate-labels"
+      id="superlike-label"
+    >
+      Superlike
+    </span>
+    <span
+      className="rate-labels"
+      id="like-label"
+    >
+      Like
+    </span>
+  </div>
+</section>
+`;
+
+exports[`BabyProfile component renders loading without props 1`] = `
+<div
+  className="loading"
+>
+  Loading...
+</div>
+`;

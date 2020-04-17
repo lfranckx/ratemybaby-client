@@ -1,30 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import CreateBabyPage from './CreateBabyPage';
+import { HamburgerProvider } from '../../Contexts/HamburgerContext';
 
-const nullBaby = {
-    baby: null
-}
-
-const context = {
-    active: false,
-    usersBabies: [],
-    babies: [],
-    baby: nullBaby,
-    error: null,
-    setError: () => {},
-    clearError: () => {},
-    toggleActive: () => {},
-    setNotActive: () => {},
-    setBaby: () => {},
-    clearBaby: () => {},
-    setUsersBabies: () => {}
-}
 
 describe(`CreateBabyPage component`, () => {
     it(`renders page without crashing`, () => {
-        const wrapper = mount(<CreateBabyPage />, { context: context })
+        const wrapper = shallow(
+            <HamburgerProvider>
+                <CreateBabyPage />
+            </HamburgerProvider>
+        )
         expect(toJson(wrapper)).toMatchSnapshot()
     });    
 })

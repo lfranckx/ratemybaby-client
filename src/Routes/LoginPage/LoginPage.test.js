@@ -5,7 +5,7 @@ import LoginPage from './LoginPage';
 
 describe(`LoginPage component`, () => {
 
-    it(`renders log in page by default`, () => {
+    it(`renders log in page without crashing`, () => {
         const wrapper = shallow(<LoginPage />)
         expect(toJson(wrapper)).toMatchSnapshot()
     });

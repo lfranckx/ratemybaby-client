@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginPage component renders log in page by default 1`] = `
+exports[`LoginPage component renders log in page without crashing 1`] = `
 <Fragment>
   <section
     id="login-section"

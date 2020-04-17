@@ -1,3 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hamburger component renders page without crashing 1`] = `<Hamburger />`;
+exports[`Hamburger component renders page without crashing 1`] = `
+<HamburgerProvider>
+  <Hamburger />
+</HamburgerProvider>
+`;

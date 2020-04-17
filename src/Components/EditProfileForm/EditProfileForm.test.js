@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import EditProfileForm from './EditProfileForm';
-import HamburgerContext, { HamburgerProvider } from '../../Contexts/HamburgerContext'
+import { HamburgerProvider } from '../../Contexts/HamburgerContext';
 
 
 describe(`EditProfileForm component`, () => {
@@ -10,10 +10,12 @@ describe(`EditProfileForm component`, () => {
         handleSubmitForm: () => {}
     };
 
-    it(`renders a form with defaultValue text from context`, () => {
+    it(`renders a form with text from baby data in context`, () => {
         const wrapper = shallow(
-            <EditProfileForm {...props}/>
-        )
-        expect(toJson(wrapper)).toMatchSnapshot()
+            <HamburgerProvider>
+                <EditProfileForm {...props}/>
+            </HamburgerProvider>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

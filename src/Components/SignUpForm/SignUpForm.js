@@ -58,7 +58,6 @@ export default class SignUp extends Component {
                         aria-label='email'
                         name='email' 
                         required />
-                        {console.log()}
                 </div>
                 <div className="input-box">
                     <label className='label'>

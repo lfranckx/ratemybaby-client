@@ -8,7 +8,7 @@ export default class UserProfile extends Component {
     static contextType = HamburgerContext
 
     render() {
-        const { baby } = this.context      
+        const { baby } = this.props     
         if (!baby) {
             return <div className='loading'>Loading...</div>
         }

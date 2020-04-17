@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SignUpPage component renders sign up page by default 1`] = `
+exports[`SignUpPage component renders sign up page without crashing 1`] = `
 <section
   id="register-section"
 >

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BabiesPage component fetches database and sets data to context 1`] = `
+<BabyProvider
+  0={
+    Object {
+      "about": "Small awkward creature who can often be found dancing.",
+      "age": "11",
+      "age_format": "months",
+      "baby_name": "Jeb",
+      "country": "United States",
+      "image_url": "https://ratemybaby-images.s3-us-west-1.amazonaws.com/John.jpg",
+      "parent_id": "9",
+      "total_score": "10",
+      "total_votes": "20",
+    }
+  }
+  1={
+    Object {
+      "about": "Testing data",
+      "age": "4",
+      "age_format": "months",
+      "baby_name": "Sam",
+      "country": "United States",
+      "image_url": "https://ratemybaby-images.s3-us-west-1.amazonaws.com/John.jpg",
+      "parent_id": "6",
+      "total_score": "16",
+      "total_votes": "30",
+    }
+  }
+  2={
+    Object {
+      "about": "Testing data",
+      "age": "7",
+      "age_format": "months",
+      "baby_name": "Test",
+      "country": "United States",
+      "image_url": "https://ratemybaby-images.s3-us-west-1.amazonaws.com/John.jpg",
+      "parent_id": "2",
+      "total_score": "25",
+      "total_votes": "35",
+    }
+  }
+>
+  <BabiesPage>
+    <div
+      className="loading"
+    >
+      Loading...
+    </div>
+  </BabiesPage>
+</BabyProvider>
+`;

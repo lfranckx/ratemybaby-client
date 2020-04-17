@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditProfileForm component renders a form with text from baby data in context 1`] = `
+exports[`CreateProfileForm component renders loading without props 1`] = `
 <ContextProvider
   value={
     Object {
@@ -22,8 +22,18 @@ exports[`EditProfileForm component renders a form with text from baby data in co
     }
   }
 >
-  <EditProfile
-    handleSubmitForm={[Function]}
+  <DeletePage
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    location={Object {}}
+    match={
+      Object {
+        "params": Object {},
+      }
+    }
   />
 </ContextProvider>
 `;
