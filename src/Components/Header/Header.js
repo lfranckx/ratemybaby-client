@@ -21,7 +21,7 @@ export default class Nav extends Component {
                     className="header">
                     <Link id="title-logo" to='/rate'>
                         <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
-                            alt="logo" 
+                            alt="icon" 
                             id="logo" />  
                         <h1>toddler</h1>
                     </Link>
@@ -34,7 +34,7 @@ export default class Nav extends Component {
                         <Link
                             onClick={this.handleLogout}
                             to='/'>
-                            LOG OUT
+                            Log Out
                         </Link>
                     </div>  
                 </nav> 
@@ -48,7 +48,7 @@ export default class Nav extends Component {
             <nav className="header">
                 <Link id="title-logo" to='/'>
                     <img src="https://ratemybaby-images.s3-us-west-1.amazonaws.com/logos-icons/logo-red.png" 
-                        alt="logo" 
+                        alt="icon" 
                         id="logo" />  
                     <h1>toddler</h1>
                 </Link>

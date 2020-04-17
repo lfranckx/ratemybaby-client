@@ -134,9 +134,9 @@
 
 /* Toddler-Links Styling */
 .toddler-links {
-    background: white;
-    color: rgb(255, 74, 74);
-    border: solid 2px rgb(255, 74, 74);
+    background-color: rgb(249, 103, 103);
+    background-image: linear-gradient(to right, rgb(255, 88, 88) , rgb(249, 147, 103));    
+    color: white;
     border-radius: 40px;
     padding: 8px 20px;
     border-radius: 5px;
