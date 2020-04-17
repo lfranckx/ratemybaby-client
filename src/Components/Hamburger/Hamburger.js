@@ -29,7 +29,7 @@ export default class Hamburger extends Component {
                 aria-label='secondary'
                 className={`menu-wrap ${active ? "active" : "disabled"}`}
             >
-                <div className="toggle-label">
+                <div className={`toggle-label`} >
                     <div className='hamburger-container'>
                         <div 
                             id='toggle'

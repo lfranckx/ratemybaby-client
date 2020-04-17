@@ -128,8 +128,7 @@
 .disabled {
     background: none;
     border: none;
-    height: 10px;
-    width: 10px;
+    height: 100px;
 }
 
 /* Toddler-Links Styling */
@@ -153,27 +152,64 @@
 /* MEDIA QUERIRES */
 @media (max-width: 700px) {
     .menu-wrap {
-        top: 3.5rem;
-        left: 1rem;
+        left: 9.6rem;
+        top: 7px;
         padding: 5px;
     }
 
     .menu-wrap .hamburger {
-        width: 18px;
-        height: 18px;
+        width: 12px;
+        height: 12px;
     }
+
+    .menu-wrap .hamburger > div:before,
+    .menu-wrap .hamburger > div:after {
+        content: '';
+        position: absolute;
+        top: -6px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+    }
+
+    .menu-wrap .hamburger > div:after {
+        top: 6px;
+    }
+
+    .menu-wrap .checked > div:before,
+    .menu-wrap .checked > div:after {
+        top: 0;
+    }
+
+    .menu-wrap .checked > div:after {
+        top: 0px;
+    }
+
 
     .menu-label {
         font-size:20px;
         margin-right: 6px;
     }
 
+    .toddler-links {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    .menu-wrap h2 {
+        font-size: 14pt;
+    }
+
     .menu ul li {
         text-align: left;
     }
+}
 
-    .toddler-links {
-        font-size: 14px;
-        padding: 6px 15px;
+@media (max-width: 400px) {
+
+    .menu-wrap { 
+        left: 1rem;
+        top: 4.3rem;
     }
+
 }
