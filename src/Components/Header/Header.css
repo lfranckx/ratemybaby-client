@@ -87,7 +87,7 @@ h1 {
     
     .Header__not-logged-in a:last-child {
         font-size: 10px;
-        padding: 2px 5px;
+        padding: 4px 10px;
         border-radius: 5px;
         margin-left: 10px;
     }
