@@ -5,7 +5,7 @@ import BabyApiService from '../../Services/baby-api-service'
 
 export default class UploadImage extends Component {
     static defaultProps = {
-        onLoginSuccess: () => {}
+        onUploadSuccess: () => {}
     }
 
     static contextType = HamburgerContext

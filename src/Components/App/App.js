@@ -78,11 +78,6 @@ class App extends Component {
     TokenService.clearCallbackBeforeExpiry()
   }
 
-  stringifyArray(array) {
-    let copiedObj = JSON.parse(JSON.stringify(array))
-    return copiedObj
-  }
-
   logoutFromIdle = () => {
     /* remove the token from localStorage */
     TokenService.clearAuthToken()
@@ -95,6 +90,11 @@ class App extends Component {
       so we need to tell React to rerender
     */
     this.forceUpdate()
+  }
+
+  stringifyArray(array) {
+    let copiedObj = JSON.parse(JSON.stringify(array))
+    return copiedObj
   }
 
   render() {

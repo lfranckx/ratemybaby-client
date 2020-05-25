@@ -1,6 +1,6 @@
 NAME OF APP: Toddler
 
-LINK TO LIVE APP: https://toddler-app.now.sh/
+LINK TO LIVE APP: https://travelog-client.now.sh/
 
 CLIENT REPO: https://github.com/lfranckx/ratemybaby-client
 
