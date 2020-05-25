@@ -21,11 +21,11 @@ This is an App built to hopefully give people an avenue of entertainment and cre
 * Multer/Multer-S3
 * bcryptjs
 
+## In Action:
 ## Main Page
 <img width="600"
     alt="Screen Shot 2020-05-18 at 8 49 52 PM" 
     src="https://user-images.githubusercontent.com/52330544/82283636-cbdbd480-994b-11ea-9878-3458db101866.png">
-
 
 ## Baby's Profile Page
 <img width="600" 
