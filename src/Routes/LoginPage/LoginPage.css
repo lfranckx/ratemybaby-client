@@ -70,6 +70,10 @@
     }
 }
 
+.demo {
+    text-align: left;
+}
+
 @media (max-width: 400px) {
     #login-section {
         margin-top: 0px;

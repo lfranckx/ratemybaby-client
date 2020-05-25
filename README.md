@@ -1,10 +1,10 @@
-NAME OF APP: Toddler
+### Toddler
 
-LINK TO LIVE APP: https://travelog-client.now.sh/
+## Link:
+https://travelog-client.now.sh/
 
-CLIENT REPO: https://github.com/lfranckx/ratemybaby-client
-
-API REPO: https://github.com/lfranckx/ratemybaby-api
+## API Repo: 
+https://github.com/lfranckx/ratemybaby-api
 
 DEMO USER:
     Username: Demo
